@@ -11,6 +11,9 @@ import NoteAddSharpIcon from '@mui/icons-material/NoteAddSharp';
 import FactCheckSharpIcon from '@mui/icons-material/FactCheckSharp';
 import SummarizeSharpIcon from '@mui/icons-material/SummarizeSharp';
 
+const ViewCR = lazy(() => import("../pages/ViewCR"));
+
+
 const Home = lazy(() => import("../pages/Home"));
 const RegisteredPatient = lazy(() => import("../pages/RegisteredPatient"));
 const RegisteredPatientView = lazy(() => import("../pages/RegisteredPatientView"));
@@ -48,6 +51,7 @@ export const menu = [
   {
     icon: <AppRegistrationIcon />,
     title: "Manage Request",
+    pageLink: "/viewCR",
     items: [
         // {
         //   title: "Create Employee",
