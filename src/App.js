@@ -22,6 +22,12 @@ const ReferredPatientView = lazy(() => import("./pages/ReferredPatientView"));
 const TelephonicRegView = lazy(() => import("./pages/TelephonicRegView"));
 const TelephonicRegistration = lazy(() => import("./pages/TelephonicRegistration"));
 const TelephonicRegEdit = lazy(() => import("./pages/TelephonicRegEdit"));
+const Page1 = lazy(() => import("./components/Page1"))
+const Page2 = lazy(() => import("./components/Page2"))
+const Page3 = lazy(() => import("./components/ChangeRequestId"))
+const CreateRequest = lazy(() => import("./pages/CreateRequest"));
+const ViewCR = lazy(() => import("./pages/ViewCR"));
+const NewPage = lazy(() => import("./pages/NewPage"));
 
 // import FullLayout from "./layouts/FullLayout";
 
@@ -76,6 +82,13 @@ const AppRoutes = () => {
             );
           })} */}
           {/* <Navigate to="/" /> */}
+          <Route exact path="/page1" element={<Page1 />}></Route>
+          <Route exact path="/page2" element={<Page2 />}></Route>
+          <Route exact path="/cri" element={<Page3 />}></Route>
+          <Route exact path="/cr" element={<CreateRequest/>}></Route>
+          <Route path="/newPage" element={<NewPage/>}></Route>
+        <Route path="/viewCR" element={<ViewCR/>}></Route>
+
         </Route>
       </Routes>
       {/* </Router> */}

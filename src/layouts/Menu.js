@@ -19,6 +19,8 @@ const TelephonicRegView = lazy(() => import("../pages/TelephonicRegView"));
 const TelephonicRegistration = lazy(() => import("../pages/TelephonicRegistration"));
 const TelephonicRegEdit = lazy(() => import("../pages/TelephonicRegEdit"));
 const Login = lazy(() => import("../pages/auth/Login"));
+const CreateRequest = lazy(() => import("../pages/CreateRequest"));
+
 
 export const menu = [
   {
@@ -27,11 +29,12 @@ export const menu = [
     pageLink: '/home',
     view: <Home/>,
   },
+  
   {
     icon: <NoteAddSharpIcon />,
     title: "Create Request",
-    pageLink: '/home',
-    view: <Home/>,
+    pageLink: '/cr',
+    view: <CreateRequest/>,
   },
   {
     icon: <FactCheckSharpIcon />,
@@ -42,12 +45,13 @@ export const menu = [
   {
     icon: <SummarizeSharpIcon />,
     title: "CMS Reports",
-    pageLink: '/home',
+    pageLink: '/page1',
     view: <Home/>,
   },
   {
     icon: <AppRegistrationIcon />,
     title: "Manage Request",
+    pageLink: "/viewCR",
     items: [
         // {
         //   title: "Create Employee",
