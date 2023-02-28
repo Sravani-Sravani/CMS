@@ -6,6 +6,7 @@ import { useRef, useState } from 'react';
 
   function CreateRequest() {
     const deleteButton = false;
+    const PHONE_REGEX = new RegExp(/"^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"/gmi);
    const theme = createTheme({
     components: {
       MuiFormLabel: {
@@ -50,7 +51,7 @@ import { useRef, useState } from 'react';
   const [num, setNum] = React.useState();
   const limitChar = 10;
   const handleChange = (e) => {
-    if (e.target.value.toString().length <= limitChar) {
+    if (e.target.value.toString().length <= limitChar && !PHONE_REGEX.test(e.target.value)) {
       setNum(e.target.value);
     }
   };
@@ -395,6 +396,14 @@ import { useRef, useState } from 'react';
                     defaultValue={num}
                     value={num}
                     size="small" 
+                    InputProps={{
+                        inputProps: { min: 1 }
+                      }}
+                      onKeyPress={(event) => {
+                        if (event?.key === '-' || event?.key === '+') {
+                          event.preventDefault();
+                        }
+                      }}
                                      
                   />
                  

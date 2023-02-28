@@ -24,6 +24,7 @@ const TelephonicRegistration = lazy(() => import("./pages/TelephonicRegistration
 const TelephonicRegEdit = lazy(() => import("./pages/TelephonicRegEdit"));
 const CreateRequest = lazy(() => import("./pages/CreateRequest"));
 
+
 // import FullLayout from "./layouts/FullLayout";
 
 const App = () => {
@@ -67,6 +68,7 @@ const AppRoutes = () => {
       <Route element={<Header />}>
         <Route path="/home" element={<Home/>} />
         <Route path="/CreateRequest" element={<CreateRequest/>} />
+        
           {/* {menu.map((page, index) => {
             return (
               <Route
