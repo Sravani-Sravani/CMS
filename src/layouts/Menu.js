@@ -22,6 +22,9 @@ const TelephonicRegView = lazy(() => import("../pages/TelephonicRegView"));
 const TelephonicRegistration = lazy(() => import("../pages/TelephonicRegistration"));
 const TelephonicRegEdit = lazy(() => import("../pages/TelephonicRegEdit"));
 const Login = lazy(() => import("../pages/auth/Login"));
+const CreateRequest = lazy(() => import("../pages/CreateRequest"));
+const Approval = lazy(() => import("../pages/approval/Approval"));
+
 
 export const menu = [
   {
@@ -30,22 +33,23 @@ export const menu = [
     pageLink: '/home',
     view: <Home/>,
   },
+  
   {
     icon: <NoteAddSharpIcon />,
     title: "Create Request",
-    pageLink: '/home',
-    view: <Home/>,
+    pageLink: '/cr',
+    view: <CreateRequest/>,
   },
   {
     icon: <FactCheckSharpIcon />,
     title: "My Approvals",
-    pageLink: '/home',
-    view: <Home/>,
+    pageLink: '/approval',
+    view: <Approval/>,
   },
   {
     icon: <SummarizeSharpIcon />,
     title: "CMS Reports",
-    pageLink: '/home',
+    pageLink: '/page1',
     view: <Home/>,
   },
   {

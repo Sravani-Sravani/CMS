@@ -149,7 +149,8 @@ export default function PersistentDrawerLeft() {
             )}
           </IconButton> */}
           <Typography variant="h6" noWrap component="div">
-            CMS {location.pathname}
+            {/* CMS {location.pathname} */}
+            CMS
           </Typography>
 
           <Box sx={{ flexGrow: 1 }} />
