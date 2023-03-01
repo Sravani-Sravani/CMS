@@ -28,6 +28,8 @@ const Page3 = lazy(() => import("./components/ChangeRequestId"))
 const CreateRequest = lazy(() => import("./pages/CreateRequest"));
 const ViewCR = lazy(() => import("./pages/ViewCR"));
 const NewPage = lazy(() => import("./pages/NewPage"));
+const Approval = lazy(() => import("./pages/approval/Approval"));
+const DisplayData = lazy(() => import("./pages/approval/approval-components/DisplayData"))
 
 // import FullLayout from "./layouts/FullLayout";
 
@@ -71,6 +73,8 @@ const AppRoutes = () => {
       <Route path="/" element={<Login/>} exact />
       <Route element={<Header />}>
         <Route path="/home" element={<Home/>} />
+        <Route path="/approval" element={<Approval/>} />
+        <Route exact path="/dataTable" element={<DisplayData/>} />
           {/* {menu.map((page, index) => {
             return (
               <Route

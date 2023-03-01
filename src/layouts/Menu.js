@@ -20,6 +20,7 @@ const TelephonicRegistration = lazy(() => import("../pages/TelephonicRegistratio
 const TelephonicRegEdit = lazy(() => import("../pages/TelephonicRegEdit"));
 const Login = lazy(() => import("../pages/auth/Login"));
 const CreateRequest = lazy(() => import("../pages/CreateRequest"));
+const Approval = lazy(() => import("../pages/approval/Approval"));
 
 
 export const menu = [
@@ -39,8 +40,8 @@ export const menu = [
   {
     icon: <FactCheckSharpIcon />,
     title: "My Approvals",
-    pageLink: '/home',
-    view: <Home/>,
+    pageLink: '/approval',
+    view: <Approval/>,
   },
   {
     icon: <SummarizeSharpIcon />,
