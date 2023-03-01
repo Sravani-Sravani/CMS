@@ -17,12 +17,12 @@ import TextField from '@mui/material/TextField';
 import Select from '@mui/material/Select';
 import TextareaAutosize from '@mui/base/TextareaAutosize';
 import Link from '@mui/material/Link';
-// /import DataTable from './DataGrid';
+
 import Autocomplete from '@mui/material/Autocomplete';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import { blue } from '@mui/material/colors';
 import { createTheme } from '@mui/material';
-import DataTable from './DataGrid';
+import DataTable2 from './DataGrid';
 import { ThemeProvider } from '@emotion/react';
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -58,7 +58,7 @@ export default function CRDetails() {
     
     <Card sx={{width:"100%"}}>
         <ThemeProvider theme={theme}>
-        <Typography sx={{bgcolor:'#3E00B3',color:'white',textAlign:'center'}}>Change Request Details</Typography>
+        <Typography sx={{bgcolor:'#3E00B3',color:'white'}}>Change Request Details</Typography>
        
         <Card sx={{mt:3,mb:4,ml:3,mr:3}}>
        
@@ -73,36 +73,33 @@ export default function CRDetails() {
             
           >
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>CRID</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>AP/Trust Operations/2021</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Parent Organization</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Dr. YSR Arogyasri Health Care Trust</Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>AP/Trust Operations/2021/AP_D097</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Application Type</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Dr. YSR Arogyasri Portal</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Change Request Type</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>NEW</Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Dr.YSR Arogyasri Portal</Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Organization Type</Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Dr. YSR Arogyasri Health Care Trust</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Source Department</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Field Operations(Districts)</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>CR Module</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Operations</Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Trust Operation</Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>CR Type</Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>NEW</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>CR Title</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}><TextField
-                      type="text"
-                      id="outlined-basic"
-       
-                      variant="outlined"
-                      onChange={(e) => setText(e.target.value)}
-                      value={text}
-                      InputProps={{
-                          readOnly: true
-                        }}
-                    /></Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Reopening of cases which was EO rejected</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Type of Change</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Work Flow Changes</Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Others</Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>WorkFlow Category</Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}><TextField
+                      type="text"
+                      id="outlined-basic"
+       
+                      variant="outlined"
+                      onChange={(e) => setText(e.target.value)}
+                      value={text}
+                      InputProps={{
+                          readOnly: true
+                        }}
+                    /></Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Supporting Document</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}><Link href="/page2">View/Add attachments</Link></Grid>
-           
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Work Flow Category</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}><TextField
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}><TextField
                       type="text"
                       id="outlined-basic"
        
@@ -113,26 +110,20 @@ export default function CRDetails() {
                           readOnly: true
                         }}
                     /></Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Case Number</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}><Link href="/page2">Case/80/AP3825492</Link></Grid>
+           
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>CR Severity</Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Medium</Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}> <FormLabel id="demo-row-radio-buttons-group-label" sx={{mt:1,color:"black",fontWeight:"bold"}} required>Build ID</FormLabel></Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>CRID</Grid>
      
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>NWH Name</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}><TextField
-                      type="text"
-                      id="outlined-basic"
-       
-                      variant="outlined"
-                      onChange={(e) => setText(e.target.value)}
-                      value={text}
-                      InputProps={{
-                          readOnly: true
-                        }}
-                    /></Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Expected Delivery Date</Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>06/06/2023</Grid>
             
-           
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Current Status</Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Production Deployment Completed</Grid>
+       
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>CR Description</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>
-              <TextField
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}><TextField
                       type="text"
                       id="outlined-basic"
        
@@ -146,56 +137,29 @@ export default function CRDetails() {
             </Grid>
         </Card>
         
-        <Grid
-            container
-            direction="row"
-            rowSpacing={0}
-            columnSpacing={2}
-            justifyContent="center"
-            justifyItems="center"
-            alignItems="center"
-           
-            
-          >
-            
-            
-            <Grid item  >Remarks:</Grid>
-            <Grid item ><TextareaAutosize
-              aria-label="minimum height"
-              minRows={3}
-
-              style={{ width: 300 }}
-            /></Grid>
-            </Grid>
-            <Grid
-            container
-            direction="row"
-            rowSpacing={0}
-            columnSpacing={2}
-            justifyContent="center"
-            justifyItems="center"
-            alignItems="center"
-           
-            
-          >
-
-
-            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100 }}>Save Remarks</Button>
-            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100 }}>Approve</Button>
-            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100 }}>Reject</Button>
-            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100 }}>Revert</Button>
-            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100 }}>Previous Remarks</Button>
-            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100 }}><Link href="/#/newPage" sx={{textDecorationColor:'none',color:'white',":hover":{textDecorationLine:'none'}}}>close</Link></Button>
-          </Grid>
         
-       
-        <Card sx={{mt:2}}>
-        <Typography sx={{color:'white', bgcolor: '#3E00B3' ,textAlign:'center'}}>Remark Details</Typography>
+        <Card>
+        <Typography sx={{color:'white', bgcolor: '#3E00B3' }}>Remark Details</Typography>
         <Grid sx={{ marginTop: 2, marginLeft: 4, marginRight: 4, marginBottom: 2 }}>
-          <DataTable/>
+          <DataTable2/>
           </Grid>
         </Card>
-        
+        <Card >
+        <Stack
+            container
+            direction="row"
+            rowSpacing={0}
+            columnSpacing={2}
+            justifyContent="center"
+            alignItems="center"
+           
+          >
+
+
+            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100 }}>Close</Button>
+            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100 }}>Previous Remarks</Button>
+        </Stack>
+        </Card>
         </ThemeProvider>
         </Card>
     
