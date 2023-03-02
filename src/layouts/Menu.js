@@ -11,7 +11,7 @@ import NoteAddSharpIcon from '@mui/icons-material/NoteAddSharp';
 import FactCheckSharpIcon from '@mui/icons-material/FactCheckSharp';
 import SummarizeSharpIcon from '@mui/icons-material/SummarizeSharp';
 
-const ViewCR = lazy(() => import("../pages/ViewCR"));
+const ViewCR = lazy(() => import("../pages/ViewCR/ViewCR"));
 
 
 const Home = lazy(() => import("../pages/Home"));

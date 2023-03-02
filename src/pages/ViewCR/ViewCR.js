@@ -58,7 +58,7 @@ export default function CRDetails() {
     
     <Card sx={{width:"100%"}}>
         <ThemeProvider theme={theme}>
-        <Typography sx={{bgcolor:'#3E00B3',color:'white',textAlign:'center'}}>Change Request Details</Typography>
+        <Typography sx={{bgcolor:'#3F51B5',color:'white',textAlign:'center'}}>Change Request Details</Typography>
        
         <Card sx={{mt:3,mb:4,ml:3,mr:3}}>
        
@@ -99,7 +99,7 @@ export default function CRDetails() {
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Type of Change</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Work Flow Changes</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Supporting Document</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}><Link href="/page2">View/Add attachments</Link></Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}><Link href="/#/newPage">View/Add attachments</Link></Grid>
            
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Work Flow Category</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}><TextField
@@ -114,7 +114,7 @@ export default function CRDetails() {
                         }}
                     /></Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Case Number</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}><Link href="/page2">Case/80/AP3825492</Link></Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}><Link href="/#/caseStatus">Case/80/AP3825492</Link></Grid>
      
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>NWH Name</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}><TextField
@@ -180,17 +180,17 @@ export default function CRDetails() {
           >
 
 
-            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100 }}>Save Remarks</Button>
-            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100 }}>Approve</Button>
-            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100 }}>Reject</Button>
-            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100 }}>Revert</Button>
-            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100 }}>Previous Remarks</Button>
-            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100 }}><Link href="/#/newPage" sx={{textDecorationColor:'none',color:'white',":hover":{textDecorationLine:'none'}}}>close</Link></Button>
+            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100,bgcolor:'#3F51B5' }}>Save Remarks</Button>
+            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100,bgcolor:'#3F51B5' }}>Approve</Button>
+            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100,bgcolor:'#3F51B5' }}>Reject</Button>
+            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100,bgcolor:'#3F51B5' }}>Revert</Button>
+            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100 ,bgcolor:'#3F51B5'}}>Previous Remarks</Button>
+            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100,bgcolor:'#3F51B5'}}><Link href="/#/newPage" sx={{textDecorationColor:'none',color:'white',":hover":{textDecorationLine:'none'}}}>close</Link></Button>
           </Grid>
         
        
         <Card sx={{mt:2}}>
-        <Typography sx={{color:'white', bgcolor: '#3E00B3' ,textAlign:'center'}}>Remark Details</Typography>
+        <Typography sx={{color:'white', bgcolor: '#3F51B5' ,textAlign:'center'}}>Remark Details</Typography>
         <Grid sx={{ marginTop: 2, marginLeft: 4, marginRight: 4, marginBottom: 2 }}>
           <DataTable/>
           </Grid>

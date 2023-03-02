@@ -26,10 +26,13 @@ const Page1 = lazy(() => import("./components/Page1"))
 const Page2 = lazy(() => import("./components/Page2"))
 const Page3 = lazy(() => import("./components/ChangeRequestId"))
 const CreateRequest = lazy(() => import("./pages/CreateRequest"));
-const ViewCR = lazy(() => import("./pages/ViewCR"));
-const NewPage = lazy(() => import("./pages/NewPage"));
+const ViewCR = lazy(() => import("./pages/ViewCR/ViewCR"));
+const NewPage = lazy(() => import("./pages/ViewCR/NewPage"));
 const Approval = lazy(() => import("./pages/approval/Approval"));
 const DisplayData = lazy(() => import("./pages/approval/approval-components/DisplayData"))
+const DataGrid = lazy(() => import("./pages/ViewCR/DataGrid"))
+const DataGrid2 = lazy(() => import("./pages/ViewCR/DataGrid2"))
+const CaseStatus = lazy(() => import("./pages/ViewCR/CaseStatus"));
 
 // import FullLayout from "./layouts/FullLayout";
 
@@ -75,6 +78,7 @@ const AppRoutes = () => {
         <Route path="/home" element={<Home/>} />
         <Route path="/newPage" element={<NewPage/>}></Route>
         <Route path="/viewCR" element={<ViewCR/>}></Route>
+        <Route path="/dataGrid" element={<DataGrid/>}></Route>
         <Route path="/approval" element={<Approval/>} />
         <Route exact path="/dataTable" element={<DisplayData/>} />
           {/* {menu.map((page, index) => {
@@ -94,7 +98,7 @@ const AppRoutes = () => {
           <Route exact path="/cr" element={<CreateRequest/>}></Route>
           <Route path="/newPage" element={<NewPage/>}></Route>
         <Route path="/viewCR" element={<ViewCR/>}></Route>
-
+        <Route path="/caseStatus" element={<CaseStatus/>}></Route>
         </Route>
       </Routes>
       {/* </Router> */}
