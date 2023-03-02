@@ -60,7 +60,7 @@ export default function CRDetails() {
         <ThemeProvider theme={theme}>
         <Typography sx={{bgcolor:'#3F51B5',color:'white',textAlign:'center'}}>Change Request Details</Typography>
        
-        <Card sx={{mt:3,mb:4,ml:3,mr:3}}>
+        <Card sx={{mt:3,mb:4,ml:3,mr:3,border:'none',boxShadow:'none'}}>
        
         <Grid
             container

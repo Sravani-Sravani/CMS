@@ -58,9 +58,9 @@ export default function CRDetails() {
     
     <Card sx={{width:"100%"}}>
         <ThemeProvider theme={theme}>
-        <Typography sx={{bgcolor:'#3E00B3',color:'white'}}>Change Request Details</Typography>
+        <Typography sx={{bgcolor:'#3F51B5',color:'white',textAlign:'center'}}>Change Request Details</Typography>
        
-        <Card sx={{mt:3,mb:4,ml:3,mr:3}}>
+        <Card sx={{mt:3,mb:4,ml:3,mr:3,border:'none',boxShadow:'none'}}>
        
         <Grid
             container
@@ -73,7 +73,7 @@ export default function CRDetails() {
             
           >
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>CRID</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>AP/Trust Operations/2021/AP_D097</Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>AP/Trust Operations/2021/</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Application Type</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Dr.YSR Arogyasri Portal</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Organization Type</Grid>
@@ -139,7 +139,7 @@ export default function CRDetails() {
         
         
         <Card>
-        <Typography sx={{color:'white', bgcolor: '#3E00B3' }}>Remark Details</Typography>
+        <Typography sx={{color:'white', bgcolor: '#3F51B5',textAlign:'center' }}>Remark Details</Typography>
         <Grid sx={{ marginTop: 2, marginLeft: 4, marginRight: 4, marginBottom: 2 }}>
           <DataTable2/>
           </Grid>
@@ -156,8 +156,8 @@ export default function CRDetails() {
           >
 
 
-            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100 }}>Close</Button>
-            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100 }}>Previous Remarks</Button>
+            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100,bgcolor:'#3F51B5',":hover":{bgcolor:'#3F51B5'}}}>Close</Button>
+            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100,bgcolor:'#3F51B5',":hover":{bgcolor:'#3F51B5'} }}>Previous Remarks</Button>
         </Stack>
         </Card>
         </ThemeProvider>

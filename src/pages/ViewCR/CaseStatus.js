@@ -40,7 +40,7 @@ function CaseStatus() {
      <div>
       <Card>
         <CardContent>
-        <Card>
+        <Card sx={{border:'none',boxShadow:'none'}}>
         <Grid container direction="row" rowSpacing={0} columnSpacing={2} justify="flex-end" alignItems="center" >
             <Grid item xs={12} sm={9} md={9} lg={9} >
               <Grid container direction="row" rowSpacing={1} columnSpacing={2} justify="flex-end" alignItems="center" >

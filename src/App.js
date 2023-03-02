@@ -33,6 +33,7 @@ const DisplayData = lazy(() => import("./pages/approval/approval-components/Disp
 const DataGrid = lazy(() => import("./pages/ViewCR/DataGrid"))
 const DataGrid2 = lazy(() => import("./pages/ViewCR/DataGrid2"))
 const CaseStatus = lazy(() => import("./pages/ViewCR/CaseStatus"));
+const CRStatus = lazy(() => import("./pages/ViewCR/CRStatus"));
 
 // import FullLayout from "./layouts/FullLayout";
 
@@ -79,6 +80,7 @@ const AppRoutes = () => {
         <Route path="/newPage" element={<NewPage/>}></Route>
         <Route path="/viewCR" element={<ViewCR/>}></Route>
         <Route path="/dataGrid" element={<DataGrid/>}></Route>
+        <Route path="/dataGrid2" element={<DataGrid2/>}></Route>
         <Route path="/approval" element={<Approval/>} />
         <Route exact path="/dataTable" element={<DisplayData/>} />
           {/* {menu.map((page, index) => {
@@ -99,6 +101,7 @@ const AppRoutes = () => {
           <Route path="/newPage" element={<NewPage/>}></Route>
         <Route path="/viewCR" element={<ViewCR/>}></Route>
         <Route path="/caseStatus" element={<CaseStatus/>}></Route>
+        <Route path="/crStatus" element={<CRStatus/>}></Route>
         </Route>
       </Routes>
       {/* </Router> */}
