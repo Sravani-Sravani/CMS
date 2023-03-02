@@ -28,7 +28,8 @@ const rows = [
 export default function DataTable() {
   return (
     <Box sx={{ height: 400, width: '100%',  '& .super-app-theme--header': {
-        backgroundColor: '#2196f3',
+        backgroundColor: '#3F51B5',
+        color:'white'
       },}}>
       <DataGrid
         rows={rows}
@@ -40,4 +41,3 @@ export default function DataTable() {
     </Box>
   );
 }
-

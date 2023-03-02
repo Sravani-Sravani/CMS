@@ -49,7 +49,19 @@ const rows = [
 ]  
 
 
+
 const DisplayData=()=>{
+    const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
   return (
     <>
       <Approval/>
@@ -79,7 +91,7 @@ const DisplayData=()=>{
                             return(
                                 <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 }, height: '50px' }}>
                                 <TableCell component="th" scope="row">{row.SNo}</TableCell>
-                                <TableCell align="center"><Link href="/#/cri" sx={{ color: '#3F51B5', textDecorationColor: '#3F51B5' }}>{row.ChangeRequestId} </Link>   </TableCell>
+                                <TableCell align="center"><Link href="/#/crStatus" sx={{ color: '#414fe1', textDecorationColor: '#414fe1' }}>{row.ChangeRequestId} </Link>   </TableCell>
                                 <TableCell align="center">{row.CRTitle}</TableCell>
                                 <TableCell align="center">{row.CRDescription}</TableCell>
                                 <TableCell align="center">{row.CRRaisedDepartment}</TableCell>
@@ -104,6 +116,15 @@ const DisplayData=()=>{
                 </Box>
                 </Box>
             </TableContainer>
+            <TablePagination
+            rowsPerPageOptions={[5, 10, 25]}
+            component="div"
+            count={rows.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
         </CardContent>
       </Card>
     </>

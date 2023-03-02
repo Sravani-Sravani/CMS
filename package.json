@@ -1,7 +1,8 @@
 {
-  "name": "ehs",
+  "name": "cms-portal",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://uat.ysraarogyasri.ap.gov.in/cms-portal",
   "dependencies": {
     "@date-io/dayjs": "^2.16.0",
     "@date-io/jalaali": "^2.16.1",
@@ -38,7 +39,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "compile": "npm run build && cd build && jar -cvf ehs.war ."
+    "compile": "npm run build && cd build && jar -cvf cms.war ."
   },
   "eslintConfig": {
     "extends": [
