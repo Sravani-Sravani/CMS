@@ -10,6 +10,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 // import { LocalizationProvider } from '@mui/lab';
 // import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 // import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { Container } from '@mui/material/Container';
 const options = [
   { label: 'One', id: 1 },
   { label: 'Two', id: 2 },
@@ -67,7 +68,7 @@ const Form = () => {
                 />
               </LocalizationProvider>
             </Grid>
-            <Grid xs={12} sm={6} item>
+            <Grid xs={12} sm={4} item>
             <Autocomplete
                 disablePortal
                 onChange={(event, value) => console.log(value)}
@@ -82,7 +83,7 @@ const Form = () => {
                 )}
               />
             </Grid>
-            <Grid xs={12} sm={6} item>
+            <Grid xs={12} sm={4} item>
             <Autocomplete
                 disablePortal
                 onChange={(event, value) => console.log(value)}
@@ -97,7 +98,7 @@ const Form = () => {
                 )}
               />
             </Grid>
-            <Grid xs={12} sm={6} item>
+            <Grid xs={12} sm={4} item>
             <Autocomplete
                 disablePortal
                 onChange={(event, value) => console.log(value)}
@@ -112,8 +113,15 @@ const Form = () => {
                 )}
               />
             </Grid>
-            <Grid xs={4} sm={6} item>
-              <Button variant='contained' onClick={onSubmit}>Submit</Button>
+            <Grid xs={12} sm={3}></Grid>
+            <Grid Container justifyContent={'center'} sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'column'
+            }} xs={12} sm={6} item>
+              <Button 
+            variant='contained' onClick={onSubmit}>Submit</Button>
             </Grid>
           </Grid>
         </CardContent>

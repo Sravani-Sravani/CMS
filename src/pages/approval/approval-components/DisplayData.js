@@ -58,6 +58,8 @@ const DisplayData=()=>{
       <Card sx={{ mt: 2 }}>
         <CardContent>
             <TableContainer>
+            <Box sx={{ overflow: "auto" }}>
+              <Box sx={{ width: "100%", display: "table", tableLayout: "fixed" }}>
                 <Table stickyHeader aria-label="sticky table">
                      <TableHead>
                         <TableRow>
@@ -65,7 +67,7 @@ const DisplayData=()=>{
                             <TableCell
                             key={column.id}
                             align={column.align}
-                            style={{ gap:'2px', minWidth: column.minWidth, fontWeight: 'bold', backgroundColor: '#414fe1', color: 'white' }}
+                            style={{ gap:'2px', minWidth: column.minWidth, fontWeight: 'bold', backgroundColor: '#3F51B5', color: 'white' }}
                             >
                             {column.label}
                             </TableCell>
@@ -77,7 +79,7 @@ const DisplayData=()=>{
                             return(
                                 <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 }, height: '50px' }}>
                                 <TableCell component="th" scope="row">{row.SNo}</TableCell>
-                                <TableCell align="center"><Link href="/#/cri" sx={{ color: '#414fe1', textDecorationColor: '#414fe1' }}>{row.ChangeRequestId} </Link>   </TableCell>
+                                <TableCell align="center"><Link href="/#/cri" sx={{ color: '#3F51B5', textDecorationColor: '#3F51B5' }}>{row.ChangeRequestId} </Link>   </TableCell>
                                 <TableCell align="center">{row.CRTitle}</TableCell>
                                 <TableCell align="center">{row.CRDescription}</TableCell>
                                 <TableCell align="center">{row.CRRaisedDepartment}</TableCell>
@@ -99,6 +101,8 @@ const DisplayData=()=>{
                         })}
                      </TableBody>
                 </Table>
+                </Box>
+                </Box>
             </TableContainer>
         </CardContent>
       </Card>
