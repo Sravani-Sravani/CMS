@@ -56,7 +56,10 @@ import { useRef, useState } from 'react';
   };
   return (
         <>
-        <Typography sx={{mb:3,mt:1, fontSize: 22,display:"flex",justifyContent:"center",alignItems:"center" }} color="text.secondary" gutterBottom>Create Request</Typography>
+        <Box px={2}>
+        <Typography sx={{mb:3,mt:1, textAlign:'left', fontFamily:'Lato, sans-serif'}} color='#808080' gutterBottom>Create Request</Typography>
+        </Box>
+        
         <Card sx={{border:"2px  solid grey" , mx:2}}>
         <CardContent>
         <ThemeProvider theme={theme}>

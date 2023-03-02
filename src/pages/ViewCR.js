@@ -40,7 +40,7 @@ export default function CRDetails() {
     <Stack>
        <Card sx={{ minWidth: 275}}>
       <Card sx={{ minWidth: 275,marginBottom:3,margin:4}}>
-        <Typography sx={{ color:'white',textAlign: 'center', bgcolor: '#3E00B3' }}>Change Request Details</Typography>
+        <Typography sx={{ color:'#808080',textAlign: 'left' }}>Change Request Details</Typography>
         <CardContent />
         <Stack>
           <Stack direction="row">

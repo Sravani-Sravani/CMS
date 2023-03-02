@@ -16,7 +16,7 @@ import  Header  from "./layouts/Header";
 /*****Pages******/
 const Home = lazy(() => import("./pages/Home"));
 const RegisteredPatient = lazy(() => import("./pages/RegisteredPatient"));
-const Login = lazy(() => import("./pages/auth/Login"));
+const Login = lazy(() => import("./pages/Login/Login"));
 const RegisteredPatientView = lazy(() => import("./pages/RegisteredPatientView"));
 const ReferredPatientView = lazy(() => import("./pages/ReferredPatientView"));
 const TelephonicRegView = lazy(() => import("./pages/TelephonicRegView"));

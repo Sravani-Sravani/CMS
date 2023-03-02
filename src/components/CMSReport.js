@@ -27,14 +27,17 @@ const CMSReport = () => {
     
   return (
     <>
-      <Card sx={{ mt: 2, ml: 2, backgroundColor: '#F5F5F5' }} spacing={4}>
+      <Card sx={{ mt: 2, ml: 2 }} spacing={4}>
         <CardContent>
-          <Typography sx={{ fontSize: 22,fontWeight:'bold' }} color="#414fe1" gutterBottom>
+          {/* <Typography sx={{ fontSize: 22,fontWeight:'bold' }} color="#414fe1" gutterBottom>
+            CMS Section Wise Report
+          </Typography> */}
+          <Typography sx={{ fontSize: 22,fontWeight:'bold' }} color="#808080" gutterBottom>
             CMS Section Wise Report
           </Typography>
           <Grid
             container
-            direction="row"
+            direction="row" 
             rowSpacing={1}
             columnSpacing={2}
             justify="flex-end"

@@ -2,7 +2,7 @@
   "name": "cms-portal",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://uat.ysraarogyasri.ap.gov.in/cms-portal",
+  "homepage": "https://uat.ysraarogyasri.ap.gov.in/cms",
   "dependencies": {
     "@date-io/dayjs": "^2.16.0",
     "@date-io/jalaali": "^2.16.1",
