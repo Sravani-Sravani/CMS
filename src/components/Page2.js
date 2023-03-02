@@ -1,8 +1,6 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-
 import Link from '@mui/material/Link';
-
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Table from '@mui/material/Table';
@@ -12,7 +10,6 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TablePagination from '@mui/material/TablePagination';
-
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
@@ -223,7 +220,7 @@ function ReferredPatientView() {
                         return (
                           <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 }, height: '50px' }}>
                             <TableCell component="th" scope="row">{row.SNo}</TableCell>
-                            <TableCell align="center"><Link href="/#/cri" sx={{ color: '#3F51B5', textDecorationColor: '#3F51B5' }}>{row.ChangeRequestId} </Link>   </TableCell>
+                            <TableCell align="center"><Link href="/#/viewCR" sx={{ color: '#3F51B5', textDecorationColor: '#3F51B5' }}>{row.ChangeRequestId} </Link>   </TableCell>
                             <TableCell align="center">{row.CRTitle}</TableCell>
                             <TableCell align="center">{row.CRDescription}</TableCell>
                             <TableCell align="center">{row.CRRaisedDepartment}</TableCell>
