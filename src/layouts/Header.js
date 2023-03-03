@@ -29,11 +29,13 @@ import Avatar from '@mui/material/Avatar';
 import logoImage from "../assets/images/logo.png";
 import { Outlet } from "react-router-dom";
 import logo from "../assets/images/logo.png";
+import logo_left from "../assets/images/logo_left.png";
 import { grey, indigo } from '@mui/material/colors';
 
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import {useLocation} from 'react-router-dom';
+import { Stack } from '@mui/system';
 const drawerWidth = 280;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -211,12 +213,19 @@ export default function PersistentDrawerLeft() {
         open={open}
       >
         <DrawerHeader>
-          <Typography sx={{ p: 2, float: "left"}}>
-            <img src={logo} width="50px" />
-            <Typography component="h1" variant="h6" color="grey" fontWeight={500}>
+          <Box >
+          <Typography sx={{ py: 2, float: "left"}} display='flex' justifyContent ='space-between'>
+            <img src={logo_left} width="50px" height='50px' />
+            <Stack direction='column' py={1}>
+            <Typography component="h1" variant="body2" color="#1964AF" fontSize='11px' fontWeight={700}>
               Dr.YSR Aarogyasri Health Care Trust
             </Typography>
+            <Typography component="h1" variant="body2" color="#A5D73A" fontWeight={700} fontSize='11px' textAlign='center'>
+              Government of Andhra Pradesh
+            </Typography>
+            </Stack>
           </Typography>
+          </Box>
           {/* <IconButton onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />

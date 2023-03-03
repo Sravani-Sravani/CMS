@@ -13,28 +13,53 @@ import Stack from '@mui/material/Stack';
 import Link from '@mui/material/Link';
 
 const options = [
-    { label: 'One', id: 1 },
-    { label: 'Two', id: 2 },
-  ];
-  
+  { label: 'One', id: 1 },
+  { label: 'Two', id: 2 },
+];
+const parentorg=[
+  {label:'Technical Issues',id:1},
+  {label:'SAS/Portal Report Request',id:2},
+  {label:'User Issues',id:3},
+  {label:'Emergency Change Request',id:4},
+  {label:'Production Support ServiceRequest',id:5},
+  {label:'Complaint Logger',id:6},
+]
+
 
 const CMSReport = () => {
-    const [value, setValue] = React.useState(null);
-    const [value1,setValue1]=React.useState(null);
-    const clearForm=()=>{
-      setValue("");
-    };
-    
+
+  // CR raised From Date, CR raised To Date, Application Type, Parent Organization, Department, WorkFlow Category, Section, CR ID, State
+  const [crfd, setCrfd] = React.useState(null);
+  const [crtd, setCrtd] = React.useState(null);
+  const [ap, setAp] = React.useState('');
+  const [po, setPo] = React.useState('');
+  const [dept, setDept] = React.useState('');
+  const [wfcat, setWfcat] = React.useState('');
+  const [section, setSection] = React.useState('');
+  const [crid, setCrid] = React.useState('');
+  const [astate, setAstate] = React.useState('');
+  const resetForm = () => {
+    setCrfd(null)
+    setCrtd(null)
+    setAp('')
+    setPo("")
+    setDept("")
+    setWfcat("")
+    setSection("")
+    setCrid("")
+    setAstate("")
+  }
+
   return (
     <>
+          <Typography sx={{fontFamily:'Lato, sans-serif'}} px={3} color="#808080" gutterBottom>
+            CMS Section Wise Report
+          </Typography>
       <Card sx={{ mt: 2, ml: 2 }} spacing={4}>
         <CardContent>
           {/* <Typography sx={{ fontSize: 22,fontWeight:'bold' }} color="#414fe1" gutterBottom>
             CMS Section Wise Report
           </Typography> */}
-          <Typography sx={{ fontSize: 22,fontWeight:'bold' }} color="#808080" gutterBottom>
-            CMS Section Wise Report
-          </Typography>
           <Grid
             container
             direction="row" 
@@ -48,9 +73,9 @@ const CMSReport = () => {
                 <DatePicker
                   label="CR raised From Date"
                   inputFormat="MM/DD/YYYY"
-                  value={value}
+                  value={crfd}
                   onChange={(newValue) => {
-                    setValue(newValue);
+                    setCrfd(newValue);
                   }}
                   renderInput={(params) => (
                     <TextField
@@ -68,9 +93,9 @@ const CMSReport = () => {
                 <DatePicker
                   label=" CR raised To Date"
                   inputFormat="MM/DD/YYYY"
-                  value={value1}
-                  onChange={(newValue1) => {
-                    setValue1(newValue1);
+                  value={crtd}
+                  onChange={(newValue) => {
+                    setCrtd(newValue);
                   }}
                   renderInput={(params) => (
                     <TextField
@@ -86,7 +111,10 @@ const CMSReport = () => {
             <Grid item xs={12} sm={4} md={4} lg={4}>
               <Autocomplete
                 disablePortal
-                onChange={(event, value) => console.log(value)}
+                value={ap}
+                onChange={(event, newValue) => {
+                  setAp(newValue);
+                }}
                 margin="normal"
                 fullWidth
                 size="small"
@@ -101,12 +129,15 @@ const CMSReport = () => {
             <Grid item xs={12} sm={4} md={4} lg={4}>
               <Autocomplete
                 disablePortal
-                onChange={(event, value) => console.log(value)}
+                value={po}
+                onChange={(event, newValue) => {
+                  setPo(newValue);
+                }}
                 margin="normal"
                 fullWidth
                 size="small"
                 id="combo-box-demo"
-                options={options}
+                options={parentorg}
                 sx={{ width: "100%", mt: 1 }}
                 renderInput={(params) => (
                   <TextField {...params} label="Parent Organization" />
@@ -116,7 +147,8 @@ const CMSReport = () => {
             <Grid item xs={12} sm={4} md={4} lg={4}>
               <Autocomplete
                 disablePortal
-                onChange={(event, value) => console.log(value)}
+                value={dept}
+                onChange={(event, newValue) => { setDept(newValue); }}
                 margin="normal"
                 fullWidth
                 size="small"
@@ -127,12 +159,13 @@ const CMSReport = () => {
                   <TextField {...params} label="Department" />
                 )}
               />
-               
+
             </Grid>
             <Grid item xs={12} sm={4} md={4} lg={4}>
               <Autocomplete
                 disablePortal
-                onChange={(event, value) => console.log(value)}
+                value={wfcat}
+                onChange={(event, value) => { setWfcat(value); }}
                 margin="normal"
                 fullWidth
                 size="small"
@@ -140,14 +173,17 @@ const CMSReport = () => {
                 options={options}
                 sx={{ width: "100%", mt: 1 }}
                 renderInput={(params) => (
-                  <TextField {...params} label="WorkFlow Category"/>
+                  <TextField {...params} label="WorkFlow Category" />
                 )}
               />
             </Grid>
             <Grid item xs={12} sm={4} md={4} lg={4}>
               <Autocomplete
                 disablePortal
-                onChange={(event, value) => console.log(value)}
+                value={section}
+                onChange={(event, value) => {
+                  setSection(value);
+                }}
                 margin="normal"
                 fullWidth
                 size="small"
@@ -159,7 +195,7 @@ const CMSReport = () => {
                 )}
               />
             </Grid>
-           
+
             <Grid item xs={12} sm={4} md={4} lg={4}>
               <TextField
                 margin="normal"
@@ -167,7 +203,8 @@ const CMSReport = () => {
                 fullWidth
                 id="crid"
                 label="CR Id"
-                name="email"
+                value={crid}
+                onChange={(newValue) => setCrid(newValue.target.value)}
                 autoComplete="email"
                 size="small"
               />
@@ -175,7 +212,8 @@ const CMSReport = () => {
             <Grid item xs={12} sm={4} md={3} lg={4}>
               <Autocomplete
                 disablePortal
-                onChange={(event, value) => console.log(value)}
+                value={astate}
+                onChange={(event, value) => { setAstate(value) }}
                 margin="normal"
                 fullWidth
                 size="small"
@@ -187,24 +225,24 @@ const CMSReport = () => {
                 )}
               />
             </Grid>
-            
-            
+               <br></br>
+
           </Grid>
           <Stack direction="row"
-                        justifyContent="center"
-                        alignItems="center"
-                        spacing={1}>
-          <Button sx={{ minWidth: 100, ml: 1,backgroundColor:'#414fe1',":hover":{backgroundColor:'#414fe1',color:'white',fontWeight:'bold'}}} variant="contained">
-          <Link href="/#/page2" sx={{textDecorationColor:'none',color:'white',fontWeight:'bold'}}> Generate Report</Link>
-          </Button>
-          <Button type="reset" onClick={clearForm} sx={{ minWidth: 100, ml: 1,color:'#414fe1',border:'1px solid #414fe1',fontWeight:'bold'}} variant="outlined">
-            Reset
-          </Button>
+            justifyContent="center"
+            alignItems="center"
+            spacing={1}>
+            <Button sx={{ minWidth: 100, ml: 1, backgroundColor: '#3F51B5', ":hover": { backgroundColor: '#3F51B5', color: 'white', fontWeight: 'bold' } }} variant="contained">
+              <Link href="/#/page2" sx={{ textDecorationColor: 'none', color: 'white', fontWeight: 'bold' }}> Generate Report</Link>
+            </Button>
+            <Button onClick={() => resetForm()} sx={{ minWidth: 100, ml: 1, color: '#3F51B5', border: '1px solid #3F51B5', fontWeight: 'bold' }} variant="outlined">
+              Reset
+            </Button>
           </Stack>
         </CardContent>
-       
-           
-      
+
+
+
       </Card>
 
     </>

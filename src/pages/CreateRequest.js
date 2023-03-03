@@ -1,12 +1,11 @@
 import * as React from 'react';
-import {Card,CardContent,Typography, Grid, FormLabel,Box, Button,Autocomplete,TextField, FormControl,RadioGroup,FormControlLabel,Radio, ThemeProvider} from "@mui/material";
+import {Card,CardContent,Typography, Grid,InputAdornment, FormLabel,Box, Button,Autocomplete,TextField, FormControl,RadioGroup,FormControlLabel,Radio, ThemeProvider} from "@mui/material";
 import { createTheme } from '@mui/material';
 import { useRef, useState } from 'react';
-
-
-  function CreateRequest() {
+function CreateRequest() {
     const deleteButton = false;
-   const theme = createTheme({
+    const PHONE_REGEX = new RegExp(/"^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"/gmi);
+  const theme = createTheme({
     components: {
       MuiFormLabel: {
         styleOverrides: {
@@ -49,21 +48,54 @@ import { useRef, useState } from 'react';
   const [value, setValue] = React.useState(null);
   const [num, setNum] = React.useState();
   const limitChar = 10;
-  const handleChange = (e) => {
-    if (e.target.value.toString().length <= limitChar) {
+  const handleInputChange = (e) => {
+    if (e.target.value.toString().length <= limitChar && !PHONE_REGEX.test(e.target.value)) {
       setNum(e.target.value);
     }
   };
+
+  
+  
+
+  const [at, setAt] = React.useState('');
+  const [po, setPo] = React.useState('');
+  const [dept, setDept] = React.useState('');
+  const [sub, setSub] = React.useState('');
+  const [rtn, setRtn] = React.useState(null);
+  const [rte, setRte] = React.useState(null);
+  const [crt, setCrt] = React.useState('');
+  const [crd, setCrd] = React.useState('');
+  const [crm, setCrm] = React.useState('');
+  const [tc, setTc] = React.useState('');
+  const [wfc, setWfc] = React.useState('');
+   const [mno, setMno] = React.useState('');
+   
+  const resetForm = () =>{
+    setAt("")
+    setPo("")
+    setDept("")
+    setSub("")
+    setRtn(null)
+    setRte(null)
+    
+    setCrt("")
+    setCrd("")
+    setCrm("")
+    setTc("")
+    setWfc("")
+     setNum("")
+     setMno("")
+  }
+
   return (
         <>
         <Box px={2}>
-        <Typography sx={{mb:3,mt:1, textAlign:'left', fontFamily:'Lato, sans-serif'}} color='#808080' gutterBottom>Create Request</Typography>
+        <Typography sx={{mb:3,mt:1, textAlign:'left', fontFamily:'Lato, sans-serif', px:2}} color='#808080' gutterBottom>Create Request</Typography>
         </Box>
         
         <Card sx={{border:"2px  solid grey" , mx:2}}>
         <CardContent>
         <ThemeProvider theme={theme}>
-        
           <Grid
             container
             direction="row"
@@ -74,14 +106,18 @@ import { useRef, useState } from 'react';
           >
             <Grid item sx={{ml:5}}xs={12} sm={2} md={2} lg={2}>
               
-              <FormLabel id="demo-row-radio-buttons-group-label" sx={{color:"black"}} required  >
+              <FormLabel id="demo-row-radio-buttons-group-label" sx={{color:"black",display:"flex",width:"max-content"}} required  >
                 Application Type:
               </FormLabel>
               
             </Grid>
             <Grid item sx={{ml:30}} xs={12} sm={4} md={4} lg={4}>
                   <Autocomplete
-                  
+                    disablePortal
+                    value={at}
+                    onChange={(event, newValue)=>{
+                      setAt(newValue);
+                    }}
                     margin="normal"
                     fullWidth
                     size="small"
@@ -105,7 +141,7 @@ import { useRef, useState } from 'react';
             >
               <Grid item sx={{ml:5}} xs={12} sm={2} md={2} lg={2}>
               
-              <FormLabel id="demo-row-radio-buttons-group-label" sx={{color:"black"}} required>
+              <FormLabel id="demo-row-radio-buttons-group-label" sx={{color:"black",display:"flex",width:"max-content"}} required>
                 Parent Organisation:
               </FormLabel>
               
@@ -113,7 +149,10 @@ import { useRef, useState } from 'react';
             <Grid item sx={{ml:30}} xs={12} sm={4} md={4} lg={4}>
                   <Autocomplete
                     disablePortal
-                    onChange={(event, value) => console.log(value)}
+                    value={po}
+                    onChange={(event, newValue)=>{
+                      setAt(newValue);
+                    }}
                     margin="normal"
                     fullWidth
                     size="small"
@@ -136,14 +175,17 @@ import { useRef, useState } from 'react';
             alignItems="center"
             >
               <Grid item sx={{ml:5}} xs={12} sm={2} md={2} lg={2}>
-              <FormLabel id="demo-row-radio-buttons-group-label" sx={{color:"black"}} required>
+              <FormLabel id="demo-row-radio-buttons-group-label" sx={{color:"black",display:"flex",width:"max-content"}} required>
                 Department:
               </FormLabel>
             </Grid>
             <Grid item sx={{ml:30}} xs={12} sm={4} md={4} lg={4}>
                   <Autocomplete
                     disablePortal
-                    onChange={(event, value) => console.log(value)}
+                    value={dept}
+                    onChange={(event, newValue)=>{
+                      setAt(newValue);
+                    }}
                     margin="normal"
                     fullWidth
                     size="small"
@@ -166,14 +208,17 @@ import { useRef, useState } from 'react';
             alignItems="center"
             >
                 <Grid item sx={{ml:5}} xs={12} sm={2} md={2} lg={2}>
-              <FormLabel id="demo-row-radio-buttons-group-label" sx={{color:"black"}} required>
+              <FormLabel id="demo-row-radio-buttons-group-label" sx={{color:"black",display:"flex",width:"max-content"}} required>
                 Sub Department:
               </FormLabel>
             </Grid>
             <Grid item sx={{ml:30}} xs={12} sm={4} md={4} lg={4}>
                   <Autocomplete
                     disablePortal
-                    onChange={(event, value) => console.log(value)}
+                    value={sub}
+                    onChange={(event, newValue)=>{
+                      setAt(newValue);
+                    }}
                     margin="normal"
                     fullWidth
                     size="small"
@@ -195,24 +240,31 @@ import { useRef, useState } from 'react';
             alignItems="center"
             >
             <Grid item sx={{ml:5}} xs={12} sm={2} md={2} lg={2}>
-              <FormLabel id="demo-row-radio-buttons-group-label" sx={{color:"black"}} required>
+              <FormLabel id="demo-row-radio-buttons-group-label" sx={{color:"black",display:"flex",width:"max-content"}} required>
                 Change Request Type:
               </FormLabel>
             </Grid>
             <Grid item sx={{ml:30}} xs={12} sm={4} md={4} lg={4}>
-              <FormControl sx={{width:"max-content"}}>
+              <FormControl sx={{width:"max-content"}} 
+              >
                 <RadioGroup 
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
                   name="row-radio-buttons-group"
+                  
                 >
                   <FormControlLabel
-                    value="New Requirement"
+                    value={rtn}
+                    defaultValue={rtn}
+                    onChange={(newValue) => setRtn(newValue.target.value)}
                     control={<Radio />}
                     label="New Requirement" sx={{color:"grey"}}
+                    
                   />
                   <FormControlLabel
-                    value="Existing Requirement"
+                    value={rte}
+                    defaultValue={rte}
+                    onChange={(newValue) => setRte(newValue.target.value)}
                     control={<Radio />}
                     label="Existing Requirement" sx={{color:"grey"}}
                   />
@@ -231,7 +283,7 @@ import { useRef, useState } from 'react';
             alignItems="center"
             >
                 <Grid item sx={{ml:5}} xs={12} sm={2} md={2} lg={2}>
-              <FormLabel  id="demo-row-radio-buttons-group-label" required sx={{color:"black"}}>
+              <FormLabel  id="demo-row-radio-buttons-group-label" required sx={{color:"black",display:"flex",width:"max-content"}}>
                 CR Title(max 1000 characters):
               </FormLabel>
             </Grid>
@@ -242,7 +294,9 @@ import { useRef, useState } from 'react';
                     inputProps={{ maxLength: 1000 }}
                     required
                     fullWidth
-                    id="email"
+                    id="crt"
+                    value={crt}
+                    onChange={(newValue) => setCrt(newValue.target.value)}
                     multiline
                     name="email"
                     autoComplete="email"
@@ -261,7 +315,7 @@ import { useRef, useState } from 'react';
             alignItems="center"
           >
                 <Grid item sx={{ml:5}}  xs={12} sm={2} md={2} lg={2}>
-              <FormLabel id="demo-row-radio-buttons-group-label" required sx={{color:"black"}} >
+              <FormLabel id="demo-row-radio-buttons-group-label" required sx={{color:"black",display:"flex",width:"max-content"}} >
                 CR Description(max 4000 characters):
               </FormLabel>
             </Grid>
@@ -273,6 +327,8 @@ import { useRef, useState } from 'react';
                     required
                     fullWidth
                     id="email"
+                    value={crd}
+                    onChange={(newValue) => setCrd(newValue.target.value)}
                     multiline
                     rows={4}
                     name="email"
@@ -292,14 +348,15 @@ import { useRef, useState } from 'react';
             alignItems="center"
           >
                 <Grid item sx={{ml:5}} xs={12} sm={2} md={2} lg={2}>
-              <FormLabel id="demo-row-radio-buttons-group-label" required sx={{color:"black"}}>
+              <FormLabel id="demo-row-radio-buttons-group-label" required sx={{color:"black",display:"flex",width:"max-content"}}>
                 CR module:
               </FormLabel>
             </Grid>
             <Grid item sx={{ml:30}} xs={12} sm={4} md={4} lg={4}>
                   <Autocomplete
                     disablePortal
-                    onChange={(event, value) => console.log(value)}
+                    value={crm}
+                    onChange={(event,value) => {setCrm(value)}}
                     margin="normal"
                     fullWidth
                     size="small"
@@ -322,14 +379,15 @@ import { useRef, useState } from 'react';
             alignItems="center"
           >
                 <Grid item sx={{ml:5}} xs={12} sm={2} md={2} lg={2}>
-              <FormLabel id="demo-row-radio-buttons-group-label" required sx={{color:"black"}}>
+              <FormLabel id="demo-row-radio-buttons-group-label" required sx={{color:"black",display:"flex",width:"max-content"}}>
                 Type of Change:
               </FormLabel>
             </Grid>
             <Grid item sx={{ml:30}} xs={12} sm={4} md={4} lg={4}>
                   <Autocomplete
                     disablePortal
-                    onChange={(event, value) => console.log(value)}
+                    value={tc}
+                    onChange={(event,value) => {setTc(value)}}
                     margin="normal"
                     fullWidth
                     size="small"
@@ -352,7 +410,7 @@ import { useRef, useState } from 'react';
             alignItems="center"
           >
                 <Grid item sx={{ml:5}} xs={12} sm={2} md={2} lg={2}>
-              <FormLabel id="demo-row-radio-buttons-group-label" sx={{color:"black"}} required>
+              <FormLabel id="demo-row-radio-buttons-group-label" sx={{color:"black",display:"flex",width:"max-content"}} required>
                 Workflow Category:
               </FormLabel>
             </Grid>
@@ -360,7 +418,8 @@ import { useRef, useState } from 'react';
                   <Autocomplete
                   required
                     disablePortal
-                    onChange={(event, value) => console.log(value)}
+                    value={wfc}
+                    onChange={(event,value) => {setWfc(value)}}
                     margin="normal"
                     fullWidth
                     size="small"
@@ -383,7 +442,7 @@ import { useRef, useState } from 'react';
             alignItems="center"
           >
                 <Grid item  sx={{ml:5}} xs={12} sm={2} md={2} lg={2}>
-              <FormLabel id="demo-row-radio-buttons-group-label" sx={{color:"black"}}>
+              <FormLabel id="demo-row-radio-buttons-group-label" sx={{color:"black",display:"flex",width:"max-content"}}>
                 Mobile Number:
               </FormLabel>
             </Grid>
@@ -394,10 +453,27 @@ import { useRef, useState } from 'react';
                     margin="normal"
                     fullWidth
                     type="number"
-                    onChange={(e) => handleChange(e)}
-                    defaultValue={num}
-                    value={num}
+
+  
+
+                    onInputChange={(e) => handleInputChange(e)}
+                    onChange={(newValue) => setMno(newValue.target.value)}
+                    
+                    
+                    defaultValue={mno}
+                    value={mno}
                     size="small" 
+                    InputProps={{
+                      startAdornment: <InputAdornment position="start">
+                         +91
+                         </InputAdornment>,
+                    }}
+                      onKeyPress={(e) => {
+                        
+                        if (e?.key === '-' || e?.key === '+') {
+                          e.preventDefault();
+                        }
+                      }}
                                      
                   />
                  
@@ -413,34 +489,26 @@ import { useRef, useState } from 'react';
             alignItems="center"
           >
                 <Grid item sx={{ml:5}} xs={12} sm={2} md={2} lg={2}>
-              <FormLabel id="demo-row-radio-buttons-group-label" sx={{color:"black"}}>
+              <FormLabel id="demo-row-radio-buttons-group-label" sx={{color:"black",display:"flex",width:"max-content"}}>
                 Supporting Documents:
               </FormLabel>
             </Grid>
             <Grid item sx={{ml:30}} xs={12} sm={4} md={4} lg={4}>
-                
-            
-
-      
-
-      
-    
-         <Button  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}}><input  type="file" style={{ fontSize:"15px" }} onChange={uploadHandler} multiple /></Button>   
-        
-                </Grid>
+                <Button  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}}><input  type="file"  style={{ fontSize:"15px" }} onChange={uploadHandler}  multiple /></Button>   
+            </Grid>
             </Grid>
             
             </ThemeProvider>
             </CardContent>
       </Card>
-            <Box
+        <Box
         spacing={2}
         sx={{mt:2,mb:2, display:"flex",justifyContent:"center",alignItems:"center"}}
       >
         <Button sx={{ minWidth: 100, ml: 1 }} variant="contained">
           Create Change Request
         </Button>
-        <Button sx={{ minWidth: 100, ml: 1 }} variant="outlined">
+        <Button onClick={() => resetForm() }sx={{ minWidth: 100, ml: 1 }} variant="outlined">
           Reset
         </Button>
       </Box>

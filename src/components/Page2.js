@@ -1,9 +1,6 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-
 import Link from '@mui/material/Link';
-import Box from '@mui/material/Box';
-
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Table from '@mui/material/Table';
@@ -13,12 +10,18 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TablePagination from '@mui/material/TablePagination';
-
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 import CMSReport from './CMSReport';
-
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import { useState } from 'react';
+import { Typography, Stack, Box, Grid, TextField } from '@mui/material'
+import Autocomplete from '@mui/material/Autocomplete';
+const options = [
+  { label: 'One', id: 1 },
+  { label: 'Two', id: 2 },
+];
 
 function createData(SNo, ChangeRequestId, CRTitle, CRDescription, CRRaisedDepartment, CRRaisedDate, CurrentStatus, InternalStatus, ExternalStatus, ParentCRID, Seventy, Priority, TypeofChange, BuildID, ExpectedDeliveryDate, CRRaisedBy, CRCategory, WorkFlow) {
   return { SNo, ChangeRequestId, CRTitle, CRDescription, CRRaisedDepartment, CRRaisedDate, CurrentStatus, InternalStatus, ExternalStatus, ParentCRID, Seventy, Priority, TypeofChange, BuildID, ExpectedDeliveryDate, CRRaisedBy, CRCategory, WorkFlow };
@@ -81,12 +84,22 @@ function ReferredPatientView() {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
+  const [value, setValue] = useState("")
+  const [text, setText] = useState("");
+  console.log(value)
+  const handleChange = (e) => {
+    setValue(e.target.value)
+  }
+
+  const handleText = (e) => {
+    setText(e.target.value);
+  }
 
   return (
     <>
       <CMSReport></CMSReport>
       <br></br>
-      <Card sx={{ mt: 2 }}>
+      <Card sx={{ mt: 2 ,ml: 2}}>
         <Box sx={{ pr: 3, mb: 1, mt: 1, float: "right" }}>
           <Button
             variant="outlined"
@@ -96,7 +109,7 @@ function ReferredPatientView() {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
-            size="small" sx={{ color: '#414fe1', border: '1px solid #414fe1' }}
+            size="small" sx={{ color: '#3F51B5', border: '1px solid #3F51B5' }}
           >
             Export
           </Button>
@@ -115,52 +128,123 @@ function ReferredPatientView() {
             <MenuItem onClick={handleClose}>Pdf Export</MenuItem>
           </Menu>
         </Box>
-        <CardContent>
-          <TableContainer >
-            <Table stickyHeader aria-label="sticky table">
-              <TableHead >
-                <TableRow>
-                  {columns.map((column) => (
-                    <TableCell
-                      key={column.id}
-                      align={column.align}
-                      style={{ minWidth: column.minWidth, fontWeight: 'bold', backgroundColor: '#414fe1', color: 'white' }}
-                    >
-                      {column.label}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {rows
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((row) => {
-                    return (
-                      <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 }, height: '50px' }}>
-                        <TableCell component="th" scope="row">{row.SNo}</TableCell>
-                        <TableCell align="center"><Link href="/#/cri" sx={{ color: '#414fe1', textDecorationColor: '#414fe1' }}>{row.ChangeRequestId} </Link>   </TableCell>
-                        <TableCell align="center">{row.CRTitle}</TableCell>
-                        <TableCell align="center">{row.CRDescription}</TableCell>
-                        <TableCell align="center">{row.CRRaisedDepartment}</TableCell>
-                        <TableCell align="center">{row.CRRaisedDate}</TableCell>
-                        <TableCell align="center">{row.CurrentStatus}</TableCell>
-                        <TableCell align="center">{row.InternalStatus}</TableCell>
-                        <TableCell align="center">{row.ExternalStatus}</TableCell>
-                        <TableCell align="center">{row.ParentCRID}</TableCell>
-                        <TableCell align="center">{row.Seventy}</TableCell>
-                        <TableCell align="center">{row.Priority}</TableCell>
-                        <TableCell align="center">{row.TypeofChange}</TableCell>
-                        <TableCell align="center">{row.BuildID}</TableCell>
-                        <TableCell align="center">{row.ExpectedDeliveryDate}</TableCell>
-                        <TableCell align="center">{row.CRRaisedBy}</TableCell>
-                        <TableCell align="center">{row.CRCategory}</TableCell>
-                        <TableCell align="center">{row.WorkFlow}</TableCell>
-                      </TableRow>
-                    );
 
-                  })}
-              </TableBody>
-            </Table>
+        <CardContent>
+       
+
+        <Grid container direction="row" rowSpacing={1} columnSpacing={2} justify="flex-end" alignItems="center">
+        <Grid item xs={12} sm={3} md={3} lg={2}>
+        <Typography sx={{ fontSize: 16,fontWeight:'bold' }} color="#3F51B5" gutterBottom>
+           Advanced Search : 
+          </Typography>
+          </Grid>
+        <Grid item xs={12} sm={2.5} md={2.5} lg={2.5}>
+              <Autocomplete
+                disablePortal
+                onChange={(event, value) => console.log(value)}
+                margin="normal"
+                fullWidth
+                size="small"
+                id="combo-box-demo"
+                options={options}
+                sx={{ width: "100%", mt: 1 }}
+                renderInput={(params) => (
+                  <TextField {...params} label="CR ID" />
+                )}
+              />
+            </Grid>
+            <Grid item xs={12} sm={2.5} md={2.5} lg={2.5}>
+              <Autocomplete
+                disablePortal
+                onChange={(event, value) => console.log(value)}
+                margin="normal"
+                fullWidth
+                size="small"
+                id="combo-box-demo"
+                options={options}
+                sx={{ width: "100%", mt: 1 }}
+                renderInput={(params) => (
+                  <TextField {...params} label="Select" />
+                )}
+              />
+            </Grid>
+            <Grid item xs={12} sm={2.5} md={2.5} lg={2.5}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="crid"
+                name="email"
+                autoComplete="email"
+                size="small"
+              />
+            </Grid>
+            <Grid item xs={12} sm={2.5} md={2.5} lg={2.5}>
+
+<Box item width='auto' py={1}size="small" textAlign="left" ml={2}>
+                        <Link to="/dataTable">
+                        <Button variant='contained' size='small'>
+                            <SearchOutlinedIcon fontSize='medium' color='text.primary'/>
+                        </Button>
+                        </Link>
+                </Box>
+</Grid>
+        </Grid>
+      
+
+   
+          <br></br>
+          <TableContainer >
+
+
+            <Box sx={{ overflow: "auto" }}>
+              <Box sx={{ width: "100%", display: "table", tableLayout: "fixed" }}>
+                <Table stickyHeader aria-label="sticky table" sx={{ maxWidth: 650 }}>
+                  <TableHead >
+                    <TableRow>
+                      {columns.map((column) => (
+                        <TableCell
+                          key={column.id}
+                          align={column.align}
+                          style={{ minWidth: column.minWidth, fontWeight: 'bold', backgroundColor: '#3F51B5', color: 'white' }}
+                        >
+                          {column.label}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {rows
+                      .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                      .map((row) => {
+                        return (
+                          <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 }, height: '50px' }}>
+                            <TableCell component="th" scope="row">{row.SNo}</TableCell>
+                            <TableCell align="center"><Link href="/#/viewCR" sx={{ color: '#3F51B5', textDecorationColor: '#3F51B5' }}>{row.ChangeRequestId} </Link>   </TableCell>
+                            <TableCell align="center">{row.CRTitle}</TableCell>
+                            <TableCell align="center">{row.CRDescription}</TableCell>
+                            <TableCell align="center">{row.CRRaisedDepartment}</TableCell>
+                            <TableCell align="center">{row.CRRaisedDate}</TableCell>
+                            <TableCell align="center">{row.CurrentStatus}</TableCell>
+                            <TableCell align="center">{row.InternalStatus}</TableCell>
+                            <TableCell align="center">{row.ExternalStatus}</TableCell>
+                            <TableCell align="center">{row.ParentCRID}</TableCell>
+                            <TableCell align="center">{row.Seventy}</TableCell>
+                            <TableCell align="center">{row.Priority}</TableCell>
+                            <TableCell align="center">{row.TypeofChange}</TableCell>
+                            <TableCell align="center">{row.BuildID}</TableCell>
+                            <TableCell align="center">{row.ExpectedDeliveryDate}</TableCell>
+                            <TableCell align="center">{row.CRRaisedBy}</TableCell>
+                            <TableCell align="center">{row.CRCategory}</TableCell>
+                            <TableCell align="center">{row.WorkFlow}</TableCell>
+                          </TableRow>
+                        );
+
+                      })}
+                  </TableBody>
+                </Table>
+              </Box>
+            </Box>
           </TableContainer>
           <TablePagination
             rowsPerPageOptions={[5, 10, 25]}

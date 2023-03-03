@@ -1,9 +1,6 @@
-import Approval from '../Approval'
-import * as React from 'react';
-import Button from '@mui/material/Button';
-
+import React from 'react'
 import Link from '@mui/material/Link';
-import Box from '@mui/material/Box';
+import {Box, Stack, Typography} from '@mui/material';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -46,28 +43,28 @@ const createData=(SNo, ChangeRequestId, CRTitle, CRDescription, CRRaisedDepartme
 const rows = [
     createData(1, 'T AP/FMPNL/2022/AP C439/CRM29580', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm', 'Pending with ALAMURI VIJAY BHASKAR(AP_C214)', 'NA', 'PMU Verified', '-NA-', '-NA-', 'High', 'Work Flow Changes', '-NA-', '-NA-', 'ANUPAMA KETHAM REDDY', 'Normal Request', 'Change'),
     createData(2, 'T AP/FMPNL/2022/AP C439/CRM29580', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm', 'Pending with ALAMURI VIJAY BHASKAR(AP_C214)', 'NA', 'PMU Verified', '-NA-', '-NA-', 'High', 'Work Flow Changes', '-NA-', '-NA-', 'ANUPAMA KETHAM REDDY', 'Normal Request', 'Change'),
-]  
+]
 
-
-
-const DisplayData=()=>{
+const Inbox = () => {
     const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
-  };
+    const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  
+    const handleChangePage = (event, newPage) => {
+      setPage(newPage);
+    };
+  
+    const handleChangeRowsPerPage = (event) => {
+      setRowsPerPage(parseInt(event.target.value, 10));
+      setPage(0);
+    };
   return (
     <>
-      <Approval/>
-      <br></br>
-
-      <Card sx={{ mt: 2 }}>
+    <Box sx={{borderBottom:1, borderColor:'text.secondary'}}>
+      <Stack p={2} >
+        <Typography variant='body1' component='h1' sx={{textAlign:'left', justifyContent:'center', fontFamily:'Lato, sans-serif'}}  color='#808080'>Inbox</Typography>
+      </Stack>
+    </Box>
+     <Card sx={{ mt: 2 }}>
         <CardContent>
             <TableContainer>
             <Box sx={{ overflow: "auto" }}>
@@ -126,9 +123,9 @@ const DisplayData=()=>{
             onRowsPerPageChange={handleChangeRowsPerPage}
           />
         </CardContent>
-      </Card>
+      </Card> 
     </>
   )
 }
 
-export default DisplayData
+export default Inbox

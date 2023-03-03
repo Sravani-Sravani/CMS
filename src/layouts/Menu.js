@@ -10,17 +10,17 @@ import DashboardSharpIcon from '@mui/icons-material/DashboardSharp';
 import NoteAddSharpIcon from '@mui/icons-material/NoteAddSharp';
 import FactCheckSharpIcon from '@mui/icons-material/FactCheckSharp';
 import SummarizeSharpIcon from '@mui/icons-material/SummarizeSharp';
+import MailSharpIcon from '@mui/icons-material/MailSharp';
+
+const ViewCR = lazy(() => import("../pages/ViewCR/ViewCR"));
+
 
 const Home = lazy(() => import("../pages/Home"));
-const RegisteredPatient = lazy(() => import("../pages/RegisteredPatient"));
-const RegisteredPatientView = lazy(() => import("../pages/RegisteredPatientView"));
-const ReferredPatientView = lazy(() => import("../pages/ReferredPatientView"));
-const TelephonicRegView = lazy(() => import("../pages/TelephonicRegView"));
-const TelephonicRegistration = lazy(() => import("../pages/TelephonicRegistration"));
-const TelephonicRegEdit = lazy(() => import("../pages/TelephonicRegEdit"));
 const Login = lazy(() => import("../pages/auth/Login"));
 const CreateRequest = lazy(() => import("../pages/CreateRequest"));
 const Approval = lazy(() => import("../pages/approval/Approval"));
+const Inbox = lazy(() => import("../pages/inbox/Inbox"));
+
 
 
 export const menu = [
@@ -30,7 +30,6 @@ export const menu = [
     pageLink: '/home',
     view: <Home/>,
   },
-  
   {
     icon: <NoteAddSharpIcon />,
     title: "Create Request",
@@ -44,10 +43,43 @@ export const menu = [
     view: <Approval/>,
   },
   {
+    icon: <MailSharpIcon />,
+    title: "Inbox",
+    pageLink: '/inbox',
+    view: <Inbox/>,
+  },
+  {
     icon: <SummarizeSharpIcon />,
     title: "CMS Reports",
-    pageLink: '/page1',
-    view: <Home/>,
+    items: [
+      {
+        title: "My Department Report",
+        pageLink: '/page1',
+        view: <Home/>,
+      },
+      {
+        title: "My CMS Report",
+        pageLink: '/page1',
+        view: <Home/>,
+      },
+      {
+        title: "Section Wise CMS Report",
+        pageLink: '/page1',
+        view: <Home/>,
+      },
+      // {
+      //   title: "Work Statistics CMS Report",
+      //   pageLink: '/page1',
+      //   view: <Home/>,
+      // },
+      {
+        title: "CMS Statistics Report",
+        pageLink: '/page1',
+        view: <Home/>,
+      },
+      
+    ]
+   
   },
   {
     icon: <AppRegistrationIcon />,
@@ -121,8 +153,7 @@ export const AppRoutes = () => {
       <Routes>
         <Route path="/" element={<Login/>} exact />
         <Route path="/home" element={<Home/>} />
-        <Route path="/registeredPatient" element={<RegisteredPatient/>} />
-        <Route path="/registeredPatientView" element={<RegisteredPatientView/>} />
+ 
           {/* {menu.map((page, index) => {
             return (
               <Route

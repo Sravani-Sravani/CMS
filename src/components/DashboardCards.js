@@ -32,7 +32,7 @@ const DashboardCards = () => {
                 <Card sx={{boxShadow:3, display:'block', width:'auto', height:'auto', borderRadius:'5px'}} >
                   <CardContent>
                     <Box display='flex' justifyContent='space-between'>
-                    <Typography sx={{ fontSize: 10, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
+                    <Typography sx={{ fontSize: 13, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
                         Total No. of CRs
                       </Typography>
                       <CheckCircleRoundedIcon style={{color:"#79B5F2", fontSize:'30px'}}/>
@@ -47,7 +47,7 @@ const DashboardCards = () => {
                 <Card sx={{boxShadow:3, borderRadius:'5px'}}>
                   <CardContent>
                     <Box display='flex' justifyContent='space-between'>
-                    <Typography sx={{ fontSize: 10, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
+                    <Typography sx={{ fontSize: 13, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
                         Approved CRs
                       </Typography>
                       <RecommendRoundedIcon style={{color:"#97D36C", fontSize:'30px'}}/>
@@ -62,7 +62,7 @@ const DashboardCards = () => {
                 <Card sx={{boxShadow:3,  borderRadius:'5px'}}>
                   <CardContent>
                     <Box display='flex' justifyContent='space-between'>
-                    <Typography sx={{ fontSize: 10, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
+                    <Typography sx={{ fontSize: 13, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
                         Rejected CRs
                       </Typography>
                       <CancelRoundedIcon style={{color:"#EE5555", fontSize:'30px'}}/>
@@ -77,7 +77,7 @@ const DashboardCards = () => {
                 <Card sx={{boxShadow:3,  borderRadius:'5px'}}>
                   <CardContent>
                     <Box display='flex' justifyContent='space-between'>
-                    <Typography sx={{ fontSize: 10, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
+                    <Typography sx={{ fontSize: 13, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
                         In Progress CRs
                       </Typography>
                       <CachedRoundedIcon style={{color:"#FDDF75", fontSize:'30px'}}/>
@@ -92,7 +92,7 @@ const DashboardCards = () => {
                 <Card sx={{boxShadow:3,  borderRadius:'5px'}}>
                   <CardContent>
                     <Box display='flex' justifyContent='space-between'>
-                    <Typography sx={{ fontSize: 10, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
+                    <Typography sx={{ fontSize: 13, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
                         Pending CRs
                       </Typography>
                       <PendingActionsRoundedIcon style={{color:"#D8A7FF", fontSize:'30px'}}/>
@@ -107,7 +107,7 @@ const DashboardCards = () => {
                 <Card sx={{boxShadow:3,  borderRadius:'5px'}}>
                   <CardContent>
                     <Box display='flex' justifyContent='space-between'>
-                    <Typography sx={{ fontSize: 10, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
+                    <Typography sx={{ fontSize: 13, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
                         Closed CRs
                       </Typography>
                       <OfflinePinRoundedIcon style={{color:"#CCCCCC", fontSize:'30px'}}/>

@@ -163,14 +163,14 @@ export default function CRDetails() {
             rowSpacing={0}
             columnSpacing={2}
             justifyContent="center"
-            alignItems="center"
+            textAlign='left'
           >
             <Grid item sx={{ mt: 2 }}> <Typography>Remarks: </Typography></Grid>
             <Grid item ><TextareaAutosize
               aria-label="minimum height"
               minRows={3}
 
-              style={{ width: 300 }}
+              style={{ width: 'auto' }}
             /></Grid>
           </Grid>
           <Stack
@@ -200,4 +200,5 @@ export default function CRDetails() {
     </Stack>
   );
 }
+
 
