@@ -3,8 +3,10 @@ import { Typography, Card,CardContent, Grid, Autocomplete,TextField, Box } from 
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 import RecommendRoundedIcon from '@mui/icons-material/RecommendRounded';
 import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
-import CachedRoundedIcon from '@mui/icons-material/CachedRounded';
-import PendingActionsRoundedIcon from '@mui/icons-material/PendingActionsRounded';
+// import CachedRoundedIcon from '@mui/icons-material/CachedRounded';
+import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
+// import PendingActionsRoundedIcon from '@mui/icons-material/PendingActionsRounded';
+import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
 import OfflinePinRoundedIcon from '@mui/icons-material/OfflinePinRounded';
 
 import { Stack } from '@mui/system';
@@ -28,18 +30,20 @@ const DashboardCards = () => {
       <Box py={2} mt={5}>
         <Stack>
             <Grid container rowSpacing={2} columnSpacing={2} direction='row' justify="flex-end" alignItems="center">
-              <Grid xs={12} sm={4} item>
-                <Card sx={{boxShadow:3, display:'block', width:'auto', height:'auto', borderRadius:'5px'}} >
+              <Grid xs={12} sm={4} item >
+                <Card sx={{boxShadow:3, width:'auto', height:'auto', borderRadius:'5px'}} >
                   <CardContent>
                     <Box display='flex' justifyContent='space-between'>
-                    <Typography sx={{ fontSize: 13, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
+                      <Typography sx={{ fontSize: 13, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} >
                         Total No. of CRs
                       </Typography>
-                      <CheckCircleRoundedIcon style={{color:"#79B5F2", fontSize:'30px'}}/>
+                      <CheckCircleRoundedIcon style={{color:"#79B5F2", fontSize:'50px'}}/>
                     </Box>
-                    <Typography variant='h4' mt={2} sx={{ fontFamily:'Lato, sans-serif' }}>
+                    <Box mt={2}>
+                      <Typography variant='h4' sx={{ fontFamily:'Lato, sans-serif' }}>
                         2541
-                    </Typography>
+                      </Typography>
+                    </Box>
                   </CardContent>
                 </Card>
               </Grid>
@@ -50,7 +54,7 @@ const DashboardCards = () => {
                     <Typography sx={{ fontSize: 13, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
                         Approved CRs
                       </Typography>
-                      <RecommendRoundedIcon style={{color:"#97D36C", fontSize:'30px'}}/>
+                      <RecommendRoundedIcon style={{color:"#97D36C", fontSize:'50px'}}/>
                     </Box>
                     <Typography variant='h4' mt={2} sx={{ fontFamily:'Lato, sans-serif' }}>
                       2222
@@ -65,7 +69,7 @@ const DashboardCards = () => {
                     <Typography sx={{ fontSize: 13, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
                         Rejected CRs
                       </Typography>
-                      <CancelRoundedIcon style={{color:"#EE5555", fontSize:'30px'}}/>
+                      <CancelRoundedIcon style={{color:"#EE5555", fontSize:'50px'}}/>
                     </Box>
                     <Typography variant='h4' mt={2} sx={{ fontFamily:'Lato, sans-serif' }}>
                       251
@@ -80,7 +84,7 @@ const DashboardCards = () => {
                     <Typography sx={{ fontSize: 13, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
                         In Progress CRs
                       </Typography>
-                      <CachedRoundedIcon style={{color:"#FDDF75", fontSize:'30px'}}/>
+                      <AccessTimeFilledIcon style={{color:"#FDDF75", fontSize:'50px'}}/>
                     </Box>
                     <Typography variant='h4' mt={2} sx={{ fontFamily:'Lato, sans-serif' }}>
                       600
@@ -95,7 +99,7 @@ const DashboardCards = () => {
                     <Typography sx={{ fontSize: 13, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
                         Pending CRs
                       </Typography>
-                      <PendingActionsRoundedIcon style={{color:"#D8A7FF", fontSize:'30px'}}/>
+                      <ChangeCircleIcon style={{color:"#D8A7FF", fontSize:'50px'}}/>
                     </Box>
                     <Typography variant='h4' mt={2} sx={{ fontFamily:'Lato, sans-serif' }}>
                       1200
@@ -110,7 +114,7 @@ const DashboardCards = () => {
                     <Typography sx={{ fontSize: 13, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
                         Closed CRs
                       </Typography>
-                      <OfflinePinRoundedIcon style={{color:"#CCCCCC", fontSize:'30px'}}/>
+                      <OfflinePinRoundedIcon style={{color:"#CCCCCC", fontSize:'50px'}}/>
                     </Box>
                     <Typography variant='h4' mt={2} sx={{ fontFamily:'Lato, sans-serif' }}>
                       400

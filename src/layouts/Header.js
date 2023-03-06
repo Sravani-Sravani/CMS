@@ -213,7 +213,7 @@ export default function PersistentDrawerLeft() {
         open={open}
       >
         <DrawerHeader>
-          <Box >
+          <Box mr={1.5}>
           <Typography sx={{ py: 2, float: "left"}} display='flex' justifyContent ='space-between'>
             <img src={logo_left} width="50px" height='50px' />
             <Stack direction='column' py={1}>
