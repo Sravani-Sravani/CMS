@@ -23,6 +23,7 @@ const TelephonicRegView = lazy(() => import("./pages/TelephonicRegView"));
 const TelephonicRegistration = lazy(() => import("./pages/TelephonicRegistration"));
 const TelephonicRegEdit = lazy(() => import("./pages/TelephonicRegEdit"));
 const CreateRequest = lazy(() => import("./pages/CreateRequest"));
+const CreateRequest1 = lazy(() => import("./pages/CreateRequest1"));
 
 
 // import FullLayout from "./layouts/FullLayout";
@@ -68,6 +69,9 @@ const AppRoutes = () => {
       <Route element={<Header />}>
         <Route path="/home" element={<Home/>} />
         <Route path="/CreateRequest" element={<CreateRequest/>} />
+        <Route path="/CreateRequest1" element={<CreateRequest1/>} />
+        <Route path="/RegisteredPatientView" element={<RegisteredPatientView/>} />
+        <Route path="/RegisteredPatient" element={<RegisteredPatient/>} />
         
           {/* {menu.map((page, index) => {
             return (

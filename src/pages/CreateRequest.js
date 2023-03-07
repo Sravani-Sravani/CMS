@@ -2,8 +2,9 @@ import * as React from 'react';
 import {Card,CardContent,Typography, Grid,InputAdornment, FormLabel,Box, Button,Autocomplete,TextField, FormControl,RadioGroup,FormControlLabel,Radio, ThemeProvider} from "@mui/material";
 import { createTheme } from '@mui/material';
 import { useRef, useState } from 'react';
+
 function CreateRequest() {
-    const deleteButton = false;
+  const aRef = useRef(null);
     const PHONE_REGEX = new RegExp(/"^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"/gmi);
   const theme = createTheme({
     components: {
@@ -26,7 +27,7 @@ function CreateRequest() {
     const uploadHandler = (event) => {
         const file = event.target.files[0];
         if(!file) return;
-        deleteButton= true;
+        
         file.isUploading = true;
         setFiles([...files, file])
 
@@ -46,11 +47,12 @@ function CreateRequest() {
     { label: 'Two', id: 2 },
   ];
   const [value, setValue] = React.useState(null);
-  const [num, setNum] = React.useState();
+  
   const limitChar = 10;
   const handleInputChange = (e) => {
-    if (e.target.value.toString().length <= limitChar && !PHONE_REGEX.test(e.target.value)) {
-      setNum(e.target.value);
+
+    if (e.target.value.length <= limitChar && !PHONE_REGEX.test(e.target.value)) {
+      setMno(e.target.value);
     }
   };
 
@@ -83,8 +85,9 @@ function CreateRequest() {
     setCrm("")
     setTc("")
     setWfc("")
-     setNum("")
+     
      setMno("")
+     aRef.current.value = null;
   }
 
   return (
@@ -450,15 +453,15 @@ function CreateRequest() {
                     margin="normal"
                     fullWidth
                     type="number"
-
+                    value={mno}
   
 
-                    onInputChange={(e) => handleInputChange(e)}
+                    onClick={() => handleInputChange(value) }
                     onChange={(newValue) => setMno(newValue.target.value)}
                     
                     
-                    defaultValue={mno}
-                    value={mno}
+                    
+                    
                     size="small" 
                     InputProps={{
                       startAdornment: <InputAdornment position="start">
@@ -491,7 +494,7 @@ function CreateRequest() {
               </FormLabel>
             </Grid>
             <Grid item sx={{ml:30}} xs={12} sm={4} md={4} lg={4}>
-                <Button  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}}><input  type="file"  style={{ fontSize:"15px" }} onChange={uploadHandler}  multiple /></Button>   
+                <Button onClick={resetForm} component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}}><input  type="file" ref={aRef}  style={{ fontSize:"15px" }} onChange={uploadHandler}  multiple /></Button>   
             </Grid>
             </Grid>
             
