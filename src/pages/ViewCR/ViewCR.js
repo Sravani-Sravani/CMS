@@ -24,6 +24,7 @@ import { blue } from '@mui/material/colors';
 import { createTheme } from '@mui/material';
 import DataTable from './DataGrid';
 import { ThemeProvider } from '@emotion/react';
+import PageTitle from '../../layouts/PageTitle';
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -49,6 +50,7 @@ const theme = createTheme({
 
 
 export default function CRDetails() {
+  const name = "Change Request Details"
   const options = [
     { label: 'One', id: 1 },
     { label: 'Two', id: 2 },
@@ -59,11 +61,13 @@ export default function CRDetails() {
   const [desc, setDesc] = React.useState('');
   return (
     <>
-        <Typography sx={{color:'#808080',textAlign:'left'}} py={2} px={2}>Change Request Details</Typography>
-    <Card sx={{width:"100%"}}>
+        {/* <Typography sx={{color:'#808080',textAlign:'left'}} py={2} px={2}>Change Request Details</Typography> */}
+        <PageTitle name={name}/>
+        <Box mt={2}>
+    <Card sx={{width:"100%"}} >
         {/* <ThemeProvider theme={theme}> */}
        
-        <Card sx={{mt:3,mb:4,ml:3,mr:3,border:'none',boxShadow:'none'}}>
+        <Card sx={{mt:3,mb:4,ml:3,mr:3,border:'none',boxShadow:'none'}} >
        
         <Grid
             container
@@ -197,7 +201,7 @@ export default function CRDetails() {
           <DataTable/>
           </Grid>
         </Card>
-        
+        </Box>
         {/* </ThemeProvider> */}
         </>
     );

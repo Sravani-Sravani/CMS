@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Card,CardContent,Typography, Grid,InputAdornment, FormLabel,Box, Button,Autocomplete,TextField, FormControl,RadioGroup,FormControlLabel,Radio, ThemeProvider} from "@mui/material";
 import { createTheme } from '@mui/material';
 import { useRef, useState } from 'react';
+import PageTitle from '../layouts/PageTitle';
 function CreateRequest() {
     const deleteButton = false;
     const PHONE_REGEX = new RegExp(/"^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"/gmi);
@@ -86,14 +87,16 @@ function CreateRequest() {
      setNum("")
      setMno("")
   }
-
+  const name = "Create Request"
   return (
         <>
-        <Box px={2}>
+        {/* <Box px={2}>
         <Typography sx={{mb:3,mt:1, textAlign:'left', fontFamily:'Lato, sans-serif', px:2}} color='#808080' gutterBottom>Create Request</Typography>
-        </Box>
+        </Box> */}
+        <PageTitle name={name}/>
         
-        <Card sx={{border:"2px  solid grey" , mx:2}}>
+        <Box mt={2}>
+        <Card sx={{border:"none"}}>
         <CardContent>
         <ThemeProvider theme={theme}>
           <Grid
@@ -501,6 +504,7 @@ function CreateRequest() {
             </ThemeProvider>
             </CardContent>
       </Card>
+      </Box>
         <Box
         spacing={2}
         sx={{mt:2,mb:2, display:"flex",justifyContent:"center",alignItems:"center"}}

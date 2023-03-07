@@ -25,7 +25,8 @@ const Form = () => {
   }
   return (
     <>
-      <Card >
+      <Box mt={2}>
+      <Card>
         <CardContent>
           <Grid container rowSpacing={1} columnSpacing={5} direction='row' justify="flex-end" alignItems="center">
             <Grid xs={12} sm={6} item>
@@ -79,7 +80,7 @@ const Form = () => {
                 options={options}
                 sx={{ width: "100%", mt: 1 }}
                 renderInput={(params) => (
-                  <TextField {...params} label="Section" />
+                  <TextField {...params} label="Application Type" />
                 )}
               />
             </Grid>
@@ -94,7 +95,7 @@ const Form = () => {
                 options={options}
                 sx={{ width: "100%", mt: 1 }}
                 renderInput={(params) => (
-                  <TextField {...params} label="Section" />
+                  <TextField {...params} label="Parent Organization" />
                 )}
               />
             </Grid>
@@ -109,7 +110,7 @@ const Form = () => {
                 options={options}
                 sx={{ width: "100%", mt: 1 }}
                 renderInput={(params) => (
-                  <TextField {...params} label="Section" />
+                  <TextField {...params} label="Department" />
                 )}
               />
             </Grid>
@@ -126,6 +127,7 @@ const Form = () => {
           </Grid>
         </CardContent>
       </Card>
+      </Box>
     </>
   )
 }

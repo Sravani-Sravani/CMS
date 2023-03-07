@@ -8,6 +8,7 @@ import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 // import PendingActionsRoundedIcon from '@mui/icons-material/PendingActionsRounded';
 import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
 import OfflinePinRoundedIcon from '@mui/icons-material/OfflinePinRounded';
+import PageTitle from '../layouts/PageTitle';
 
 import { Stack } from '@mui/system';
 // const cardNums= [
@@ -18,16 +19,13 @@ import { Stack } from '@mui/system';
 //     {num5: 1200},
 //     {num6: 400},
 // ]
+
 const DashboardCards = () => {
+  const name = "CMS Dashboard"
   return (
     <>
-      <Box  display='flex' justifyContent='space-between' alignItems='center' px={2}>
-        <Typography variant='body1' color='#808080'>CMS DashBoard</Typography>
-        {/* <Typography variant='body1' sx={{fontSize:'10px'}}>
-          <Typography variant='body1' component='span' sx={{fontSize:'10px', color:'#0377df', fontWeight:'bold'}}>Home </Typography>
-           >> DashBoard</Typography> */}
-      </Box>
-      <Box py={2} mt={5}>
+      <PageTitle name={name}/>
+      <Box py={0} mt={2}>
         <Stack>
             <Grid container rowSpacing={2} columnSpacing={2} direction='row' justify="flex-end" alignItems="center">
               <Grid xs={12} sm={4} item >

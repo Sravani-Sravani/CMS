@@ -14,6 +14,7 @@ import TablePagination from '@mui/material/TablePagination';
 
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import PageTitle from '../../layouts/PageTitle';
 
 const columns = [
     {id:'SNo.', label:'S.No', minWidth:70},
@@ -57,13 +58,15 @@ const Inbox = () => {
       setRowsPerPage(parseInt(event.target.value, 10));
       setPage(0);
     };
+    const name='Inbox'
   return (
     <>
-    <Box sx={{borderBottom:1, borderColor:'text.secondary'}}>
+    {/* <Box sx={{borderBottom:1, borderColor:'text.secondary'}}>
       <Stack p={2} >
         <Typography variant='body1' component='h1' sx={{textAlign:'left', justifyContent:'center', fontFamily:'Lato, sans-serif'}}  color='#808080'>Inbox</Typography>
       </Stack>
-    </Box>
+    </Box> */}
+    <PageTitle name={name}/>
      <Card sx={{ mt: 2 }}>
         <CardContent>
             <TableContainer>
