@@ -233,7 +233,7 @@ const CMSReport = () => {
             alignItems="center"
             spacing={1}>
             <Button sx={{ minWidth: 100, ml: 1, backgroundColor: '#3F51B5', ":hover": { backgroundColor: '#3F51B5', color: 'white', fontWeight: 'bold' } }} variant="contained">
-              <Link href="/#/page2" sx={{ textDecorationColor: 'none', color: 'white', fontWeight: 'bold' }}> Generate Report</Link>
+              <Link href="/cms#/page2" sx={{ textDecorationColor: 'none', color: 'white', fontWeight: 'bold' }}> Generate Report</Link>
             </Button>
             <Button onClick={() => resetForm()} sx={{ minWidth: 100, ml: 1, color: '#3F51B5', border: '1px solid #3F51B5', fontWeight: 'bold' }} variant="outlined">
               Reset

@@ -11,7 +11,7 @@ import NoteAddSharpIcon from '@mui/icons-material/NoteAddSharp';
 import FactCheckSharpIcon from '@mui/icons-material/FactCheckSharp';
 import SummarizeSharpIcon from '@mui/icons-material/SummarizeSharp';
 import MailSharpIcon from '@mui/icons-material/MailSharp';
-
+import OutboxIcon from '@mui/icons-material/Outbox';
 const ViewCR = lazy(() => import("../pages/ViewCR/ViewCR"));
 
 
@@ -37,14 +37,14 @@ export const menu = [
     view: <CreateRequest/>,
   },
   {
-    icon: <FactCheckSharpIcon />,
-    title: "My Approvals",
-    pageLink: '/approval',
-    view: <Approval/>,
-  },
-  {
     icon: <MailSharpIcon />,
     title: "Inbox",
+    pageLink: '/inbox',
+    view: <Inbox/>,
+  },
+  {
+    icon: <OutboxIcon />,
+    title: "Sentbox",
     pageLink: '/inbox',
     view: <Inbox/>,
   },
@@ -84,7 +84,8 @@ export const menu = [
   {
     icon: <AppRegistrationIcon />,
     title: "Manage Request",
-    pageLink: "/viewCR",
+    pageLink: '/approval',
+    view: <Approval/>,
     items: [
         // {
         //   title: "Create Employee",
