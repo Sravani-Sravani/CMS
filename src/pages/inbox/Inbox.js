@@ -66,11 +66,11 @@ const Inbox = () => {
         <Typography variant='body1' component='h1' sx={{textAlign:'left', justifyContent:'center', fontFamily:'Lato, sans-serif'}}  color='#808080'>Inbox</Typography>
       </Stack>
     </Box> */}
-    <PageTitle name={name}/>
      <Card sx={{ mt: 2 }}>
         <CardContent>
+    <PageTitle name={name}/>
             <TableContainer>
-            <Box sx={{ overflow: "auto" }}>
+            <Box sx={{ overflow: "auto" }} mt={1}>
               <Box sx={{ width: "100%", display: "table", tableLayout: "fixed" }}>
                 <Table stickyHeader aria-label="sticky table">
                      <TableHead>

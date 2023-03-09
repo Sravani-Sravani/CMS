@@ -28,10 +28,12 @@ import FormLabel from '@mui/material/FormLabel';
 
 import Autocomplete from '@mui/material/Autocomplete';
 
+
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import noImage from "../assets/images/noImage.jpg";
+import PageTitle from '../layouts/PageTitle';
 const WhiteBorderTextField = styled(TextField)`
   & label.Mui-focused {
     color: white;
@@ -47,14 +49,15 @@ function CreateRequest1() {
         { label: 'One', id: 1 },
         { label: 'Two', id: 2 },
       ];
-   
+      const name = 'Create Request'
     return(
         <>
         <Card>
             <CardContent>
-            <Typography variant="h4"  color="text.secondary" gutterBottom>
+            {/* <Typography variant="h4"  color="text.secondary" gutterBottom>
             Create Request
-          </Typography>
+          </Typography> */}
+          <PageTitle name={name}/>
             <Grid
             container
             direction="row"

@@ -11,6 +11,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 // import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 // import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Container } from '@mui/material/Container';
+import Title from './Title';
 const options = [
   { label: 'One', id: 1 },
   { label: 'Two', id: 2 },
@@ -28,8 +29,9 @@ const Form = () => {
       <Box mt={2}>
       <Card>
         <CardContent>
+          <Title />
           <Grid container rowSpacing={1} columnSpacing={5} direction='row' justify="flex-end" alignItems="center">
-            <Grid xs={12} sm={6} item>
+            <Grid xs={12} sm={4} item>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   label="CR raised From Date"
@@ -49,7 +51,7 @@ const Form = () => {
                 />
               </LocalizationProvider>
             </Grid>
-            <Grid xs={12} sm={6}  item>
+            <Grid xs={12} sm={4}  item>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   label=" CR raised To Date"
@@ -69,7 +71,7 @@ const Form = () => {
                 />
               </LocalizationProvider>
             </Grid>
-            <Grid xs={12} sm={6} item>
+            <Grid xs={12} sm={4} item>
             <Autocomplete
                 disablePortal
                 onChange={(event, value) => console.log(value)}
@@ -115,12 +117,12 @@ const Form = () => {
               />
             </Grid>
             {/* <Grid xs={12} sm={3}></Grid> */}
-            <Grid Container justifyContent={'center'} sx={{
-                // display: 'flex',
-                // justifyContent: 'center',
-                // alignItems: 'center',
+            <Grid sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
                 // flexDirection: 'column'
-            }} xs={4} sm={6} item>
+            }} xs={12} sm={12} mb={6} fullWidth item>
               <Button 
             variant='contained' onClick={onSubmit} >Submit</Button>
             </Grid>
