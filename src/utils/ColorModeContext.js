@@ -34,6 +34,36 @@ export const ColorModeContextProvider = ({ children }) => {
           mode,
           ...(mode === "light"
             ? {
+              MuiCard: {
+                styleOverrides: {
+                //     // Name of the slot
+                root: {
+                //       // Some CSS
+                background: "#fff",
+                borderRadius: 5,
+                spacing:20,
+                boxShadow:'0px 10px 25px -5px rgba(0, 0, 0, 0.1)',
+                marginTop:20,
+                
+                marginBottom:40,
+                padding:16
+                }
+                }
+                },
+                MuiTextField: {
+                  styleOverrides: {
+                  //     // Name of the slot
+                  root: {
+                  //       // Some CSS
+                  background: "#fff",
+                  borderRadius: 2,
+                  marginBottom:10
+                  
+                  
+                  }
+                  }
+                  },
+
                 // MuiCard: {
                 //   styleOverrides: {
                 //     // Name of the slot
@@ -83,6 +113,7 @@ export const ColorModeContextProvider = ({ children }) => {
                 background: {
                   default: "#F5F5F5",
                 },
+                
               }
             : {
                 // palette values for dark mode

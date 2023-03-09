@@ -36,6 +36,9 @@ const CaseStatus = lazy(() => import("./pages/ViewCR/CaseStatus"));
 const CRStatus = lazy(() => import("./pages/ViewCR/CRStatus"));
 const Inbox = lazy(() => import("./pages/inbox/Inbox"));
 
+const CreateRequest = lazy(() => import("./pages/CreateRequest"));
+const CreateRequest1 = lazy(() => import("./pages/CreateRequest1"));
+
 
 // import FullLayout from "./layouts/FullLayout";
 
@@ -86,6 +89,11 @@ const AppRoutes = () => {
         <Route path="/approval" element={<Approval/>} />
         <Route path="/inbox" element={<Inbox/>} />
         <Route exact path="/dataTable" element={<DisplayData/>} />
+        <Route path="/CreateRequest" element={<CreateRequest/>} />
+        <Route path="/CreateRequest1" element={<CreateRequest1/>} />
+        <Route path="/RegisteredPatientView" element={<RegisteredPatientView/>} />
+        <Route path="/RegisteredPatient" element={<RegisteredPatient/>} />
+        
           {/* {menu.map((page, index) => {
             return (
               <Route
