@@ -46,7 +46,7 @@ const rows = [
     createData(2, 'T AP/FMPNL/2022/AP C439/CRM29580', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm', 'Pending with ALAMURI VIJAY BHASKAR(AP_C214)', 'NA', 'PMU Verified', '-NA-', '-NA-', 'High', 'Work Flow Changes', '-NA-', '-NA-', 'ANUPAMA KETHAM REDDY', 'Normal Request', 'Change'),
 ]
 
-const Inbox = () => {
+const Sentbox = () => {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
   
@@ -58,7 +58,7 @@ const Inbox = () => {
       setRowsPerPage(parseInt(event.target.value, 10));
       setPage(0);
     };
-    const name='Inbox'
+    const name='Sentbox'
   return (
     <>
     {/* <Box sx={{borderBottom:1, borderColor:'text.secondary'}}>
@@ -68,8 +68,8 @@ const Inbox = () => {
     </Box> */}
      <Card sx={{ mt: 2 }}>
         <CardContent>
-    <PageTitle name={name}/>
-            <TableContainer>
+        <PageTitle name={name}/>
+            <TableContainer >
             <Box sx={{ overflow: "auto" }} mt={1}>
               <Box sx={{ width: "100%", display: "table", tableLayout: "fixed" }}>
                 <Table stickyHeader aria-label="sticky table">
@@ -131,4 +131,4 @@ const Inbox = () => {
   )
 }
 
-export default Inbox
+export default Sentbox;

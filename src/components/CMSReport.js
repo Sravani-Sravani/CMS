@@ -11,6 +11,8 @@ import Grid from '@mui/material/Grid';
 import Autocomplete from '@mui/material/Autocomplete';
 import Stack from '@mui/material/Stack';
 import Link from '@mui/material/Link';
+import PageTitle from '../layouts/PageTitle';
+
 
 const options = [
   { label: 'One', id: 1 },
@@ -49,13 +51,14 @@ const CMSReport = () => {
     setCrid("")
     setAstate("")
   }
-
+  const name = 'CMS Section Wise Report'
   return (
     <>
-          <Typography sx={{fontFamily:'Lato, sans-serif'}} px={3} color="#808080" gutterBottom>
+          {/* <Typography sx={{fontFamily:'Lato, sans-serif'}} px={3} color="#808080" gutterBottom>
             CMS Section Wise Report
-          </Typography>
-      <Card sx={{ mt: 2, ml: 2 }} spacing={4}>
+          </Typography> */}
+          <PageTitle name={name}/>
+      <Card sx={{ mt: 2}} spacing={4}>
         <CardContent>
           {/* <Typography sx={{ fontSize: 22,fontWeight:'bold' }} color="#414fe1" gutterBottom>
             CMS Section Wise Report

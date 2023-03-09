@@ -20,6 +20,7 @@ const Login = lazy(() => import("../pages/auth/Login"));
 const CreateRequest = lazy(() => import("../pages/CreateRequest"));
 const Approval = lazy(() => import("../pages/approval/Approval"));
 const Inbox = lazy(() => import("../pages/inbox/Inbox"));
+const Sentbox = lazy(() => import("../pages/sentbox/Sentbox"));
 
 
 
@@ -45,8 +46,8 @@ export const menu = [
   {
     icon: <OutboxIcon />,
     title: "Sentbox",
-    pageLink: '/inbox',
-    view: <Inbox/>,
+    pageLink: '/sentbox',
+    view: <Sentbox/>,
   },
   {
     icon: <SummarizeSharpIcon />,

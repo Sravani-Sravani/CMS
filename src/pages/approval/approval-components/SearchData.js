@@ -24,10 +24,10 @@ const SearchData = () => {
   return (
     <>
         {/* <Typography mb={2} variant='body1' component='h1' sx={{textAlign:'left', justifyContent:'center', fontFamily:'Lato, sans-serif'}} color='#808080' mt={2}>Click here to export all required data</Typography>  */}
-        <PageTitle name={name}/>
         <Box mt={2}>
         <Card >
             <CardContent sx={{width:'100%'}} px={3}>
+        <PageTitle name={name}/>
                 <Grid container display='flex' flexDirection='row' justifyContent='center' >
                     <Grid item  py={0.5} textAlign='center' fontSize={2} display='flex' justifyContent='space-between'>
                         <Typography variant='body2' pt={1.5}>Advance Search</Typography>

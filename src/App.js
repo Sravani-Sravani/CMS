@@ -35,6 +35,7 @@ const DataGrid2 = lazy(() => import("./pages/ViewCR/DataGrid2"))
 const CaseStatus = lazy(() => import("./pages/ViewCR/CaseStatus"));
 const CRStatus = lazy(() => import("./pages/ViewCR/CRStatus"));
 const Inbox = lazy(() => import("./pages/inbox/Inbox"));
+const Sentbox = lazy(() => import("./pages/sentbox/Sentbox"));
 
 
 // import FullLayout from "./layouts/FullLayout";
@@ -85,6 +86,7 @@ const AppRoutes = () => {
         <Route path="/dataGrid2" element={<DataGrid2/>}></Route>
         <Route path="/approval" element={<Approval/>} />
         <Route path="/inbox" element={<Inbox/>} />
+        <Route path="/sentbox" element={<Sentbox/>} />
         <Route exact path="/dataTable" element={<DisplayData/>} />
           {/* {menu.map((page, index) => {
             return (

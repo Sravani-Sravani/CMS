@@ -99,7 +99,7 @@ function ReferredPatientView() {
     <>
       <CMSReport></CMSReport>
       <br></br>
-      <Card sx={{ mt: 2 ,ml: 2}}>
+      <Card sx={{ mt: 2}}>
         <Box sx={{ pr: 3, mb: 1, mt: 1, float: "right" }}>
           <Button
             variant="outlined"
@@ -134,7 +134,7 @@ function ReferredPatientView() {
 
         <Grid container direction="row" rowSpacing={1} columnSpacing={2} justify="flex-end" alignItems="center">
         <Grid item xs={12} sm={3} md={3} lg={2}>
-        <Typography sx={{ fontSize: 16,fontWeight:'bold' }} color="#3F51B5" gutterBottom>
+        <Typography sx={{ fontSize: 14,fontWeight:'bold' }} color="#3F51B5">
            Advanced Search : 
           </Typography>
           </Grid>

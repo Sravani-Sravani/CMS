@@ -8,7 +8,7 @@ const Approval = () => {
     <div>
       <>
         {/* <Header /> */}
-        <Title />
+        {/* <Title /> */}
         <Form />
         <SearchData />
     </>
