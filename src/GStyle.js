@@ -17,4 +17,4 @@ const GStyle = createTheme({
         },
       },
 });
-export default GStyle
+export default GStyle;
