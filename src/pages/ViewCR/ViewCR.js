@@ -67,7 +67,7 @@ export default function CRDetails() {
     <Card sx={{width:"100%"}} >
         {/* <ThemeProvider theme={theme}> */}
        
-        <Card sx={{mt:3,mb:4,ml:3,mr:3,border:'none',boxShadow:'none'}} >
+        <Card  >
        
         <Grid
             container

@@ -54,7 +54,7 @@ const name='CMS Section Wise Report'
   return (
     <>
           
-      <Card sx={{ mt: 2, ml: 2 }} spacing={4}>
+      <Card spacing={4}>
         <CardContent>
       {/* <Typography variant="h4"  color="text.secondary" gutterBottom>
            CMS Section Wise Report
@@ -67,7 +67,7 @@ const name='CMS Section Wise Report'
             container
             direction="row" 
             rowSpacing={1}
-            columnSpacing={2}
+            columnSpacing={1}
             justify="flex-end"
             alignItems="center"
           >
@@ -83,7 +83,7 @@ const name='CMS Section Wise Report'
                   renderInput={(params) => (
                     <TextField
                       size="small"
-                      sx={{ width: "100%", mt: 1 }}
+                      sx={{ width: "100%"}}
                       fullWidth
                       {...params}
                     />
@@ -103,7 +103,7 @@ const name='CMS Section Wise Report'
                   renderInput={(params) => (
                     <TextField
                       size="small"
-                      sx={{ width: "100%", mt: 1 }}
+                      sx={{ width: "100%"}}
                       fullWidth
                       {...params}
                     />
@@ -123,7 +123,7 @@ const name='CMS Section Wise Report'
                 size="small"
                 id="combo-box-demo"
                 options={options}
-                sx={{ width: "100%", mt: 1 }}
+                sx={{ width: "100%"}}
                 renderInput={(params) => (
                   <TextField  {...params} label="Application Type" />
                 )}
@@ -141,7 +141,7 @@ const name='CMS Section Wise Report'
                 size="small"
                 id="combo-box-demo"
                 options={parentorg}
-                sx={{ width: "100%", mt: 1 }}
+                sx={{ width: "100%"}}
                 renderInput={(params) => (
                   <TextField {...params} label="Parent Organization" />
                 )}
@@ -157,7 +157,7 @@ const name='CMS Section Wise Report'
                 size="small"
                 id="combo-box-demo"
                 options={options}
-                sx={{ width: "100%", mt: 1 }}
+                sx={{ width: "100%" }}
                 renderInput={(params) => (
                   <TextField {...params} label="Department" />
                 )}
@@ -174,7 +174,7 @@ const name='CMS Section Wise Report'
                 size="small"
                 id="combo-box-demo"
                 options={options}
-                sx={{ width: "100%", mt: 1 }}
+                sx={{ width: "100%" }}
                 renderInput={(params) => (
                   <TextField {...params} label="WorkFlow Category" />
                 )}
@@ -192,7 +192,7 @@ const name='CMS Section Wise Report'
                 size="small"
                 id="combo-box-demo"
                 options={options}
-                sx={{ width: "100%", mt: 1 }}
+                sx={{ width: "100%"}}
                 renderInput={(params) => (
                   <TextField {...params} label="Section" />
                 )}
@@ -222,7 +222,7 @@ const name='CMS Section Wise Report'
                 size="small"
                 id="combo-box-demo"
                 options={options}
-                sx={{ width: "100%", mt: 1 }}
+                sx={{ width: "100%"}}
                 renderInput={(params) => (
                   <TextField {...params} label="State" />
                 )}
@@ -231,24 +231,31 @@ const name='CMS Section Wise Report'
                <br></br>
 
           </Grid>
-          <Stack direction="row"
-            justifyContent="center"
-            alignItems="center"
-            spacing={1}>
-           
-            <Button onClick={() => resetForm()} sx={{ minWidth: 100, ml: 1, color: '#3F51B5', border: '1px solid #3F51B5', fontWeight: 'bold' }} variant="outlined">
-              Reset
-            </Button>
-            <Button sx={{ minWidth: 100, ml: 1, backgroundColor: '#3F51B5', ":hover": { backgroundColor: '#3F51B5', color: 'white', fontWeight: 'bold' } }} variant="contained">
-              <Link href="/cms/#/page2" sx={{ textDecoration:'none', textDecorationColor: 'none', color: 'white', fontWeight: 'bold' }}> Generate Report</Link>
-            </Button>
-          </Stack>
+          
         </CardContent>
 
 
 
       </Card>
-
+      <Stack direction="row"
+            justifyContent="right"
+            alignItems="center"
+            spacing={1}>
+           
+            <Button onClick={() => resetForm()} 
+            // sx={{ minWidth: 100, color: '#3F51B5', border: '1px solid #3F51B5', fontWeight: 'bold' }}
+             variant="outlined">
+              Reset
+            </Button>
+            <Button 
+            // sx={{ minWidth: 100, ml: 1, backgroundColor: '#3F51B5', ":hover": { backgroundColor: '#3F51B5', color: 'white', fontWeight: 'bold' } }} 
+            variant="contained">
+              <Link href="/cms/#/page2" 
+              sx={{color: 'white' }}
+              > 
+              Generate Report</Link>
+            </Button>
+          </Stack>
     </>
   )
 }

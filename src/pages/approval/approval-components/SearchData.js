@@ -24,46 +24,45 @@ const SearchData = () => {
   return (
     <>
         {/* <Typography mb={2} variant='body1' component='h1' sx={{textAlign:'left', justifyContent:'center', fontFamily:'Lato, sans-serif'}} color='#808080' mt={2}>Click here to export all required data</Typography>  */}
-        <Box mt={2}>
+        
         <Card >
             <CardContent sx={{width:'100%'}} px={3}>
         <PageTitle name={name}/>
-                <Grid container display='flex' flexDirection='row' justifyContent='center' >
-                    <Grid item  py={0.5} textAlign='center' fontSize={2} display='flex' justifyContent='space-between'>
-                        <Typography variant='body2' pt={1.5}>Advance Search</Typography>
-                        <Grid item xs={12} sm={2}>
-                            <Typography pt={1.2}>&nbsp;&nbsp; : &nbsp;</Typography>
-                        </Grid>
-                        <Grid item xs={12} sm={6} width="200px" size="small" textAlign="center" py={0.5}>
+                <Grid container columnSpacing={1}>
+                    <Grid item xs={12} sm={12}  display='flex' justifyContent='space-between'>
+                        <Typography  alignItems='center' variant='body2'>Advance Search :</Typography>
+                        {/* <Grid item >
+                            <Typography >&nbsp;&nbsp; : &nbsp;</Typography>
+                        </Grid> */}
+                        <Grid item xs={12} sm={3} width="200px">
                             <TextField size='small' fullWidth textAlign="center" label='CR-ID' select value={value} onChange={handleChange} fontSize="100px">
                                 <MenuItem value="One">One</MenuItem>
                                 <MenuItem value="Two">Two</MenuItem>
                                 <MenuItem value="Three">Three</MenuItem>
                             </TextField>
                         </Grid>
-                        <Grid item xs={12} sm={6} width="200px" size="small" textAlign="center" py={0.5} ml={2}>
-                            <TextField size='small' fullWidth textAlign="center" label='SELECT' select value={value} onChange={handleChange} fontSize="100px">
+                        <Grid item xs={12} sm={3} width="200px" >
+                            <TextField size='small' fullWidth  label='SELECT' select value={value} onChange={handleChange} >
                                 <MenuItem value="One">One</MenuItem>
                                 <MenuItem value="Two">Two</MenuItem>
                                 <MenuItem value="Three">Three</MenuItem>
                             </TextField>
                         </Grid>
-                        <Grid item xs={12} sm={6} width="200px" size="small" textAlign="center" py={0.5} ml={2}>
-                            <TextField size='small' fullWidth textAlign="center" value={text} onChange={handleText} fontSize="100px">
+                        <Grid item xs={12} sm={3}  >
+                            <TextField size='small'  value={text} onChange={handleText} >
                             </TextField>
                         </Grid>
-                        <Box item xs={12} sm={6} width='auto' py={1}size="small" textAlign="left" ml={2}>
-                                <Link to="/dataTable">
-                                <Button variant='contained' size='small'>
-                                    <SearchOutlinedIcon fontSize='medium' color='text.primary'/>
+                        <Box item xs={12} sm={4}>
+                            <Link to="/dataTable">
+                                <Button variant='contained'>
+                                    <SearchOutlinedIcon color='text.primary'/>
                                 </Button>
-                                </Link>
+                            </Link>
                         </Box>
                     </Grid>
                 </Grid>
             </CardContent>
         </Card>
-        </Box>
     </>
   )
 }

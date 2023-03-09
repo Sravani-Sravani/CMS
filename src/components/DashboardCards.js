@@ -25,20 +25,20 @@ const DashboardCards = () => {
   return (
     <>
       <PageTitle name={name}/>
-      <Box py={0} mt={2}>
+      <Box>
         <Stack>
             <Grid container rowSpacing={2} columnSpacing={2} direction='row' justify="flex-end" alignItems="center">
               <Grid xs={12} sm={4} item >
-                <Card sx={{boxShadow:3, width:'auto', height:'auto', borderRadius:'5px'}} >
+                <Card  >
                   <CardContent>
                     <Box display='flex' justifyContent='space-between'>
-                      <Typography sx={{ fontSize: 13, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} >
+                      <Typography sx={{ fontFamily:'Lato, sans-serif' }} color='#808080' >
                         Total No. of CRs
                       </Typography>
                       <CheckCircleRoundedIcon style={{color:"#79B5F2", fontSize:'50px'}}/>
                     </Box>
                     <Box mt={2}>
-                      <Typography variant='h4' sx={{ fontFamily:'Lato, sans-serif' }}>
+                      <Typography variant='h3' sx={{ fontFamily:'Lato, sans-serif' }}>
                         2541
                       </Typography>
                     </Box>
@@ -46,75 +46,75 @@ const DashboardCards = () => {
                 </Card>
               </Grid>
               <Grid xs={12} sm={4} item>
-                <Card sx={{boxShadow:3, borderRadius:'5px'}}>
+                <Card >
                   <CardContent>
                     <Box display='flex' justifyContent='space-between'>
-                    <Typography sx={{ fontSize: 13, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
+                    <Typography sx={{  fontFamily:'Lato, sans-serif' }} color='#808080' >
                         Approved CRs
                       </Typography>
                       <RecommendRoundedIcon style={{color:"#97D36C", fontSize:'50px'}}/>
                     </Box>
-                    <Typography variant='h4' mt={2} sx={{ fontFamily:'Lato, sans-serif' }}>
+                    <Typography variant='h3' mt={2} sx={{ fontFamily:'Lato, sans-serif' }}>
                       2222
                     </Typography>
                   </CardContent>
                 </Card>
               </Grid>
               <Grid xs={12} sm={4} item>
-                <Card sx={{boxShadow:3,  borderRadius:'5px'}}>
+                <Card >
                   <CardContent>
                     <Box display='flex' justifyContent='space-between'>
-                    <Typography sx={{ fontSize: 13, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
+                    <Typography sx={{ fontFamily:'Lato, sans-serif' }} color='#808080' >
                         Rejected CRs
                       </Typography>
                       <CancelRoundedIcon style={{color:"#EE5555", fontSize:'50px'}}/>
                     </Box>
-                    <Typography variant='h4' mt={2} sx={{ fontFamily:'Lato, sans-serif' }}>
+                    <Typography variant='h3' mt={2} sx={{ fontFamily:'Lato, sans-serif' }}>
                       251
                     </Typography>
                   </CardContent>
                 </Card>
               </Grid>
               <Grid xs={12} sm={4} item>
-                <Card sx={{boxShadow:3,  borderRadius:'5px'}}>
+                <Card >
                   <CardContent>
                     <Box display='flex' justifyContent='space-between'>
-                    <Typography sx={{ fontSize: 13, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
+                    <Typography sx={{ fontFamily:'Lato, sans-serif' }} color='#808080'>
                         In Progress CRs
                       </Typography>
                       <AccessTimeFilledIcon style={{color:"#FDDF75", fontSize:'50px'}}/>
                     </Box>
-                    <Typography variant='h4' mt={2} sx={{ fontFamily:'Lato, sans-serif' }}>
+                    <Typography variant='h3' mt={2} sx={{ fontFamily:'Lato, sans-serif' }}>
                       600
                     </Typography>
                   </CardContent>
                 </Card>
               </Grid>
               <Grid xs={12} sm={4} item>
-                <Card sx={{boxShadow:3,  borderRadius:'5px'}}>
+                <Card >
                   <CardContent>
                     <Box display='flex' justifyContent='space-between'>
-                    <Typography sx={{ fontSize: 13, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
+                    <Typography sx={{fontFamily:'Lato, sans-serif' }} color='#808080'>
                         Pending CRs
                       </Typography>
                       <ChangeCircleIcon style={{color:"#D8A7FF", fontSize:'50px'}}/>
                     </Box>
-                    <Typography variant='h4' mt={2} sx={{ fontFamily:'Lato, sans-serif' }}>
+                    <Typography variant='h3' mt={2} sx={{ fontFamily:'Lato, sans-serif' }}>
                       1200
                     </Typography>
                   </CardContent>
                 </Card>
               </Grid>
               <Grid xs={12} sm={4} item>
-                <Card sx={{boxShadow:3,  borderRadius:'5px'}}>
+                <Card >
                   <CardContent>
                     <Box display='flex' justifyContent='space-between'>
-                    <Typography sx={{ fontSize: 13, fontFamily:'Lato, sans-serif' }} color='#808080' fontWeight={600} gutterBottom>
+                    <Typography sx={{ fontFamily:'Lato, sans-serif' }} color='#808080' >
                         Closed CRs
                       </Typography>
                       <OfflinePinRoundedIcon style={{color:"#CCCCCC", fontSize:'50px'}}/>
                     </Box>
-                    <Typography variant='h4' mt={2} sx={{ fontFamily:'Lato, sans-serif' }}>
+                    <Typography variant='h3' mt={2} sx={{ fontFamily:'Lato, sans-serif' }}>
                       400
                     </Typography>
                   </CardContent>

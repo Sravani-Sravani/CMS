@@ -65,9 +65,9 @@ const App = () => {
     <>
       {/* <ThemeProvider theme={lightTheme}> */}
       <ColorModeContextProvider>
-      <ThemeProvider theme={GStyle}>
+      {/* <ThemeProvider theme={GStyle}> */}
           <AppRoutes/>
-          </ThemeProvider>
+          {/* </ThemeProvider> */}
       </ColorModeContextProvider>
       {/* </ThemeProvider> */}
     </>

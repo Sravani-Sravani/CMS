@@ -98,7 +98,7 @@ function ReferredPatientView() {
   return (
     <>
       <CMSReport></CMSReport>
-      <Card sx={{ mt: 2 ,ml: 2}}>
+      <Card>
         <Box sx={{ pr: 3, mb: 1, mt: 1, float: "right" }}>
           <Button
             variant="outlined"

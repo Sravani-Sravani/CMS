@@ -10,7 +10,7 @@ const Page1 = () => {
     return (
         <div>
             <CMSReport></CMSReport>
-            <Card sx={{ mt: 2, ml: 2}} spacing={4}>
+            <Card spacing={4}>
                 <CardContent>
                     <Grid item xs={12} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                         <Divider variant="middle" align='center' style={{ background: 'black', width: '500px' }} />
