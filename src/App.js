@@ -12,6 +12,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 import { ColorModeContextProvider } from "./utils/ColorModeContext";
 import  Header  from "./layouts/Header";
+import  GStyle from './GStyle';
 
 /*****Pages******/
 const Home = lazy(() => import("./pages/Home"));
@@ -36,7 +37,6 @@ const CRStatus = lazy(() => import("./pages/ViewCR/CRStatus"));
 const Inbox = lazy(() => import("./pages/inbox/Inbox"));
 
 const CreateRequest = lazy(() => import("./pages/CreateRequest"));
-const CreateRequest1 = lazy(() => import("./pages/CreateRequest1"));
 
 
 // import FullLayout from "./layouts/FullLayout";
@@ -65,7 +65,9 @@ const App = () => {
     <>
       {/* <ThemeProvider theme={lightTheme}> */}
       <ColorModeContextProvider>
+      <ThemeProvider theme={GStyle}>
           <AppRoutes/>
+          </ThemeProvider>
       </ColorModeContextProvider>
       {/* </ThemeProvider> */}
     </>
@@ -79,6 +81,7 @@ const AppRoutes = () => {
       {/* <Router> */}
       <Routes>
       <Route path="/" element={<Login/>} exact />
+     
       <Route element={<Header />}>
         <Route path="/home" element={<Home/>} />
         <Route path="/newPage" element={<NewPage/>}></Route>
@@ -89,7 +92,6 @@ const AppRoutes = () => {
         <Route path="/inbox" element={<Inbox/>} />
         <Route exact path="/dataTable" element={<DisplayData/>} />
         <Route path="/CreateRequest" element={<CreateRequest/>} />
-        <Route path="/CreateRequest1" element={<CreateRequest1/>} />
        
           {/* {menu.map((page, index) => {
             return (

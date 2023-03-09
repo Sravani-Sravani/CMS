@@ -52,11 +52,12 @@ const CMSReport = () => {
 
   return (
     <>
-          <Typography sx={{fontFamily:'Lato, sans-serif'}} px={3} color="#808080" gutterBottom>
-            CMS Section Wise Report
-          </Typography>
+          
       <Card sx={{ mt: 2, ml: 2 }} spacing={4}>
         <CardContent>
+      <Typography variant="h4"  color="text.secondary" gutterBottom>
+           CMS Section Wise Report
+          </Typography>
           {/* <Typography sx={{ fontSize: 22,fontWeight:'bold' }} color="#414fe1" gutterBottom>
             CMS Section Wise Report
           </Typography> */}
@@ -68,7 +69,7 @@ const CMSReport = () => {
             justify="flex-end"
             alignItems="center"
           >
-            <Grid item xs={12} sm={4} md={4} lg={4}>
+            <Grid item xs={12} sm={3} md={3} lg={3}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   label="CR raised From Date"
@@ -88,7 +89,7 @@ const CMSReport = () => {
                 />
               </LocalizationProvider>
             </Grid>
-            <Grid item xs={12} sm={4} md={4} lg={4}>
+            <Grid item xs={12} sm={3} md={3} lg={3}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   label=" CR raised To Date"
@@ -108,7 +109,7 @@ const CMSReport = () => {
                 />
               </LocalizationProvider>
             </Grid>
-            <Grid item xs={12} sm={4} md={4} lg={4}>
+            <Grid item xs={12} sm={3} md={3} lg={3}>
               <Autocomplete
                 disablePortal
                 value={ap}
@@ -126,7 +127,7 @@ const CMSReport = () => {
                 )}
               />
             </Grid>
-            <Grid item xs={12} sm={4} md={4} lg={4}>
+            <Grid item xs={12} sm={3} md={3} lg={3}>
               <Autocomplete
                 disablePortal
                 value={po}
@@ -144,7 +145,7 @@ const CMSReport = () => {
                 )}
               />
             </Grid>
-            <Grid item xs={12} sm={4} md={4} lg={4}>
+            <Grid item xs={12} sm={3} md={3} lg={3}>
               <Autocomplete
                 disablePortal
                 value={dept}
@@ -161,7 +162,7 @@ const CMSReport = () => {
               />
 
             </Grid>
-            <Grid item xs={12} sm={4} md={4} lg={4}>
+            <Grid item xs={12} sm={3} md={3} lg={3}>
               <Autocomplete
                 disablePortal
                 value={wfcat}
@@ -177,7 +178,7 @@ const CMSReport = () => {
                 )}
               />
             </Grid>
-            <Grid item xs={12} sm={4} md={4} lg={4}>
+            <Grid item xs={12} sm={3} md={3} lg={3}>
               <Autocomplete
                 disablePortal
                 value={section}
@@ -196,7 +197,7 @@ const CMSReport = () => {
               />
             </Grid>
 
-            <Grid item xs={12} sm={4} md={4} lg={4}>
+            <Grid item xs={12} sm={3} md={3} lg={3}>
               <TextField
                 margin="normal"
                 required
@@ -209,7 +210,7 @@ const CMSReport = () => {
                 size="small"
               />
             </Grid>
-            <Grid item xs={12} sm={4} md={3} lg={4}>
+            <Grid item xs={12} sm={3} md={3} lg={3}>
               <Autocomplete
                 disablePortal
                 value={astate}
@@ -232,11 +233,12 @@ const CMSReport = () => {
             justifyContent="center"
             alignItems="center"
             spacing={1}>
-            <Button sx={{ minWidth: 100, ml: 1, backgroundColor: '#3F51B5', ":hover": { backgroundColor: '#3F51B5', color: 'white', fontWeight: 'bold' } }} variant="contained">
-              <Link href="/cms/#/page2" sx={{ textDecorationColor: 'none', color: 'white', fontWeight: 'bold' }}> Generate Report</Link>
-            </Button>
+           
             <Button onClick={() => resetForm()} sx={{ minWidth: 100, ml: 1, color: '#3F51B5', border: '1px solid #3F51B5', fontWeight: 'bold' }} variant="outlined">
               Reset
+            </Button>
+            <Button sx={{ minWidth: 100, ml: 1, backgroundColor: '#3F51B5', ":hover": { backgroundColor: '#3F51B5', color: 'white', fontWeight: 'bold' } }} variant="contained">
+              <Link href="/cms/#/page2" sx={{ textDecoration:'none', textDecorationColor: 'none', color: 'white', fontWeight: 'bold' }}> Generate Report</Link>
             </Button>
           </Stack>
         </CardContent>

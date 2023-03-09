@@ -167,12 +167,7 @@ function CreateRequest1() {
           >
             <Grid item xs={12} sm={6} md={6} lg={6}>
               <TextField
-                sx={{
-                  "& .MuiInputLabel-root": {color: 'green'},//styles the label
-                  "& .MuiOutlinedInput-root": {
-                    "& > fieldset": { borderColor: "orange" },
-                  },
-                }}
+               
                 multiline
                 required
                 fullWidth
