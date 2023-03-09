@@ -202,7 +202,7 @@ function CreateRequest1() {
                   size="small"
                   id="combo-box-demo"
                   options={options}
-                  sx={{ width: '100%' }}
+                  
                   renderInput={(params) => <TextField {...params} label="CR Module"/>}
                 />
             </Grid>
@@ -215,7 +215,7 @@ function CreateRequest1() {
                   size="small"
                   id="combo-box-demo"
                   options={options}
-                  sx={{ width: '100%' }}
+                  
                   renderInput={(params) => <TextField {...params} label="Type of Change"/>}
                 />
             </Grid>
@@ -228,7 +228,7 @@ function CreateRequest1() {
                   size="small"
                   id="combo-box-demo"
                   options={options}
-                  sx={{ width: '100%' }}
+                  
                   renderInput={(params) => <TextField {...params} label="Workflow Category"/>}
                 />
             </Grid>
@@ -243,7 +243,7 @@ function CreateRequest1() {
                 name="email"
                 autoComplete="email"
                 size="small"
-                sx={{ width: '100%',mt:0 }}
+                sx={{ mt:0 }}
               />
             </Grid>
             </Grid>
@@ -269,13 +269,13 @@ function CreateRequest1() {
             </CardContent>
         </Card>
         <Box
-        spacing={2}
-        sx={{ flexGrow: 1, spacing: 2, mt: 2, pb: 3, float: "right" }}
+        
+        sx={{   float: "right" }}
       >
-        <Button sx={{ minWidth: 100, ml: 1,mb:1 }} variant="outlined">
+        <Button  variant="outlined" sx={{mr:2}}>
           Reset
         </Button>
-        <Button sx={{ minWidth: 100, ml: 1,mb:1 }} variant="contained">
+        <Button  variant="contained">
         Create Change Request
         </Button>
       </Box>
