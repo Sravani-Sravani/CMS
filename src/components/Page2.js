@@ -220,7 +220,7 @@ function ReferredPatientView() {
                         return (
                           <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 }, height: '50px' }}>
                             <TableCell component="th" scope="row">{row.SNo}</TableCell>
-                            <TableCell align="center"><Link href="/#/viewCR" sx={{ color: '#3F51B5', textDecorationColor: '#3F51B5' }}>{row.ChangeRequestId} </Link>   </TableCell>
+                            <TableCell align="center"><Link href="/cms/#/viewCR" sx={{ color: '#3F51B5', textDecorationColor: '#3F51B5' }}>{row.ChangeRequestId} </Link>   </TableCell>
                             <TableCell align="center">{row.CRTitle}</TableCell>
                             <TableCell align="center">{row.CRDescription}</TableCell>
                             <TableCell align="center">{row.CRRaisedDepartment}</TableCell>

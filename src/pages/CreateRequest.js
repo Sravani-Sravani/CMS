@@ -15,6 +15,7 @@ import {Routes, Route, useNavigate} from 'react-router-dom';
 import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
 import { useFormik } from "formik";
+import styled from "styled-components";
 
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -31,13 +32,22 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import noImage from "../assets/images/noImage.jpg";
-
+const WhiteBorderTextField = styled(TextField)`
+  & label.Mui-focused {
+    color: white;
+  }
+  & .MuiOutlinedInput-root {
+    &.Mui-focused fieldset {
+      border-color: white;
+    }
+  }
+`;
 function CreateRequest1() {
     const options = [
         { label: 'One', id: 1 },
         { label: 'Two', id: 2 },
       ];
-
+   
     return(
         <>
         <Card>
@@ -157,7 +167,12 @@ function CreateRequest1() {
           >
             <Grid item xs={12} sm={6} md={6} lg={6}>
               <TextField
-               
+                sx={{
+                  "& .MuiInputLabel-root": {color: 'green'},//styles the label
+                  "& .MuiOutlinedInput-root": {
+                    "& > fieldset": { borderColor: "orange" },
+                  },
+                }}
                 multiline
                 required
                 fullWidth

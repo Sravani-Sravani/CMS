@@ -106,7 +106,7 @@ export default function CRDetails() {
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Type of Change</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Work Flow Changes</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Supporting Document</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}><Link href="/#/newPage">View/Add attachments</Link></Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}><Link href="/cms/#/newPage">View/Add attachments</Link></Grid>
            
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Work Flow Category</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}><TextField
@@ -121,7 +121,7 @@ export default function CRDetails() {
                       //   }}
                     /></Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Case Number</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}><Link href="/#/caseStatus">Case/80/AP3825492</Link></Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}><Link href="/cms/#/caseStatus">Case/80/AP3825492</Link></Grid>
      
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>NWH Name</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}><TextField

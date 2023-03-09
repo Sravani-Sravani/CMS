@@ -25,7 +25,6 @@ const Login = lazy(() => import("./pages/Login/Login"));
 const Page1 = lazy(() => import("./components/Page1"))
 const Page2 = lazy(() => import("./components/Page2"))
 const Page3 = lazy(() => import("./components/ChangeRequestId"))
-const CreateRequest = lazy(() => import("./pages/CreateRequest"));
 const ViewCR = lazy(() => import("./pages/ViewCR/ViewCR"));
 const NewPage = lazy(() => import("./pages/ViewCR/NewPage"));
 const Approval = lazy(() => import("./pages/approval/Approval"));
@@ -91,9 +90,7 @@ const AppRoutes = () => {
         <Route exact path="/dataTable" element={<DisplayData/>} />
         <Route path="/CreateRequest" element={<CreateRequest/>} />
         <Route path="/CreateRequest1" element={<CreateRequest1/>} />
-        <Route path="/RegisteredPatientView" element={<RegisteredPatientView/>} />
-        <Route path="/RegisteredPatient" element={<RegisteredPatient/>} />
-        
+       
           {/* {menu.map((page, index) => {
             return (
               <Route

@@ -91,7 +91,7 @@ const DisplayData=()=>{
                             return(
                                 <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 }, height: '50px' }}>
                                 <TableCell component="th" scope="row">{row.SNo}</TableCell>
-                                <TableCell align="center"><Link href="/#/crStatus" sx={{ color: '#414fe1', textDecorationColor: '#414fe1' }}>{row.ChangeRequestId} </Link>   </TableCell>
+                                <TableCell align="center"><Link href="/cms/#/crStatus" sx={{ color: '#414fe1', textDecorationColor: '#414fe1' }}>{row.ChangeRequestId} </Link>   </TableCell>
                                 <TableCell align="center">{row.CRTitle}</TableCell>
                                 <TableCell align="center">{row.CRDescription}</TableCell>
                                 <TableCell align="center">{row.CRRaisedDepartment}</TableCell>
