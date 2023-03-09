@@ -117,7 +117,7 @@ export default function CRDetails() {
                       //   }}
                     /></Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Case Number</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}><Link href="/#/caseStatus">Case/80/AP3825492</Link></Grid>
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}><Link href="cms/#/caseStatus">Case/80/AP3825492</Link></Grid>
      
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>NWH Name</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}><TextField
