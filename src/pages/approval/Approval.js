@@ -1,6 +1,7 @@
 import React from 'react'
 import Form from "./approval-components/Form";
 import SearchData from './approval-components/SearchData';
+import SearchData1 from './approval-components/SearchData1';
 import Title from "./approval-components/Title";
 
 const Approval = () => {
@@ -10,7 +11,7 @@ const Approval = () => {
         {/* <Header /> */}
         {/* <Title /> */}
         <Form />
-        <SearchData />
+        {/* <SearchData1 /> */}
     </>
     </div>
   )

@@ -4,7 +4,7 @@ import PageTitle from '../../../layouts/PageTitle';
 
 
 const Title = () => {
-  const name = 'My Approvals'
+  const name = 'Manage Requests'
   return (
     // <Box >
     //   <Stack p={2} >

@@ -10,12 +10,12 @@ const Page1 = () => {
     return (
         <div>
             <CMSReport></CMSReport>
-            <Card sx={{ mt: 2, backgroundColor: '#F5F5F5' }} spacing={4}>
+            <Card spacing={4}>
                 <CardContent>
                     <Grid item xs={12} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                         <Divider variant="middle" align='center' style={{ background: 'black', width: '500px' }} />
                     </Grid>
-                    <Typography sx={{ fontSize: 14, textAlign: 'center', backgroundColor: '#F5F5F5', color: 'black' }} color="text.secondary" gutterBottom>
+                    <Typography sx={{ fontSize: 14, textAlign: 'center', color: 'black' }} color="text.secondary" gutterBottom>
                         Please select Search Criteria to get the Result.
                     </Typography>
                     <Grid item xs={12} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>

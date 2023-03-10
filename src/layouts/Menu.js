@@ -12,6 +12,7 @@ import FactCheckSharpIcon from '@mui/icons-material/FactCheckSharp';
 import SummarizeSharpIcon from '@mui/icons-material/SummarizeSharp';
 import MailSharpIcon from '@mui/icons-material/MailSharp';
 import OutboxIcon from '@mui/icons-material/Outbox';
+import Sentbox from '../pages/sentbox/Sentbox';
 const ViewCR = lazy(() => import("../pages/ViewCR/ViewCR"));
 
 
@@ -50,6 +51,12 @@ export const menu = [
     view: <Sentbox/>,
   },
   {
+    icon: <AppRegistrationIcon />,
+    title: "Manage Request",
+    pageLink: '/approval',
+    view: <Approval/>,
+  },
+  {
     icon: <SummarizeSharpIcon />,
     title: "CMS Reports",
     items: [
@@ -82,40 +89,40 @@ export const menu = [
     ]
    
   },
-  {
-    icon: <AppRegistrationIcon />,
-    title: "Manage Request",
-    pageLink: '/approval',
-    view: <Approval/>,
-    items: [
-        // {
-        //   title: "Create Employee",
-        //   pageLink: "/createemployee",
-        //   // view: <RegisteredPatient/>,
-        // },
-        // {
-        //   title: "Medical Reimbursement Claim Tracker",
-        //   // pageLink: "/demo",
-        //   pageLink: "/medicalclaimtracker",
-        //   // view: <RegisteredPatientView/>,
-        // },
-        // {
-        //   title: "Initiate Health Card/View Application",
-        //   pageLink: "/healthcardapplication",
-        //   // view: <ReferredPatientView/>,
-        // },
-        // {
-        //   title: "Initiate New/Rejected Beneficiaries",
-        //   pageLink: "/initiatenewrejectedbeneficiaries",
-        //   // view: <TelephonicRegView/>,
-        // },
-        // {
-        //   title: "Download Health Card",
-        //   pageLink: "/downloadhealthcard",
-        //   // view: <TelephonicRegView/>,
-        // }
-      ]
-  },
+  // {
+  //   icon: <AppRegistrationIcon />,
+  //   title: "Manage Request",
+  //   pageLink: '/approval',
+  //   view: <Approval/>,
+  //   items: [
+  //       // {
+  //       //   title: "Create Employee",
+  //       //   pageLink: "/createemployee",
+  //       //   // view: <RegisteredPatient/>,
+  //       // },
+  //       // {
+  //       //   title: "Medical Reimbursement Claim Tracker",
+  //       //   // pageLink: "/demo",
+  //       //   pageLink: "/medicalclaimtracker",
+  //       //   // view: <RegisteredPatientView/>,
+  //       // },
+  //       // {
+  //       //   title: "Initiate Health Card/View Application",
+  //       //   pageLink: "/healthcardapplication",
+  //       //   // view: <ReferredPatientView/>,
+  //       // },
+  //       // {
+  //       //   title: "Initiate New/Rejected Beneficiaries",
+  //       //   pageLink: "/initiatenewrejectedbeneficiaries",
+  //       //   // view: <TelephonicRegView/>,
+  //       // },
+  //       // {
+  //       //   title: "Download Health Card",
+  //       //   pageLink: "/downloadhealthcard",
+  //       //   // view: <TelephonicRegView/>,
+  //       // }
+  //     ]
+  // },
   // {
   //   icon: <LocalLibraryOutlinedIcon />,
   //   title: "Patients",

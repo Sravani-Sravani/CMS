@@ -22,6 +22,25 @@ export const ColorModeContextProvider = ({ children }) => {
   const theme = React.useMemo(
     () =>
       createTheme({
+        typography: {
+          fontSize:12,
+          // Name of the component
+          h4: {
+            fontSize:12,
+            marginBottom: 20,
+            borderBottom: "solid 1 px #EAEAEA",
+            fontSize:"20px",
+            fontWeight:"600",
+            fontSize:"16px",
+            lineHeight:"2",
+           }, 
+           body1:{
+              fontWeight: 500,
+            },
+            button:{
+
+            },
+          },
         components: {
           // Name of the component
           MuiButtonBase: {
@@ -34,6 +53,84 @@ export const ColorModeContextProvider = ({ children }) => {
           mode,
           ...(mode === "light"
             ? {
+              MuiCard: {
+                styleOverrides: {
+                //     // Name of the slot
+                root: {
+                //       // Some CSS
+                background: "#fff",
+                borderRadius: 8,
+                // spacing:20,
+                boxShadow:'0px 10px 25px -5px rgba(0, 0, 0, 0.1)',
+                marginTop:20,
+                marginBottom:20,
+                padding:10
+                }
+                }
+                },
+                MuiTextField: {
+                  styleOverrides: {
+                  //     // Name of the slot
+                  root: {
+                  //       // Some CSS
+                  background: "#fff",
+                  borderRadius: 6,
+                  fontSize: "10",
+                  marginBottom:20,
+                  color:"#EAEAEA",
+                  
+                  }
+                  }
+                  },
+                  MuiTableHead:{
+                    styleOverrides:{
+                      root:{
+                        background:'#F5FAFF',
+                        fontSize:"10",
+                        color:"#4B4B4B"
+                      }
+                    }
+                  },
+                  // MuiDataGrid:{
+                  //   styleOverrides:{
+                  //     root:{
+                  //       background:'#F5FAFF',
+                  //       fontSize:"10",
+                  //       color:"#4B4B4B"
+                  //     }
+                  //   }
+                  // },
+                  MuiFormControlLabel:{
+                    styleOverrides: {
+                      root:{
+                        marginBottom:20
+                      }
+                    }
+                  },
+                  MuiTypography:{
+                    styleOverrides:{
+                      h4:{
+                        marginBottom:20,
+                        borderBottom: 'solid 1px #EAEAEA',
+                        fontSize: "20px",
+                        marginBottom:"30px",
+                        fontWeight: "600",
+                        fontSize:"16px",
+                        lineHeight:"2",
+                        color: "#2169B2",
+                      },
+                      h3:{
+                        
+                        // fontSize: "20px",
+                        // marginBottom:"30px",
+                        fontWeight: "600",
+                        fontSize:"32px",
+                        // lineHeight:"2",
+                        color: "#000",
+                      }
+                    }
+                  },
+
                 // MuiCard: {
                 //   styleOverrides: {
                 //     // Name of the slot
@@ -74,15 +171,22 @@ export const ColorModeContextProvider = ({ children }) => {
           ...(mode === "light"
             ? {
                 // palette values for light mode
-                primary: indigo,
-                divider: indigo[200],
+                primary: {
+                  main:"#2169B2"
+                },
+                secondary:{
+                  main:'#f50057'
+                },
                 text: {
-                  primary: grey[900],
-                  secondary: grey[800]
+                  primary: "#000",
+                  hint:"#8a78ea",
+                  secondary: '#000'
                 },
                 background: {
-                  default: "#F5F5F5",
+                  default: "#F5FBFC",
+                  // default:"#FAFBFC"
                 },
+                
               }
             : {
                 // palette values for dark mode

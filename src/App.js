@@ -12,6 +12,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 import { ColorModeContextProvider } from "./utils/ColorModeContext";
 import  Header  from "./layouts/Header";
+import  GStyle from './GStyle';
 
 /*****Pages******/
 const Home = lazy(() => import("./pages/Home"));
@@ -25,7 +26,6 @@ const Login = lazy(() => import("./pages/Login/Login"));
 const Page1 = lazy(() => import("./components/Page1"))
 const Page2 = lazy(() => import("./components/Page2"))
 const Page3 = lazy(() => import("./components/ChangeRequestId"))
-const CreateRequest = lazy(() => import("./pages/CreateRequest"));
 const ViewCR = lazy(() => import("./pages/ViewCR/ViewCR"));
 const NewPage = lazy(() => import("./pages/ViewCR/NewPage"));
 const Approval = lazy(() => import("./pages/approval/Approval"));
@@ -36,6 +36,7 @@ const CaseStatus = lazy(() => import("./pages/ViewCR/CaseStatus"));
 const CRStatus = lazy(() => import("./pages/ViewCR/CRStatus"));
 const Inbox = lazy(() => import("./pages/inbox/Inbox"));
 const Sentbox = lazy(() => import("./pages/sentbox/Sentbox"));
+const CreateRequest = lazy(() => import("./pages/CreateRequest"));
 
 
 // import FullLayout from "./layouts/FullLayout";
@@ -64,7 +65,9 @@ const App = () => {
     <>
       {/* <ThemeProvider theme={lightTheme}> */}
       <ColorModeContextProvider>
+      {/* <ThemeProvider theme={GStyle}> */}
           <AppRoutes/>
+          {/* </ThemeProvider> */}
       </ColorModeContextProvider>
       {/* </ThemeProvider> */}
     </>
@@ -78,6 +81,7 @@ const AppRoutes = () => {
       {/* <Router> */}
       <Routes>
       <Route path="/" element={<Login/>} exact />
+     
       <Route element={<Header />}>
         <Route path="/home" element={<Home/>} />
         <Route path="/newPage" element={<NewPage/>}></Route>
@@ -88,6 +92,8 @@ const AppRoutes = () => {
         <Route path="/inbox" element={<Inbox/>} />
         <Route path="/sentbox" element={<Sentbox/>} />
         <Route exact path="/dataTable" element={<DisplayData/>} />
+        <Route path="/CreateRequest" element={<CreateRequest/>} />
+       
           {/* {menu.map((page, index) => {
             return (
               <Route

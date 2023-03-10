@@ -22,6 +22,8 @@ import Autocomplete from '@mui/material/Autocomplete';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import { blue } from '@mui/material/colors';
 
+
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -36,11 +38,13 @@ export default function CRDetails() {
     { label: 'Two', id: 2 },
   ];
   const [text, setText] = React.useState("Default Text");
+  const name = 'Change Request Details';
   return (
     <Stack>
        <Card sx={{ minWidth: 275}}>
       <Card sx={{ minWidth: 275,marginBottom:3,margin:4}}>
         <Typography sx={{ color:'#808080',textAlign: 'left' }}>Change Request Details</Typography>
+        
         <CardContent />
         <Stack>
           <Stack direction="row">

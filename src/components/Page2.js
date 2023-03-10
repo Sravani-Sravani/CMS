@@ -18,6 +18,8 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { useState } from 'react';
 import { Typography, Stack, Box, Grid, TextField } from '@mui/material'
 import Autocomplete from '@mui/material/Autocomplete';
+
+
 const options = [
   { label: 'One', id: 1 },
   { label: 'Two', id: 2 },
@@ -94,12 +96,11 @@ function ReferredPatientView() {
   const handleText = (e) => {
     setText(e.target.value);
   }
-
+  
   return (
     <>
       <CMSReport></CMSReport>
-      <br></br>
-      <Card sx={{ mt: 2}}>
+      <Card>
         <Box sx={{ pr: 3, mb: 1, mt: 1, float: "right" }}>
           <Button
             variant="outlined"
@@ -132,11 +133,12 @@ function ReferredPatientView() {
         <CardContent>
        
 
-        <Grid container direction="row" rowSpacing={1} columnSpacing={2} justify="flex-end" alignItems="center">
-        <Grid item xs={12} sm={3} md={3} lg={2}>
-        <Typography sx={{ fontSize: 14,fontWeight:'bold' }} color="#3F51B5">
+        {/* <Grid container direction="row" rowSpacing={1} columnSpacing={2} justify="flex-end" alignItems="center"> */}
+        {/* <Grid item xs={12} sm={3} md={3} lg={2}>
+        <Typography >
            Advanced Search : 
           </Typography>
+          
           </Grid>
         <Grid item xs={12} sm={2.5} md={2.5} lg={2.5}>
               <Autocomplete
@@ -184,15 +186,12 @@ function ReferredPatientView() {
 <Box item width='auto' py={1}size="small" textAlign="left" ml={2}>
                         <Link to="/dataTable">
                         <Button variant='contained' size='small'>
-                            <SearchOutlinedIcon fontSize='medium' color='text.primary'/>
+                            <SearchOutlinedIcon size='large' color='text.primary'/>
                         </Button>
                         </Link>
                 </Box>
-</Grid>
-        </Grid>
-      
-
-   
+            </Grid>
+            </Grid> */}
           <br></br>
           <TableContainer >
 
@@ -206,7 +205,7 @@ function ReferredPatientView() {
                         <TableCell
                           key={column.id}
                           align={column.align}
-                          style={{ minWidth: column.minWidth, fontWeight: 'bold', backgroundColor: '#3F51B5', color: 'white' }}
+                          style={{ minWidth: column.minWidth }}
                         >
                           {column.label}
                         </TableCell>
@@ -220,7 +219,7 @@ function ReferredPatientView() {
                         return (
                           <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 }, height: '50px' }}>
                             <TableCell component="th" scope="row">{row.SNo}</TableCell>
-                            <TableCell align="center"><Link href="cms/#/viewCR" sx={{ color: '#3F51B5', textDecorationColor: '#3F51B5' }}>{row.ChangeRequestId} </Link>   </TableCell>
+                            <TableCell align="center"><Link href="/cms/#/viewCR" sx={{ color: '#3F51B5', textDecorationColor: '#3F51B5' }}>{row.ChangeRequestId} </Link>   </TableCell>
                             <TableCell align="center">{row.CRTitle}</TableCell>
                             <TableCell align="center">{row.CRDescription}</TableCell>
                             <TableCell align="center">{row.CRRaisedDepartment}</TableCell>

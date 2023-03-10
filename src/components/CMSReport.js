@@ -13,7 +13,6 @@ import Stack from '@mui/material/Stack';
 import Link from '@mui/material/Link';
 import PageTitle from '../layouts/PageTitle';
 
-
 const options = [
   { label: 'One', id: 1 },
   { label: 'Two', id: 2 },
@@ -51,15 +50,16 @@ const CMSReport = () => {
     setCrid("")
     setAstate("")
   }
-  const name = 'CMS Section Wise Report'
+  const name='CMS Section Wise Report'
   return (
     <>
-          {/* <Typography sx={{fontFamily:'Lato, sans-serif'}} px={3} color="#808080" gutterBottom>
-            CMS Section Wise Report
+          
+      <Card spacing={4}>
+        <CardContent>
+      {/* <Typography variant="h4"  color="text.secondary" gutterBottom>
+           CMS Section Wise Report
           </Typography> */}
           <PageTitle name={name}/>
-      <Card sx={{ mt: 2}} spacing={4}>
-        <CardContent>
           {/* <Typography sx={{ fontSize: 22,fontWeight:'bold' }} color="#414fe1" gutterBottom>
             CMS Section Wise Report
           </Typography> */}
@@ -67,11 +67,11 @@ const CMSReport = () => {
             container
             direction="row" 
             rowSpacing={1}
-            columnSpacing={2}
+            columnSpacing={1}
             justify="flex-end"
             alignItems="center"
           >
-            <Grid item xs={12} sm={4} md={4} lg={4}>
+            <Grid item xs={12} sm={3} md={3} lg={3}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   label="CR raised From Date"
@@ -83,7 +83,7 @@ const CMSReport = () => {
                   renderInput={(params) => (
                     <TextField
                       size="small"
-                      sx={{ width: "100%", mt: 1 }}
+                      sx={{ width: "100%"}}
                       fullWidth
                       {...params}
                     />
@@ -91,7 +91,7 @@ const CMSReport = () => {
                 />
               </LocalizationProvider>
             </Grid>
-            <Grid item xs={12} sm={4} md={4} lg={4}>
+            <Grid item xs={12} sm={3} md={3} lg={3}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   label=" CR raised To Date"
@@ -103,7 +103,7 @@ const CMSReport = () => {
                   renderInput={(params) => (
                     <TextField
                       size="small"
-                      sx={{ width: "100%", mt: 1 }}
+                      sx={{ width: "100%"}}
                       fullWidth
                       {...params}
                     />
@@ -111,7 +111,7 @@ const CMSReport = () => {
                 />
               </LocalizationProvider>
             </Grid>
-            <Grid item xs={12} sm={4} md={4} lg={4}>
+            <Grid item xs={12} sm={3} md={3} lg={3}>
               <Autocomplete
                 disablePortal
                 value={ap}
@@ -123,13 +123,13 @@ const CMSReport = () => {
                 size="small"
                 id="combo-box-demo"
                 options={options}
-                sx={{ width: "100%", mt: 1 }}
+                sx={{ width: "100%"}}
                 renderInput={(params) => (
                   <TextField  {...params} label="Application Type" />
                 )}
               />
             </Grid>
-            <Grid item xs={12} sm={4} md={4} lg={4}>
+            <Grid item xs={12} sm={3} md={3} lg={3}>
               <Autocomplete
                 disablePortal
                 value={po}
@@ -141,13 +141,13 @@ const CMSReport = () => {
                 size="small"
                 id="combo-box-demo"
                 options={parentorg}
-                sx={{ width: "100%", mt: 1 }}
+                sx={{ width: "100%"}}
                 renderInput={(params) => (
                   <TextField {...params} label="Parent Organization" />
                 )}
               />
             </Grid>
-            <Grid item xs={12} sm={4} md={4} lg={4}>
+            <Grid item xs={12} sm={3} md={3} lg={3}>
               <Autocomplete
                 disablePortal
                 value={dept}
@@ -157,14 +157,14 @@ const CMSReport = () => {
                 size="small"
                 id="combo-box-demo"
                 options={options}
-                sx={{ width: "100%", mt: 1 }}
+                sx={{ width: "100%" }}
                 renderInput={(params) => (
                   <TextField {...params} label="Department" />
                 )}
               />
 
             </Grid>
-            <Grid item xs={12} sm={4} md={4} lg={4}>
+            <Grid item xs={12} sm={3} md={3} lg={3}>
               <Autocomplete
                 disablePortal
                 value={wfcat}
@@ -174,13 +174,13 @@ const CMSReport = () => {
                 size="small"
                 id="combo-box-demo"
                 options={options}
-                sx={{ width: "100%", mt: 1 }}
+                sx={{ width: "100%" }}
                 renderInput={(params) => (
                   <TextField {...params} label="WorkFlow Category" />
                 )}
               />
             </Grid>
-            <Grid item xs={12} sm={4} md={4} lg={4}>
+            <Grid item xs={12} sm={3} md={3} lg={3}>
               <Autocomplete
                 disablePortal
                 value={section}
@@ -192,14 +192,14 @@ const CMSReport = () => {
                 size="small"
                 id="combo-box-demo"
                 options={options}
-                sx={{ width: "100%", mt: 1 }}
+                sx={{ width: "100%"}}
                 renderInput={(params) => (
                   <TextField {...params} label="Section" />
                 )}
               />
             </Grid>
 
-            <Grid item xs={12} sm={4} md={4} lg={4}>
+            <Grid item xs={12} sm={3} md={3} lg={3}>
               <TextField
                 margin="normal"
                 required
@@ -212,7 +212,7 @@ const CMSReport = () => {
                 size="small"
               />
             </Grid>
-            <Grid item xs={12} sm={4} md={3} lg={4}>
+            <Grid item xs={12} sm={3} md={3} lg={3}>
               <Autocomplete
                 disablePortal
                 value={astate}
@@ -222,7 +222,7 @@ const CMSReport = () => {
                 size="small"
                 id="combo-box-demo"
                 options={options}
-                sx={{ width: "100%", mt: 1 }}
+                sx={{ width: "100%"}}
                 renderInput={(params) => (
                   <TextField {...params} label="State" />
                 )}
@@ -231,23 +231,31 @@ const CMSReport = () => {
                <br></br>
 
           </Grid>
-          <Stack direction="row"
-            justifyContent="center"
-            alignItems="center"
-            spacing={1}>
-            <Button sx={{ minWidth: 100, ml: 1, backgroundColor: '#3F51B5', ":hover": { backgroundColor: '#3F51B5', color: 'white', fontWeight: 'bold' } }} variant="contained">
-              <Link href="/cms#/page2" sx={{ textDecorationColor: 'none', color: 'white', fontWeight: 'bold' }}> Generate Report</Link>
-            </Button>
-            <Button onClick={() => resetForm()} sx={{ minWidth: 100, ml: 1, color: '#3F51B5', border: '1px solid #3F51B5', fontWeight: 'bold' }} variant="outlined">
-              Reset
-            </Button>
-          </Stack>
+          
         </CardContent>
 
 
 
       </Card>
-
+      <Stack direction="row"
+            justifyContent="right"
+            alignItems="center"
+            spacing={1}>
+           
+            <Button onClick={() => resetForm()} 
+            // sx={{ minWidth: 100, color: '#3F51B5', border: '1px solid #3F51B5', fontWeight: 'bold' }}
+             variant="outlined">
+              Reset
+            </Button>
+            <Button 
+            // sx={{ minWidth: 100, ml: 1, backgroundColor: '#3F51B5', ":hover": { backgroundColor: '#3F51B5', color: 'white', fontWeight: 'bold' } }} 
+            variant="contained">
+              <Link href="/cms/#/page2" 
+              sx={{color: 'white' }}
+              > 
+              Generate Report</Link>
+            </Button>
+          </Stack>
     </>
   )
 }

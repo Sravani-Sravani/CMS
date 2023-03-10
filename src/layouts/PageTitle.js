@@ -7,12 +7,7 @@ import React from 'react';
 const PageTitle = (name) => {
   return (
     <div>
-      <Box  display='flex' justifyContent='space-between' alignItems='center' px={2} borderBottom='1px solid'>
-        <Typography variant='h4' color='text.secondary'>{name.name}</Typography>
-        {/* <Typography variant='body1' sx={{fontSize:'10px'}}>
-          <Typography variant='body1' component='span' sx={{fontSize:'10px', color:'#0377df', fontWeight:'bold'}}>Home </Typography>
-           >> DashBoard</Typography> */}
-      </Box>
+        <Typography variant='h4' >{name.name}</Typography>
     </div>
   )
 }

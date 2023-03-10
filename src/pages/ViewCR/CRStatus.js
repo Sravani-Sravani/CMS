@@ -24,6 +24,7 @@ import { blue } from '@mui/material/colors';
 import { createTheme } from '@mui/material';
 import DataTable2 from './DataGrid';
 import { ThemeProvider } from '@emotion/react';
+import PageTitle from '../../layouts/PageTitle';
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -54,14 +55,19 @@ export default function CRDetails() {
     { label: 'Two', id: 2 },
   ];
   const [text, setText] = React.useState("Default Text");
+
+  const name= 'Change Request Details';
+  const cardTitle = 'Remark Details';
   return (
-    
+    <>
     <Card sx={{width:"100%"}}>
-        <ThemeProvider theme={theme}>
-        <Typography sx={{bgcolor:'#3F51B5',color:'white',textAlign:'center'}}>Change Request Details</Typography>
+        {/* <ThemeProvider theme={theme}> */}
+        {/* <Typography sx={{bgcolor:'#3F51B5',color:'white',textAlign:'center'}}>Change Request Details</Typography> */}
+        <PageTitle name={name}/>
        
         <Card sx={{mt:3,mb:4,ml:3,mr:3,border:'none',boxShadow:'none'}}>
-       
+
+        <CardContent>
         <Grid
             container
             direction="row"
@@ -135,33 +141,34 @@ export default function CRDetails() {
                         }}
                     /></Grid>
             </Grid>
+            </CardContent>
+        </Card>
         </Card>
         
         
         <Card>
-        <Typography sx={{color:'white', bgcolor: '#3F51B5',textAlign:'center' }}>Remark Details</Typography>
+        {/* <Typography sx={{color:'white', bgcolor: '#3F51B5',textAlign:'center' }}>Remark Details</Typography> */}
+        <PageTitle name={cardTitle}/>
         <Grid sx={{ marginTop: 2, marginLeft: 4, marginRight: 4, marginBottom: 2 }}>
           <DataTable2/>
           </Grid>
         </Card>
-        <Card >
+        
         <Stack
             container
             direction="row"
-            rowSpacing={0}
+            spacing={1}
             columnSpacing={2}
             justifyContent="center"
             alignItems="center"
-           
           >
 
 
-            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100,bgcolor:'#3F51B5',":hover":{bgcolor:'#3F51B5'}}}>Close</Button>
-            <Button variant="contained" size='small' sx={{ m: 1, minWidth: 100,bgcolor:'#3F51B5',":hover":{bgcolor:'#3F51B5'} }}>Previous Remarks</Button>
+            <Button variant="contained" size='small' >Close</Button>
+            <Button variant="contained" size='small' >Previous Remarks</Button>
         </Stack>
-        </Card>
-        </ThemeProvider>
-        </Card>
-    
+        
+        {/* </ThemeProvider> */}
+    </>
     );
   }

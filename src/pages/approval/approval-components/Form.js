@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import { Box, Typography, Grid, TextField, MenuItem,Button, Card, CardContent} from "@mui/material";
+import { Box, Typography,Stack, Grid, TextField, MenuItem,Button, Card, CardContent} from "@mui/material";
 import Pagination from '@mui/material/Pagination';
+
 import { borderColor } from '@mui/system';
 import Autocomplete from '@mui/material/Autocomplete';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-
-
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 // import { LocalizationProvider } from '@mui/lab';
 // import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 // import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Container } from '@mui/material/Container';
 import Title from './Title';
+import { Link } from 'react-router-dom';
 const options = [
   { label: 'One', id: 1 },
   { label: 'Two', id: 2 },
@@ -27,13 +28,13 @@ const Form = () => {
   }
   return (
     <>
-      <Box mt={2}>
+      
       <Card>
         <CardContent>
           <Title />
-          <Grid container rowSpacing={1} columnSpacing={5} direction='row' justify="flex-end" alignItems="center">
+          <Grid container columnSpacing={1} direction='row' justify="flex-end" alignItems="center">
             <Grid xs={12} sm={4} item>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   label="CR raised From Date"
                   inputFormat="DD/MM/YYYY"
@@ -44,7 +45,7 @@ const Form = () => {
                   renderInput={(params) => (
                     <TextField
                       size="small"
-                      sx={{ width: "100%", mt: 1 }}
+                      sx={{ width: "100%" }}
                       fullWidth
                       {...params}
                     />
@@ -64,7 +65,7 @@ const Form = () => {
                   renderInput={(params) => (
                     <TextField
                       size="small"
-                      sx={{ width: "100%", mt: 1 }}
+                      sx={{ width: "100%"}}
                       fullWidth
                       {...params}
                     />
@@ -81,7 +82,7 @@ const Form = () => {
                 size="small"
                 id="combo-box-demo"
                 options={options}
-                sx={{ width: "100%", mt: 1 }}
+                sx={{ width: "100%"}}
                 renderInput={(params) => (
                   <TextField {...params} label="Application Type" />
                 )}
@@ -96,7 +97,7 @@ const Form = () => {
                 size="small"
                 id="combo-box-demo"
                 options={options}
-                sx={{ width: "100%", mt: 1 }}
+                sx={{ width: "100%"}}
                 renderInput={(params) => (
                   <TextField {...params} label="Parent Organization" />
                 )}
@@ -111,26 +112,34 @@ const Form = () => {
                 size="small"
                 id="combo-box-demo"
                 options={options}
-                sx={{ width: "100%", mt: 1 }}
+                sx={{ width: "100%"}}
                 renderInput={(params) => (
                   <TextField {...params} label="Department" />
                 )}
               />
             </Grid>
+          </Grid>
             {/* <Grid xs={12} sm={3}></Grid> */}
-            <Grid sx={{
+            {/* <Grid sx={{
                 display: 'flex',
-                justifyContent: 'right',
+                justifyContent: 'center',
                 alignItems: 'center',
                 // flexDirection: 'column'
-            }} xs={4} sm={12}>
-              <Button 
-            variant='contained' onClick={onSubmit}>Submit</Button>
-            </Grid>
-          </Grid>
+            }} xs={12} sm={12} mb={6} fullWidth item>
+              <Button variant='contained' onClick={onSubmit} >Submit</Button>
+            </Grid> */}
         </CardContent>
       </Card>
-      </Box>
+      <Stack direction="row"
+            justifyContent="right"
+            alignItems="center"
+            spacing={1}>
+            <Link to="/dataTable">
+              <Button variant='contained' size='large'>
+                <SearchOutlinedIcon color='text.primary'/>
+             </Button>
+            </Link>
+          </Stack>
     </>
   )
 }

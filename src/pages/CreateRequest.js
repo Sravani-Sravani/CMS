@@ -15,6 +15,7 @@ import {Routes, Route, useNavigate} from 'react-router-dom';
 import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
 import { useFormik } from "formik";
+import styled from "styled-components";
 
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -31,20 +32,31 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import noImage from "../assets/images/noImage.jpg";
-
-function CreateRequest() {
+import PageTitle from '../layouts/PageTitle';
+const WhiteBorderTextField = styled(TextField)`
+  & label.Mui-focused {
+    color: white;
+  }
+  & .MuiOutlinedInput-root {
+    &.Mui-focused fieldset {
+      border-color: white;
+    }
+  }
+`;
+function CreateRequest1() {
     const options = [
         { label: 'One', id: 1 },
         { label: 'Two', id: 2 },
       ];
-
+      const name = 'Create Request'
     return(
         <>
         <Card>
             <CardContent>
-            <Typography variant="h4"  color="text.secondary" gutterBottom>
+            {/* <Typography variant="h4"  color="text.secondary" gutterBottom>
             Create Request
-          </Typography>
+          </Typography> */}
+          <PageTitle name={name}/>
             <Grid
             container
             direction="row"
@@ -282,4 +294,4 @@ function CreateRequest() {
         </>
     )
 }
-export default CreateRequest;
+export default CreateRequest1;
