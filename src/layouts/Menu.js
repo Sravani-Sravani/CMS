@@ -12,6 +12,7 @@ import FactCheckSharpIcon from '@mui/icons-material/FactCheckSharp';
 import SummarizeSharpIcon from '@mui/icons-material/SummarizeSharp';
 import MailSharpIcon from '@mui/icons-material/MailSharp';
 import OutboxIcon from '@mui/icons-material/Outbox';
+import Sentbox from '../pages/sentbox/Sentbox';
 const ViewCR = lazy(() => import("../pages/ViewCR/ViewCR"));
 
 
@@ -45,8 +46,8 @@ export const menu = [
   {
     icon: <OutboxIcon />,
     title: "Sentbox",
-    pageLink: '/inbox',
-    view: <Inbox/>,
+    pageLink: '/sentbox',
+    view: <Sentbox/>,
   },
   {
     icon: <AppRegistrationIcon />,
