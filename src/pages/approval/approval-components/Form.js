@@ -135,7 +135,7 @@ const Form = () => {
             alignItems="center"
             spacing={1}>
             <Link to="/dataTable">
-              <Button variant='contained'>
+              <Button variant='contained' size='large'>
                 <SearchOutlinedIcon color='text.primary'/>
              </Button>
             </Link>

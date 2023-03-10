@@ -18,6 +18,8 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { useState } from 'react';
 import { Typography, Stack, Box, Grid, TextField } from '@mui/material'
 import Autocomplete from '@mui/material/Autocomplete';
+
+
 const options = [
   { label: 'One', id: 1 },
   { label: 'Two', id: 2 },
@@ -94,7 +96,7 @@ function ReferredPatientView() {
   const handleText = (e) => {
     setText(e.target.value);
   }
-
+  
   return (
     <>
       <CMSReport></CMSReport>
@@ -131,11 +133,12 @@ function ReferredPatientView() {
         <CardContent>
        
 
-        <Grid container direction="row" rowSpacing={1} columnSpacing={2} justify="flex-end" alignItems="center">
-        <Grid item xs={12} sm={3} md={3} lg={2}>
-        <Typography sx={{ fontSize: 16,fontWeight:'bold' }} color="#3F51B5" gutterBottom>
+        {/* <Grid container direction="row" rowSpacing={1} columnSpacing={2} justify="flex-end" alignItems="center"> */}
+        {/* <Grid item xs={12} sm={3} md={3} lg={2}>
+        <Typography >
            Advanced Search : 
           </Typography>
+          
           </Grid>
         <Grid item xs={12} sm={2.5} md={2.5} lg={2.5}>
               <Autocomplete
@@ -183,15 +186,12 @@ function ReferredPatientView() {
 <Box item width='auto' py={1}size="small" textAlign="left" ml={2}>
                         <Link to="/dataTable">
                         <Button variant='contained' size='small'>
-                            <SearchOutlinedIcon fontSize='medium' color='text.primary'/>
+                            <SearchOutlinedIcon size='large' color='text.primary'/>
                         </Button>
                         </Link>
                 </Box>
-</Grid>
-        </Grid>
-      
-
-   
+            </Grid>
+            </Grid> */}
           <br></br>
           <TableContainer >
 
@@ -205,7 +205,7 @@ function ReferredPatientView() {
                         <TableCell
                           key={column.id}
                           align={column.align}
-                          style={{ minWidth: column.minWidth, fontWeight: 'bold', backgroundColor: '#3F51B5', color: 'white' }}
+                          style={{ minWidth: column.minWidth }}
                         >
                           {column.label}
                         </TableCell>

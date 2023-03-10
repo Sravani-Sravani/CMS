@@ -79,7 +79,7 @@ const DisplayData=()=>{
                             <TableCell
                             key={column.id}
                             align={column.align}
-                            style={{ gap:'2px', minWidth: column.minWidth, fontWeight: 'bold', backgroundColor: '#3F51B5', color: 'white' }}
+                            style={{ gap:'2px', minWidth: column.minWidth}}
                             >
                             {column.label}
                             </TableCell>

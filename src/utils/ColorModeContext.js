@@ -82,6 +82,24 @@ export const ColorModeContextProvider = ({ children }) => {
                   }
                   }
                   },
+                  MuiTableHead:{
+                    styleOverrides:{
+                      root:{
+                        background:'#F5FAFF',
+                        fontSize:"10",
+                        color:"#4B4B4B"
+                      }
+                    }
+                  },
+                  // MuiDataGrid:{
+                  //   styleOverrides:{
+                  //     root:{
+                  //       background:'#F5FAFF',
+                  //       fontSize:"10",
+                  //       color:"#4B4B4B"
+                  //     }
+                  //   }
+                  // },
                   MuiFormControlLabel:{
                     styleOverrides: {
                       root:{

@@ -81,10 +81,10 @@ export default function Login() {
         </Grid>
         </Grid> */}
         <Grid display='flex' justifyContent='center' alignItems='center' height='100vh'>
-        <Grid container xs={12} sm={8} lg={10} md={10} m={8} spacing={2} >
+        <Grid container xs={12} sm={10} lg={10} md={10} m={8}  >
           <Grid
             item
-            xs={6}
+            xs={8}
             md={5}
             sx={{
               // height: "80vh", //remove
