@@ -65,9 +65,10 @@ export default function CRDetails() {
         {/* <Typography sx={{bgcolor:'#3F51B5',color:'white',textAlign:'center'}}>Change Request Details</Typography> */}
         <PageTitle name={name}/>
        
-        <Card sx={{mt:3,mb:4,ml:3,mr:3,border:'none',boxShadow:'none'}}>
+        
 
         <CardContent>
+        <Button variant="contained" size='small' sx={{   float: "right", mr:2, mb:2 }}>Back</Button>
         <Grid
             container
             direction="row"
@@ -105,7 +106,8 @@ export default function CRDetails() {
                         }}
                     /></Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Supporting Document</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}><TextField
+            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>
+              {/* <TextField
                       type="text"
                       id="outlined-basic"
        
@@ -115,7 +117,9 @@ export default function CRDetails() {
                       InputProps={{
                           readOnly: true
                         }}
-                    /></Grid>
+                    /> */}
+                    <Typography><Link href="/">img.jpg</Link></Typography>
+                    </Grid>
            
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>CR Severity</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Medium</Grid>
@@ -141,9 +145,9 @@ export default function CRDetails() {
                         }}
                     /></Grid>
             </Grid>
-            <Button variant="contained" size='small' sx={{   float: "right",mt:2 }}>Back</Button>
+            {/* <Button variant="contained" size='small' sx={{   float: "right",mt:2 }}>Back</Button> */}
             </CardContent>
-        </Card>
+        
         </Card>
         
         

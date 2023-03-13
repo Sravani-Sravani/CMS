@@ -183,13 +183,12 @@ function CreateRequest1() {
             columnSpacing={2}
             justify="flex-end"
             alignItems="center"
-            margin="0"
+            
             
           >
              
-            <Grid item  xs={12} sm={2} md={2} lg={2} >
-             
-            <FormLabel id="demo-row-radio-buttons-group-label"   required>
+             <Grid item xs={12} sm={2} md={2} lg={2}>
+            <FormLabel id="demo-row-radio-buttons-group-label" required >
                   Change Request Type:
                 </FormLabel>
             </Grid>
