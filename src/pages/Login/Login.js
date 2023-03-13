@@ -135,12 +135,12 @@ export default function Login() {
                 marginTop={"5%"}
               />
               <Grid item xs={12} md={12}>
-                <Typography variant="body1" my={2} fontWeight={500} fontFamily='Lato, sans-serif'>Login</Typography>
+                <Typography variant="body1" my={2} fontWeight={500} fontFamily='Lato, sans-serif'>Change Management System</Typography>
                 <Grid item md={12} xs={12} >
                   <Grid item md={12} xs={10}>
                     <TextField
                       id="outlined-basic"
-                      placeholder="Email Id"
+                      placeholder="User Id"
                       variant="outlined"
                       fullWidth
                       sx={{ border: "1px solid #EAEDF1", borderRadius: "5px" }}
@@ -159,7 +159,7 @@ export default function Login() {
                   </Grid>
                   <Grid container spacing={2} display="flex" justifyContent="space-between">
                     <Grid item xs={7}>
-                    <FormControlLabel
+                    {/* <FormControlLabel
                       
                       control={
                         <Checkbox
@@ -176,9 +176,9 @@ export default function Login() {
                         </Box>
                       }
                       
-                    />
+                    /> */}
                     </Grid>
-                    <Grid item xs={3} mt={1} marginLeft={3} display="flex" justifyContent='end' textAlign='right'>
+                    <Grid item xs={3} mb={1.5} display="flex" justifyContent='end' textAlign='right'>
                         <Typography color={"#AEAEAE"} fontSize={14}>
                             Forgot Password?
                         </Typography>

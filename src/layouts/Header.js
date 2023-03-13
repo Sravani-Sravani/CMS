@@ -36,6 +36,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import {useLocation} from 'react-router-dom';
 import { Stack } from '@mui/system';
+// import Footer from '../components/footer/Footer';
 const drawerWidth = 280;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -82,6 +83,32 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
   justifyContent: 'flex-end',
 }));
+
+const Footer = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'open',
+})(({ theme, open }) => ({
+  transition: theme.transitions.create(['margin', 'width'], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  width: '100%',
+  position: 'fixed',
+  top: 'unset',
+  bottom: 0,
+  color:'white',
+  backgroundColor:'black',
+  textAlign:'center',
+  size:'8px',
+  ...(open && {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: `${drawerWidth}px`,
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  }),
+}));
+
 
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
@@ -240,7 +267,14 @@ export default function PersistentDrawerLeft() {
       <Main open={open}>
         <DrawerHeader />
         <Outlet />
+        {/* <Footer /> */}
       </Main>
+      <Footer position='fixed' open={open}>
+        <Typography noWrap component="div">
+              {/* CMS {location.pathname} */}
+              &copy; Site Maintained By KPMG Advisory Services Pvt. Ltd. The Contents Are Owned By Govt.Of AP, India.
+        </Typography>
+      </Footer>
     </Box>
   );
 }

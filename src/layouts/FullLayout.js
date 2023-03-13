@@ -14,6 +14,7 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
 import { TopbarHeight } from "../../assets/global/Theme-variable";
+// import StickyFooter from "./Footer";
 
 const MainWrapper = experimentalStyled("div")(({ theme }) => ({
   display: "flex",
@@ -71,6 +72,7 @@ const FullLayout = () => {
           <Footer />
         </Container>
       </PageWrapper>
+      <Footer />
     </MainWrapper>
   );
 };

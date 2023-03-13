@@ -7,11 +7,14 @@ import Link from '@mui/material/Link';
 
 function Copyright() {
   return (
-    <Typography variant="body1" color="text.secondary" align="center"> 
+    <Typography variant="body2"> 
       {'Copyright © '}
-      <Link color="inherit" href="https://www.ysraarogyasri.ap.gov.in/" target="_blank">
-      Dr.YSR Aarogyasri Health Care Trust
-      </Link>{' '}
+      {/* <Link color="inherit"  */}
+      {/* // href="https://www.ysraarogyasri.ap.gov.in/" target="_blank" */}
+      {/* > */}
+      Site Maintained By KPMG Advisory Services Pvt. Ltd. The Contents Are Owned By Govt.Of AP, India
+      {/* </Link> */}
+      {' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -32,11 +35,11 @@ export default function StickyFooter() {
         component="footer"
         sx={{
           py: 1,
-          px: 1,
+          px: 0,
           mt: 'auto',
           backgroundColor: (theme) =>
             theme.palette.mode === 'light'
-              ? theme.palette.grey[200]
+              ? theme.palette.grey[800]
               : theme.palette.grey[800],
         }}
       >
