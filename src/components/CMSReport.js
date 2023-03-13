@@ -201,7 +201,7 @@ const CMSReport = () => {
 
             <Grid item xs={12} sm={3} md={3} lg={3}>
               <TextField
-                margin="normal"
+                margin="0"
                 required
                 fullWidth
                 id="crid"
@@ -224,7 +224,7 @@ const CMSReport = () => {
                 options={options}
                 sx={{ width: "100%"}}
                 renderInput={(params) => (
-                  <TextField {...params} label="State" />
+                  <TextField {...params} label="Status" />
                 )}
               />
             </Grid>
