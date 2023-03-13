@@ -1,10 +1,11 @@
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
+import { createTheme, ThemeProvider } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+import Stack from '@mui/material/Stack';
 import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
@@ -16,7 +17,7 @@ import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
 import { useFormik } from "formik";
 import styled from "styled-components";
-
+import {InputAdornment} from "@mui/material";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -25,6 +26,8 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import { useRef, useState } from 'react';
+
 
 import Autocomplete from '@mui/material/Autocomplete';
 
@@ -44,15 +47,50 @@ const WhiteBorderTextField = styled(TextField)`
   }
 `;
 function CreateRequest1() {
+  const aRef = useRef(null);
+  
     const options = [
         { label: 'One', id: 1 },
         { label: 'Two', id: 2 },
       ];
       const name = 'Create Request'
+      const [at, setAt] = React.useState('');
+  const [po, setPo] = React.useState('');
+  const [dept, setDept] = React.useState('');
+  const [sub, setSub] = React.useState('');
+  const [rtn, setRtn] = React.useState(null);
+  const [rte, setRte] = React.useState(null);
+  const [crt, setCrt] = React.useState('');
+  const [crd, setCrd] = React.useState('');
+  const [crm, setCrm] = React.useState('');
+  const [tc, setTc] = React.useState('');
+  const [wfc, setWfc] = React.useState('');
+   const [mno, setMno] = React.useState('');
+   
+  const resetForm = () =>{
+    setAt("")
+    setPo("")
+    setDept("")
+    setSub("")
+    setRtn(null)
+    setRte(null)
+    setCrt("")
+    setCrd("")
+    setCrm("")
+    setTc("")
+    setWfc("")
+    setMno("")
+    aRef.current.value = null;
+     
+  }
+
+      
+    
     return(
         <>
         <Card>
             <CardContent>
+            
             {/* <Typography variant="h4"  color="text.secondary" gutterBottom>
             Create Request
           </Typography> */}
@@ -70,53 +108,70 @@ function CreateRequest1() {
                <Autocomplete
                   disablePortal
                   
-                  onChange={(event, value) => console.log(value)}
+                  value={at}
+                    onChange={(event, newValue)=>{
+                      setAt(newValue);
+                    }}
+
                   margin="normal"
                   fullWidth
                   size="small"
                   id="combo-box-demo"
                   options={options}
                   
-                  renderInput={(params) => <TextField {...params} label="Application Type"/>}
+                  renderInput={(params) => <TextField {...params} label="Application Type" required/>}
                 />
             </Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}>
               <Autocomplete
                   disablePortal
-                  onChange={(event, value) => console.log(value)}
+                
+                  value={po}
+                    onChange={(event, newValue)=>{
+                      setPo(newValue);
+                    }}
+
                   margin="normal"
                   fullWidth
                   size="small"
                   id="combo-box-demo"
                   options={options}
                   
-                  renderInput={(params) => <TextField {...params} label="Parent Organisation"/>}
+                  renderInput={(params) => <TextField {...params} label="Parent Organisation" required/>}
                 />
             </Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}>
               <Autocomplete
                   disablePortal
-                  onChange={(event, value) => console.log(value)}
+                  value={dept}
+                    onChange={(event, newValue)=>{
+                      setDept(newValue);
+                    }}
+
                   margin="normal"
                   fullWidth
                   size="small"
                   id="combo-box-demo"
                   options={options}
                   
-                  renderInput={(params) => <TextField {...params} label="Department"/>}
+                  renderInput={(params) => <TextField {...params} label="Department" required/>}
                 />
             </Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}>
               <Autocomplete
                   disablePortal
-                  onChange={(event, value) => console.log(value)}
+                  value={sub}
+                  onChange={(event, newValue)=>{
+                    setSub(newValue);
+                  }}
+
                   margin="normal"
                   fullWidth
                   size="small"
                   id="combo-box-demo"
                   options={options}
                   
-                  renderInput={(params) => <TextField {...params} label="Sub Department"/>}
+                  renderInput={(params) => <TextField {...params} label="Sub Department" required/>}
                 />
             </Grid>
                 </Grid>
@@ -128,35 +183,46 @@ function CreateRequest1() {
             columnSpacing={2}
             justify="flex-end"
             alignItems="center"
+            margin="0"
             
           >
-            <Grid item xs={12} sm={2} md={2} lg={2} >
-            <FormLabel id="demo-row-radio-buttons-group-label"  required>
+             
+            <Grid item  xs={12} sm={2} md={2} lg={2} >
+             
+            <FormLabel id="demo-row-radio-buttons-group-label"   required>
                   Change Request Type:
                 </FormLabel>
             </Grid>
             <Grid item  xs={12} sm={10} md={10} lg={10}>
-              <FormControl  >
+              <FormControl sx={{width:"max-content",ml:2,mt:2}} >
                 
                 <RadioGroup
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="row-radio-buttons-group"
+                  name="row-radio-buttons-group" 
                 >
                   <FormControlLabel
-                    value="female"
+                    value={rtn}
+                    defaultValue={rtn}
+                    onChange={(newValue) => setRtn(newValue.target.value)}
+
                     control={<Radio />}
                     label="New Requirement"
                   />
                   <FormControlLabel
-                    value="male"
+                    value={rte}
+                    defaultValue={rte}
+                    onChange={(newValue) => setRte(newValue.target.value)}
+
                     control={<Radio />}
                     label="Existing Requirement"
                   />
                   
                 </RadioGroup>
               </FormControl>
+              
             </Grid>
+            
             </Grid>
             <Grid
             container
@@ -169,7 +235,9 @@ function CreateRequest1() {
           >
             <Grid item xs={12} sm={6} md={6} lg={6}>
               <TextField
-               
+               value={crt}
+               onChange={(newValue) => setCrt(newValue.target.value)}
+
                 multiline
                 required
                 fullWidth
@@ -183,7 +251,9 @@ function CreateRequest1() {
             </Grid>
             <Grid item xs={12} sm={6} md={6} lg={6}>
               <TextField
-                
+                value={crd}
+                onChange={(newValue) => setCrd(newValue.target.value)}
+
                 multiline
                 required
                 fullWidth
@@ -208,48 +278,70 @@ function CreateRequest1() {
                 <Grid item xs={12} sm={4} md={3} lg={3}>
                <Autocomplete
                   disablePortal
-                  onChange={(event, value) => console.log(value)}
+                  value={crm}
+                    onChange={(event,value) => {setCrm(value)}}
+
                   margin="normal"
                   fullWidth
                   size="small"
                   id="combo-box-demo"
                   options={options}
                   
-                  renderInput={(params) => <TextField {...params} label="CR Module"/>}
+                  renderInput={(params) => <TextField {...params} label="CR Module" required/>}
                 />
             </Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}>
               <Autocomplete
                   disablePortal
-                  onChange={(event, value) => console.log(value)}
+                  value={tc}
+                    onChange={(event,value) => {setTc(value)}}
+
                   margin="normal"
                   fullWidth
                   size="small"
                   id="combo-box-demo"
                   options={options}
                   
-                  renderInput={(params) => <TextField {...params} label="Type of Change"/>}
+                  renderInput={(params) => <TextField {...params} label="Type of Change" required/>}
                 />
             </Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}>
               <Autocomplete
                   disablePortal
-                  onChange={(event, value) => console.log(value)}
+                  value={wfc}
+                    onChange={(event,value) => {setWfc(value)}}
+
                   margin="normal"
                   fullWidth
                   size="small"
                   id="combo-box-demo"
                   options={options}
                   
-                  renderInput={(params) => <TextField {...params} label="Workflow Category"/>}
+                  renderInput={(params) => <TextField {...params} label="Workflow Category" required/>}
                 />
             </Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}>
             <TextField
                 margin="normal"
+                type="number"
                 required
                 fullWidth
-        
+                value={mno}
+                onChange={(newValue) => setMno(newValue.target.value)}
+                InputProps={{
+                  startAdornment: <InputAdornment position="start">
+                     +91
+                     </InputAdornment>,
+                }}
+                  onKeyPress={(e) => {
+                    
+                    if (e?.key === '-' || e?.key === '+' ) {
+                      e.preventDefault();
+                    }
+
+                  }}
+                  
+                
                 label="Mobile Number"
                 id="combo-box-demo"
                 name="email"
@@ -270,21 +362,22 @@ function CreateRequest1() {
             
           >
             <Grid item xs={12} sm={2} md={2} lg={2}>
-            <FormLabel id="demo-row-radio-buttons-group-label" >
+            <FormLabel id="demo-row-radio-buttons-group-label" required >
                   Supporting Documents:
                 </FormLabel>
             </Grid>
             <Grid item xs={12} sm={10} md={10} lg={10}>
-                <Button  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}}><input  type="file"  style={{ fontSize:"15px" }}  multiple /></Button>   
+                <Button  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none',ml:2}}><input  type="file" ref={aRef} style={{ fontSize:"15px" }}  multiple /></Button>   
             </Grid>
             </Grid>
+            
             </CardContent>
         </Card>
         <Box
         
         sx={{   float: "right" }}
       >
-        <Button  variant="outlined" sx={{mr:2}}>
+        <Button onClick={() => resetForm() } variant="outlined" sx={{mr:2}}>
           Reset
         </Button>
         <Button  variant="contained">

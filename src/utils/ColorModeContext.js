@@ -68,6 +68,23 @@ export const ColorModeContextProvider = ({ children }) => {
                 }
                 }
                 },
+                MuiFormLabel: {
+                  styleOverrides: {
+                    root: {
+                      display: "flex",
+                    width: "max-content",
+                   
+                    },
+                    asterisk: {
+                      color: "red",
+                      "&$error": {
+                        color: "#db3131",
+                      },
+                      
+                    },
+                    
+                  },
+                },
                 MuiTextField: {
                   styleOverrides: {
                   //     // Name of the slot

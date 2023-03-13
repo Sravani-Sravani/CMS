@@ -141,6 +141,7 @@ export default function CRDetails() {
                         }}
                     /></Grid>
             </Grid>
+            <Button variant="contained" size='small' sx={{   float: "right",mt:2 }}>Back</Button>
             </CardContent>
         </Card>
         </Card>
@@ -164,8 +165,8 @@ export default function CRDetails() {
           >
 
 
-            <Button variant="contained" size='small' >Close</Button>
-            <Button variant="contained" size='small' >Previous Remarks</Button>
+            {/* <Button variant="contained" size='small' >Close</Button>
+            <Button variant="contained" size='small' >Previous Remarks</Button> */}
         </Stack>
         
         {/* </ThemeProvider> */}
