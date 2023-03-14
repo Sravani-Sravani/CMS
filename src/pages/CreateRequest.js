@@ -26,7 +26,7 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
-import { useRef, useState } from 'react';
+import { useRef, useState , useEffect} from 'react';
 
 
 import Autocomplete from '@mui/material/Autocomplete';
@@ -36,6 +36,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import noImage from "../assets/images/noImage.jpg";
 import PageTitle from '../layouts/PageTitle';
+import { lt } from 'date-fns/locale';
 const WhiteBorderTextField = styled(TextField)`
   & label.Mui-focused {
     color: white;
@@ -50,9 +51,21 @@ function CreateRequest1() {
   const aRef = useRef(null);
   
     const options = [
-        { label: 'One', id: 1 },
-        { label: 'Two', id: 2 },
+        { label: 'One', id: "1" },
+        { label: 'Two', id: "2" },
       ];
+
+      const workflowOptions = [
+        
+        { label: "Technical Issues", id: "1" },
+        { label: "Normal Change Request", id: "2" },
+        { label: "Production Support Service Request", id: "3" },
+
+      ];
+      
+      
+      
+
       const name = 'Create Request'
       const [at, setAt] = React.useState('');
   const [po, setPo] = React.useState('');
@@ -65,6 +78,7 @@ function CreateRequest1() {
   const [crm, setCrm] = React.useState('');
   const [tc, setTc] = React.useState('');
   const [wfc, setWfc] = React.useState('');
+  const [cs, setCs] = React.useState('');
    const [mno, setMno] = React.useState('');
    
   const resetForm = () =>{
@@ -79,6 +93,7 @@ function CreateRequest1() {
     setCrm("")
     setTc("")
     setWfc("")
+    setCs("")
     setMno("")
     aRef.current.value = null;
      
@@ -265,17 +280,17 @@ function CreateRequest1() {
               />
             </Grid>
           </Grid>
-          <Grid
+          
+            <Grid
             container
             direction="row"
             rowSpacing={0}
             columnSpacing={2}
             justify="flex-end"
             alignItems="center"
-            
           >
-                <Grid item xs={12} sm={4} md={3} lg={3}>
-               <Autocomplete
+            <Grid item xs={12} sm={4} md={4} lg={4}>
+            <Autocomplete
                   disablePortal
                   value={crm}
                     onChange={(event,value) => {setCrm(value)}}
@@ -289,8 +304,8 @@ function CreateRequest1() {
                   renderInput={(params) => <TextField {...params} label="CR Module" required/>}
                 />
             </Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}>
-              <Autocomplete
+            <Grid item xs={12} sm={4} md={4} lg={4}>
+            <Autocomplete
                   disablePortal
                   value={tc}
                     onChange={(event,value) => {setTc(value)}}
@@ -304,22 +319,7 @@ function CreateRequest1() {
                   renderInput={(params) => <TextField {...params} label="Type of Change" required/>}
                 />
             </Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}>
-              <Autocomplete
-                  disablePortal
-                  value={wfc}
-                    onChange={(event,value) => {setWfc(value)}}
-
-                  margin="normal"
-                  fullWidth
-                  size="small"
-                  id="combo-box-demo"
-                  options={options}
-                  
-                  renderInput={(params) => <TextField {...params} label="Workflow Category" required/>}
-                />
-            </Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}>
+            <Grid item xs={12} sm={4} md={4} lg={4}>
             <TextField
                 margin="normal"
                 type="number"
@@ -349,9 +349,75 @@ function CreateRequest1() {
                 sx={{ mt:0 }}
               />
             </Grid>
-            </Grid>
+          </Grid>
+          <Grid
+            container
+            direction="row"
+            rowSpacing={0}
+            columnSpacing={2}
+            justify="flex-end"
+            alignItems="center"
+          >
+            <Grid item xs={12} sm={6} md={6} lg={6}>
+            <Autocomplete
+                  disablePortal
+                  
+                    
+                    value={wfc}
+
+                    onChange={(event,value) => {setWfc(value)}}
+              
+
+                  margin="normal"
+                  fullWidth
+                  size="small"
+                  id="combo-box-demo"
+                  options={workflowOptions}
+                  
+                  renderInput={(params) => <TextField {...params} label="Workflow Category" required/>}
+                  
+
+               
+                />
                 
-                <Grid
+            </Grid>
+            
+             <Grid item xs={12} sm={6} md={6} lg={6}>
+              
+            <Autocomplete
+                  disablePortal
+                  value={cs}
+                    onChange={(event,value) => {setCs(value)}}
+
+                  margin="normal"
+                  fullWidth
+                  size="small"
+                  id="combo-box-demo"
+                  options={options}
+                  
+                  renderInput={(params) => <TextField {...params} label="CR Severity" required/>}
+                />
+               
+                
+            </Grid>  
+            
+             
+            <Grid item xs={12} sm={6} md={6} lg={6} sx={{display:"flex", width:"max-content",justifyContent:"center"}}>
+            <Grid item xs={12} sm={5} md={5} lg={5} >
+            <FormLabel id="demo-row-radio-buttons-group-label"  required sx={{mt:"5px"}} >
+                  Supporting Documents:
+                </FormLabel>
+             </Grid>
+            <Grid item xs={12}  sm={7} md={7} lg={7} > 
+                <Button  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}}><input  type="file" ref={aRef} /></Button>   
+            </Grid>
+            </Grid>
+            
+            
+            </Grid>
+            
+                
+                {/* <Grid
             container
             direction="row"
             rowSpacing={0}
@@ -368,7 +434,7 @@ function CreateRequest1() {
             <Grid item xs={12} sm={10} md={10} lg={10}>
                 <Button  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none',ml:2}}><input  type="file" ref={aRef} style={{ fontSize:"15px" }}  multiple /></Button>   
             </Grid>
-            </Grid>
+            </Grid> */}
             
             </CardContent>
         </Card>
