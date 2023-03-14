@@ -25,6 +25,7 @@ import { createTheme } from '@mui/material';
 import DataTable2 from './DataGrid';
 import { ThemeProvider } from '@emotion/react';
 import PageTitle from '../../layouts/PageTitle';
+import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -68,7 +69,7 @@ export default function CRDetails() {
         
 
         <CardContent>
-        <Button variant="contained" size='small' sx={{   float: "right", mr:2, mb:2 }}>Back</Button>
+        
         <Grid
             container
             direction="row"
@@ -149,7 +150,7 @@ export default function CRDetails() {
             </CardContent>
         
         </Card>
-        
+        <Button variant="outlined" startIcon={<ArrowBackOutlinedIcon/>} size='small' sx={{ mr:2, mb:2 }}>Back</Button>
         
         <Card>
         {/* <Typography sx={{color:'white', bgcolor: '#3F51B5',textAlign:'center' }}>Remark Details</Typography> */}
@@ -174,6 +175,7 @@ export default function CRDetails() {
         </Stack>
         
         {/* </ThemeProvider> */}
+        
     </>
     );
   }
