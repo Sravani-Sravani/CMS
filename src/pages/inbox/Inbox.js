@@ -59,54 +59,54 @@ const Inbox = () => {
 //       setRowsPerPage(parseInt(event.target.value, 10));
 //       setPage(0);
 //     };
-    // const sample = [
-    //   ['Frozen yoghurt', 159, 6.0, 24, 4.0],
-    //   ['Ice cream sandwich', 237, 9.0, 37, 4.3],
-    //   ['Eclair', 262, 16.0, 24, 6.0],
-    //   ['Cupcake', 305, 3.7, 67, 4.3],
-    //   ['Gingerbread', 356, 16.0, 49, 3.9],
-    // ];
+    const sample = [
+      ['Frozen yoghurt', 159, 6.0, 24, 4.0],
+      ['Ice cream sandwich', 237, 9.0, 37, 4.3],
+      ['Eclair', 262, 16.0, 24, 6.0],
+      ['Cupcake', 305, 3.7, 67, 4.3],
+      ['Gingerbread', 356, 16.0, 49, 3.9],
+    ];
     
-    // function createData(id, dessert, calories, fat, carbs, protein) {
-    //   return { id, dessert, calories, fat, carbs, protein };
-    // }
+    function createData(id, dessert, calories, fat, carbs, protein) {
+      return { id, dessert, calories, fat, carbs, protein };
+    }
     
-    // const columns = [
-    //   {
-    //     width: 200,
-    //     label: 'Dessert',
-    //     dataKey: 'dessert',
-    //   },
-    //   {
-    //     width: 120,
-    //     label: 'Calories\u00A0(g)',
-    //     dataKey: 'calories',
-    //     numeric: true,
-    //   },
-    //   {
-    //     width: 120,
-    //     label: 'Fat\u00A0(g)',
-    //     dataKey: 'fat',
-    //     numeric: true,
-    //   },
-    //   {
-    //     width: 120,
-    //     label: 'Carbs\u00A0(g)',
-    //     dataKey: 'carbs',
-    //     numeric: true,
-    //   },
-    //   {
-    //     width: 120,
-    //     label: 'Protein\u00A0(g)',
-    //     dataKey: 'protein',
-    //     numeric: true,
-    //   },
-    // ];
+    const columns = [
+      {
+        width: 200,
+        label: 'Dessert',
+        dataKey: 'dessert',
+      },
+      {
+        width: 120,
+        label: 'Calories\u00A0(g)',
+        dataKey: 'calories',
+        numeric: true,
+      },
+      {
+        width: 120,
+        label: 'Fat\u00A0(g)',
+        dataKey: 'fat',
+        numeric: true,
+      },
+      {
+        width: 120,
+        label: 'Carbs\u00A0(g)',
+        dataKey: 'carbs',
+        numeric: true,
+      },
+      {
+        width: 120,
+        label: 'Protein\u00A0(g)',
+        dataKey: 'protein',
+        numeric: true,
+      },
+    ];
     
-    // const rows = Array.from({ length: 100 }, (_, index) => {
-    //   const randomSelection = sample[Math.floor(Math.random() * sample.length)];
-    //   return createData(index, ...randomSelection);
-    // });
+    const rows = Array.from({ length: 100 }, (_, index) => {
+      const randomSelection = sample[Math.floor(Math.random() * sample.length)];
+      return createData(index, ...randomSelection);
+    });
     const name='Inbox'
   return (
     <>
@@ -175,7 +175,7 @@ const Inbox = () => {
             onRowsPerPageChange={handleChangeRowsPerPage}
           /> */}
           <VirtualizedTable 
-          // columns={columns} rows={rows}
+          columns={columns} rows={rows}
           />
         </CardContent>
       </Card> 
