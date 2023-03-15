@@ -25,7 +25,6 @@ import { createTheme } from '@mui/material';
 import DataTable2 from './DataGrid';
 import { ThemeProvider } from '@emotion/react';
 import PageTitle from '../../layouts/PageTitle';
-import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -57,7 +56,8 @@ export default function CRDetails() {
   ];
   const [text, setText] = React.useState("Default Text");
 
-  const name= 'Change Request Details';
+  const name= 'CRID: AP/Trust Operations/2021';
+  
   const cardTitle = 'Remark Details';
   return (
     <>
@@ -65,11 +65,301 @@ export default function CRDetails() {
         {/* <ThemeProvider theme={theme}> */}
         {/* <Typography sx={{bgcolor:'#3F51B5',color:'white',textAlign:'center'}}>Change Request Details</Typography> */}
         <PageTitle name={name}/>
-       
+        
         
 
         <CardContent>
         
+        <Grid
+            container
+            direction="row"
+            rowSpacing={0}
+            columnSpacing={2}
+            justify="flex-end"
+            alignItems="center"
+            marginBottom={2}
+          >
+            <Grid item xs={12} sm={2} md={2} lg={2}  >
+            <FormLabel id="demo-row-radio-buttons-group-label"  required  ><b>
+                  Application Type 
+                  </b></FormLabel>
+                </Grid>
+                <Grid item xs={12} sm={4} md={4} lg={4}  >
+            <Typography >:  Dr. YSR Arogyasri Portal</Typography>
+                
+            </Grid>
+            
+             
+              
+             <Grid item xs={12} sm={2} md={2} lg={2}  >
+            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+                 <b> Parent Organisation </b>
+                </FormLabel>
+                </Grid>
+                <Grid item xs={12} sm={4} md={4} lg={4}  >
+            <Typography >:  Dr. YSR Arogyasri Health Care Trust</Typography>
+           </Grid>
+            </Grid>
+            <Grid
+            container
+            direction="row"
+            rowSpacing={0}
+            columnSpacing={2}
+            justify="flex-end"
+            alignItems="center"
+            marginBottom={2}
+          >
+            <Grid item xs={12} sm={2} md={2} lg={2} >
+            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+                  <b>Source Department </b>
+                </FormLabel>
+                </Grid>
+                <Grid item xs={12} sm={4} md={4} lg={4} >
+            <Typography >:  Trust Operations</Typography>
+                
+            </Grid>
+            
+             
+              
+             <Grid item xs={12} sm={2} md={2} lg={2} >
+            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+                 <b> Source Department</b>
+                </FormLabel>
+                </Grid>
+                <Grid item xs={12} sm={4} md={4} lg={4}  >
+            <Typography >:  Trust Operations</Typography>
+           </Grid>
+            </Grid>
+            <Grid
+            container
+            direction="row"
+            rowSpacing={0}
+            columnSpacing={2}
+            justify="flex-end"
+            alignItems="center"
+            marginBottom={2}
+          >
+            <Grid item xs={12} sm={2} md={2} lg={2}  >
+            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+                 <b> CR Module </b>
+                </FormLabel>
+                </Grid>
+                <Grid item xs={12} sm={4} md={4} lg={4} >
+            <Typography >:  Dr. YSR Arogyasri Portal</Typography>
+                
+            </Grid>
+            
+             
+              
+             <Grid item xs={12} sm={2} md={2} lg={2}  >
+            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+                 <b> Request Type </b>
+                </FormLabel>
+                </Grid>
+                <Grid item xs={12} sm={4} md={4} lg={4}  >
+            <Typography >:  Dr. YSR Arogyasri Portal</Typography>
+           </Grid>
+            </Grid>  
+            <Grid
+            container
+            direction="row"
+            rowSpacing={0}
+            columnSpacing={2}
+            justify="flex-end"
+            alignItems="center"
+            marginBottom={2}
+          >
+            <Grid item xs={12} sm={2} md={2} lg={2}  >
+            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+                 <b> CR Title</b>
+                </FormLabel>
+                </Grid>
+                <Grid item xs={12} sm={4} md={4} lg={4}  >
+                <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+              
+                name="email"
+                autoComplete="email"
+                size="small"
+                autoFocus
+              />
+                
+            </Grid>
+            
+             
+              
+             <Grid item xs={12} sm={2} md={2} lg={2}  >
+            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+                 <b> CR Description </b>
+                </FormLabel>
+                </Grid>
+                <Grid item xs={12} sm={4} md={4} lg={4}  >
+                <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+              
+                name="email"
+                autoComplete="email"
+                size="small"
+                autoFocus
+              />
+           </Grid>
+            </Grid> 
+            <Grid
+            container
+            direction="row"
+            rowSpacing={0}
+            columnSpacing={2}
+            justify="flex-end"
+            alignItems="center"
+            marginBottom={2}
+          >
+            <Grid item xs={12} sm={2} md={2} lg={2} >
+            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+                 <b> Type of Change</b>
+                </FormLabel>
+                </Grid>
+                <Grid item xs={12} sm={4} md={4} lg={4}  >
+            <Typography >:  Dr. YSR Arogyasri Portal</Typography>
+                
+            </Grid>
+            
+             
+              
+             <Grid item xs={12} sm={2} md={2} lg={2}  >
+            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+                <b>  CR Priority </b>
+                </FormLabel>
+                </Grid>
+                <Grid item xs={12} sm={4} md={4} lg={4}  >
+            <Typography >:  Dr. YSR Arogyasri Portal</Typography>
+           </Grid>
+            </Grid>  
+            <Grid
+            container
+            direction="row"
+            rowSpacing={0}
+            columnSpacing={2}
+            justify="flex-end"
+            alignItems="center"
+            marginBottom={2}
+          >
+            <Grid item xs={12} sm={2} md={2} lg={2}  >
+            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+                <b> Workflow Category</b> 
+                </FormLabel>
+                </Grid>
+                <Grid item xs={12} sm={4} md={4} lg={4}  >
+            <Typography >:  Dr. YSR Arogyasri Portal</Typography>
+                
+            </Grid>
+            
+             
+              
+             <Grid item xs={12} sm={2} md={2} lg={2}  >
+            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+                <b> Supporting Document </b> 
+                </FormLabel>
+                </Grid>
+                <Grid item xs={12} sm={4} md={4} lg={4}   >
+                <Typography sx={{ml:4}}><Link href="/">img.jpg</Link></Typography>
+           </Grid>
+            </Grid>  
+            <Grid
+            container
+            direction="row"
+            rowSpacing={0}
+            columnSpacing={2}
+            justify="flex-end"
+            alignItems="center"
+            marginBottom={2}
+          >
+            <Grid item xs={12} sm={2} md={2} lg={2}  >
+            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+                <b>  Required Date </b>
+                </FormLabel>
+                </Grid>
+                <Grid item xs={12} sm={4} md={4} lg={4}  >
+                <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+              
+                name="email"
+                autoComplete="email"
+                size="small"
+                autoFocus
+              />
+                
+            </Grid>
+            
+             
+              
+             
+            </Grid> 
+            <Grid
+            container
+            direction="row"
+            rowSpacing={0}
+            columnSpacing={2}
+            justify="flex-end"
+            alignItems="center"
+            marginBottom={2}
+          >
+            <Grid item xs={12} sm={2} md={2} lg={2}  >
+            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+                <b>  Remarks </b>
+                </FormLabel>
+                </Grid>
+                <Grid item xs={12} sm={12} md={12} lg={12}  >
+                <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                multiline
+                rows={3}
+                name="email"
+                autoComplete="email"
+                size="small"
+                autoFocus
+              />
+                
+            </Grid>
+            
+                
+            </Grid> 
+            <Grid
+            container
+            direction="row"
+            rowSpacing={0}
+            columnSpacing={2}
+            justify="flex-end"
+            alignItems="center"
+            
+          >
+            <Grid item xs={12} sm={9} md={9} lg={9} >
+            <Button variant="contained" size='small' >Back</Button>
+            </Grid>
+            
+             
+              
+             <Grid item xs={12} sm={3} md={3} lg={3} >
+             
+             <Button variant="outlined" size='small' sx={{ml:5}} >Close</Button>
+             
+             <Button variant="contained" size='small'sx={{ml:2}} >Approve</Button>
+             
+            
+           </Grid>
+            </Grid>  
+
         <Grid
             container
             direction="row"
@@ -80,7 +370,7 @@ export default function CRDetails() {
            
             
           >
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>CRID</Grid>
+            {/* <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>CRID</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>AP/Trust Operations/2021/</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Application Type</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Dr.YSR Arogyasri Portal</Grid>
@@ -105,10 +395,10 @@ export default function CRDetails() {
                       InputProps={{
                           readOnly: true
                         }}
-                    /></Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Supporting Document</Grid>
+                    /></Grid> */}
+            {/* <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Supporting Document</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>
-              {/* <TextField
+               <TextField
                       type="text"
                       id="outlined-basic"
        
@@ -118,11 +408,11 @@ export default function CRDetails() {
                       InputProps={{
                           readOnly: true
                         }}
-                    /> */}
+                    /> 
                     <Typography><Link href="/">img.jpg</Link></Typography>
-                    </Grid>
+                    </Grid> */}
            
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>CR Severity</Grid>
+            {/* <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>CR Severity</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Medium</Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}> <FormLabel id="demo-row-radio-buttons-group-label" sx={{mt:1,color:"black",fontWeight:"bold"}} required>Build ID</FormLabel></Grid>
             <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>CRID</Grid>
@@ -144,13 +434,13 @@ export default function CRDetails() {
                       InputProps={{
                           readOnly: true
                         }}
-                    /></Grid>
+                    /></Grid> */}
             </Grid>
             {/* <Button variant="contained" size='small' sx={{   float: "right",mt:2 }}>Back</Button> */}
             </CardContent>
         
         </Card>
-        <Button variant="outlined" startIcon={<ArrowBackOutlinedIcon/>} size='small' sx={{ mr:2, mb:2 }}>Back</Button>
+        
         
         <Card>
         {/* <Typography sx={{color:'white', bgcolor: '#3F51B5',textAlign:'center' }}>Remark Details</Typography> */}
@@ -175,7 +465,6 @@ export default function CRDetails() {
         </Stack>
         
         {/* </ThemeProvider> */}
-        
     </>
     );
   }
