@@ -50,24 +50,27 @@ const WhiteBorderTextField = styled(TextField)`
 function CreateRequest1() {
   const aRef = useRef(null);
   
-    const options = [
-        { label: 'One', id: "1" },
-        { label: 'Two', id: "2" },
-      ];
+  const options = [
+    { label: 'One', id: "1" },
+    { label: 'Two', id: "2" },
+  ];
 
-      const workflowOptions = [
-        
-        { label: "Technical Issues", id: "1" },
-        { label: "Normal Change Request", id: "2" },
-        { label: "Production Support Service Request", id: "3" },
+  const workflowOptions = [  
+    { label: "Technical Issues", id: "1" },
+    { label: "Normal Change Request", id: "2" },
+    { label: "Production Support Service Request", id: "3" },
+  ];
+      
+  const [show, setShow] = useState({label:"", id:""});
+  const handleChange=(e, selectedValue) =>{
+    // const getField = e.target.value;
+    // console.log(getField);
+    // console.log(selectedValue);
+    setShow(selectedValue);
+  }
 
-      ];
-      
-      
-      
-
-      const name = 'Create Request'
-      const [at, setAt] = React.useState('');
+  const name = 'Create Request'
+  const [at, setAt] = React.useState('');
   const [po, setPo] = React.useState('');
   const [dept, setDept] = React.useState('');
   const [sub, setSub] = React.useState('');
@@ -77,7 +80,7 @@ function CreateRequest1() {
   const [crd, setCrd] = React.useState('');
   const [crm, setCrm] = React.useState('');
   const [tc, setTc] = React.useState('');
-  const [wfc, setWfc] = React.useState('');
+  // const [wfc, setWfc] = React.useState('');
   const [cs, setCs] = React.useState('');
    const [mno, setMno] = React.useState('');
    
@@ -92,7 +95,8 @@ function CreateRequest1() {
     setCrd("")
     setCrm("")
     setTc("")
-    setWfc("")
+    // setWfc("")
+    setShow("")
     setCs("")
     setMno("")
     aRef.current.value = null;
@@ -359,30 +363,65 @@ function CreateRequest1() {
             alignItems="center"
           >
             <Grid item xs={12} sm={6} md={6} lg={6}>
-            <Autocomplete
+            {/* <Autocomplete
                   disablePortal
-                  
-                    
-                    value={wfc}
-
-                    onChange={(event,value) => {setWfc(value)}}
-              
-
+                    // onChange={(event,value) => {setWfc(value)}}
+                    // value={wfc}
+                  value={show}
                   margin="normal"
                   fullWidth
                   size="small"
                   id="combo-box-demo"
                   options={workflowOptions}
+                  onChange={handleChange}
+                  // isOptionEqualToValue={(option, value) => option.id === value.value}
                   
                   renderInput={(params) => <TextField {...params} label="Workflow Category" required/>}
-                  
-
-               
-                />
-                
+                /> */}
+                <Autocomplete
+                disablePortal
+                margin="normal"
+                fullWidth
+                size="small"
+                id="combo-box-demo"
+                onChange={handleChange}
+                options={workflowOptions}
+                // sx={{ width: "100%"}}
+                renderInput={(params) => (
+                  <TextField {...params} label="Workflow Category"  required/>
+                )}
+              />
+                {/* <select name ="workflow category" margin="normal" onChange={(e) => (handleChange(e))} required>
+                  <option>Workflow Category</option>
+                  <option value='1'>Technical Issues</option>
+                  <option value='2'>Normal Change Request</option>
+                  <option value='3'>Production Support Service Request</option>
+                </select> */}
             </Grid>
+            {
+              show.id === '3' && (
+                <Grid item xs={12} sm={6} md={6} lg={6}>
+              
+                <Autocomplete
+                      disablePortal
+                      value={cs}
+                        onChange={(event,value) => {setCs(value)}}
+    
+                      margin="normal"
+                      fullWidth
+                      size="small"
+                      id="combo-box-demo"
+                      options={options}
+                      
+                      renderInput={(params) => <TextField {...params} label="CR Severity" required/>}
+                    />
+                   
+                    
+                </Grid>
+              )
+            }
             
-             <Grid item xs={12} sm={6} md={6} lg={6}>
+             {/* <Grid item xs={12} sm={6} md={6} lg={6}>
               
             <Autocomplete
                   disablePortal
@@ -399,22 +438,22 @@ function CreateRequest1() {
                 />
                
                 
-            </Grid>  
+            </Grid>   */}
             
              
-            <Grid item xs={12} sm={6} md={6} lg={6} sx={{display:"flex", width:"max-content",justifyContent:"center"}}>
-            <Grid item xs={12} sm={5} md={5} lg={5} >
-            <FormLabel id="demo-row-radio-buttons-group-label"  required sx={{mt:"5px"}} >
+            {/* <Grid item xs={12} sm={6} md={6} lg={6} sx={{display:"flex", width:"max-content",justifyContent:"center"}}> */}
+            <Grid item xs={12} sm={6} md={6} lg={6} display='flex' justifyContent='space-between' >
+                <FormLabel id="demo-row-radio-buttons-group-label"  required  >
                   Supporting Documents:
                 </FormLabel>
+                <Button  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}} ><input  type="file" ref={aRef} /></Button>   
              </Grid>
-            <Grid item xs={12}  sm={7} md={7} lg={7} > 
-                <Button  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}}><input  type="file" ref={aRef} /></Button>   
-            </Grid>
+            {/* <Grid item xs={12}  sm={7} md={7} lg={7} >  */}
+            {/* </Grid> */}
             </Grid>
             
             
-            </Grid>
+            {/* </Grid> */}
             
                 
                 {/* <Grid
