@@ -47,6 +47,134 @@ import VirtualizedTable from '../../components/VirtualizedTable';
 //     createData(2, 'T AP/FMPNL/2022/AP C439/CRM29580', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm', 'Pending with ALAMURI VIJAY BHASKAR(AP_C214)', 'NA', 'PMU Verified', '-NA-', '-NA-', 'High', 'Work Flow Changes', '-NA-', '-NA-', 'ANUPAMA KETHAM REDDY', 'Normal Request', 'Change'),
 // ]
 
+const sample = [
+  ['T AP/FMPNL/2022/AP C439/CRM29580', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm', 'Pending with ALAMURI VIJAY BHASKAR(AP_C214)','NA','PMU Verified', '-NA-', '-NA-', 'High', 'Work Flow Changes', '-NA-', '-NA-', 'ANUPAMA KETHAM REDDY', 'Normal Request', 'Change', ],
+  // ['T AP/FMPNL/2022/AP C439/CRM29581', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm'],
+  // ['T AP/FMPNL/2022/AP C439/CRM29582', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm'],
+  // ['T AP/FMPNL/2022/AP C439/CRM29583', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm'],
+  // ['T AP/FMPNL/2022/AP C439/CRM29584', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm'],
+];
+
+function createData(id, CRID, CRTitle, CRDesc, CRDept, CRDate, CRStatus, CRInternalStatus, CRExternalStatus, CRParentID, CRSeverity,CRPriority, CRTypeOfChange, CRBuildID, CREDD, CRRaisedBy, CRCategory, CRWorkflow) {
+  return {  id, CRID, CRTitle, CRDesc, CRDept, CRDate, CRStatus, CRInternalStatus, CRExternalStatus, CRParentID, CRSeverity,CRPriority, CRTypeOfChange, CRBuildID, CREDD, CRRaisedBy, CRCategory, CRWorkflow };
+}
+
+const columns = [
+  {
+    width: 100,
+    label: 'Sl No.',
+    dataKey: 'id',
+  },
+  {
+    width: 200,
+    label: 'Change Request Id',
+    dataKey: 'CRID',
+  },
+  {
+    width: 160,
+    label: 'CR Title',
+    dataKey: 'CRTitle',
+    // numeric: true,
+  },
+  {
+    width: 160,
+    label: 'CRDescription',
+    dataKey: 'CRDesc',
+    // numeric: true,
+  },
+  {
+    width: 160,
+    label: 'CR Raised Department',
+    dataKey: 'CRDept',
+    // numeric: true,
+  },
+  {
+    width: 120,
+    label: 'CR Raised Date',
+    dataKey: 'CRDate',
+    // numeric: true,
+  },
+  {
+    width: 120,
+    label: 'Current Status',
+    dataKey: 'CRStatus',
+    // numeric: true,
+  },
+  {
+    width: 120,
+    label: 'Internal Status',
+    dataKey: 'CRInternalStatus',
+    // numeric: true,
+  },
+  {
+    width: 120,
+    label: 'External Status',
+    dataKey: 'CRExternalStatus',
+    // numeric: true,
+  },
+  {
+    width: 120,
+    label: 'Parent CR ID',
+    dataKey: 'CRParentID',
+    // numeric: true,
+  },
+  {
+    width: 120,
+    label: 'Severity',
+    dataKey: 'CRSeverity',
+    // numeric: true,
+  },
+  {
+    width: 120,
+    label: 'Priority',
+    dataKey: 'CRPriority',
+    // numeric: true,
+  },
+  {
+    width: 120,
+    label: 'Type Of Change',
+    dataKey: 'CRTypeOfChange',
+    numeric: true,
+  },
+  {
+    width: 120,
+    label: 'Build ID',
+    dataKey: 'CRBuildID',
+    numeric: true,
+  },
+  {
+    width: 120,
+    label: 'Expected Delivery Date',
+    dataKey: 'CREDD',
+    numeric: true,
+  },
+  {
+    width: 120,
+    label: 'CR Raised By',
+    dataKey: 'CRRaisedBy',
+    numeric: true,
+  },
+  {
+    width: 120,
+    label: 'CR Category',
+    dataKey: 'CRCategory',
+    numeric: true,
+  },
+  {
+    width: 120,
+    label: 'Workflow',
+    dataKey: 'CRWorkflow',
+    numeric: true,
+  },
+  
+  
+];
+
+const rows = Array.from({ length: 50 }, (_, index) => {
+  const randomSelection = sample[Math.floor(Math.random() * sample.length)];
+  return createData(index, ...randomSelection);
+});
+
 const Inbox = () => {
 //     const [page, setPage] = React.useState(0);
 //     const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -59,54 +187,7 @@ const Inbox = () => {
 //       setRowsPerPage(parseInt(event.target.value, 10));
 //       setPage(0);
 //     };
-    const sample = [
-      ['Frozen yoghurt', 159, 6.0, 24, 4.0],
-      ['Ice cream sandwich', 237, 9.0, 37, 4.3],
-      ['Eclair', 262, 16.0, 24, 6.0],
-      ['Cupcake', 305, 3.7, 67, 4.3],
-      ['Gingerbread', 356, 16.0, 49, 3.9],
-    ];
     
-    function createData(id, dessert, calories, fat, carbs, protein) {
-      return { id, dessert, calories, fat, carbs, protein };
-    }
-    
-    const columns = [
-      {
-        width: 200,
-        label: 'Dessert',
-        dataKey: 'dessert',
-      },
-      {
-        width: 120,
-        label: 'Calories\u00A0(g)',
-        dataKey: 'calories',
-        numeric: true,
-      },
-      {
-        width: 120,
-        label: 'Fat\u00A0(g)',
-        dataKey: 'fat',
-        numeric: true,
-      },
-      {
-        width: 120,
-        label: 'Carbs\u00A0(g)',
-        dataKey: 'carbs',
-        numeric: true,
-      },
-      {
-        width: 120,
-        label: 'Protein\u00A0(g)',
-        dataKey: 'protein',
-        numeric: true,
-      },
-    ];
-    
-    const rows = Array.from({ length: 100 }, (_, index) => {
-      const randomSelection = sample[Math.floor(Math.random() * sample.length)];
-      return createData(index, ...randomSelection);
-    });
     const name='Inbox'
   return (
     <>

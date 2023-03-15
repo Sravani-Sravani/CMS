@@ -166,11 +166,11 @@ export default function CRDetails() {
             rowSpacing={0}
             columnSpacing={2}
             justify="flex-end"
-            alignItems="center"
+            // alignItems="center"
             marginBottom={2}
           >
-            <Grid item xs={12} sm={2} md={2} lg={2}  >
-            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+            <Grid item xs={12} sm={2} md={2} lg={2}  mt={1.6}>
+            <FormLabel id="demo-row-radio-buttons-group-label"  required >
                  <b> CR Title</b>
                 </FormLabel>
                 </Grid>
@@ -180,7 +180,8 @@ export default function CRDetails() {
                 required
                 fullWidth
                 id="email"
-              
+                multiline
+                rows ={2}
                 name="email"
                 autoComplete="email"
                 size="small"
@@ -191,7 +192,7 @@ export default function CRDetails() {
             
              
               
-             <Grid item xs={12} sm={2} md={2} lg={2}  >
+             <Grid item xs={12} sm={2} md={2} lg={2} mt={1.6} >
             <FormLabel id="demo-row-radio-buttons-group-label"  required  >
                  <b> CR Description </b>
                 </FormLabel>
@@ -202,7 +203,8 @@ export default function CRDetails() {
                 required
                 fullWidth
                 id="email"
-              
+                multiline 
+                rows={2}
                 name="email"
                 autoComplete="email"
                 size="small"
@@ -255,7 +257,7 @@ export default function CRDetails() {
                 </FormLabel>
                 </Grid>
                 <Grid item xs={12} sm={4} md={4} lg={4}  >
-            <Typography >:  Dr. YSR Arogyasri Portal</Typography>
+                <Typography >:  Dr. YSR Arogyasri Portal</Typography>
                 
             </Grid>
             
@@ -264,10 +266,11 @@ export default function CRDetails() {
              <Grid item xs={12} sm={2} md={2} lg={2}  >
             <FormLabel id="demo-row-radio-buttons-group-label"  required  >
                 <b> Supporting Document </b> 
+                <Typography>:</Typography>
                 </FormLabel>
                 </Grid>
                 <Grid item xs={12} sm={4} md={4} lg={4}   >
-                <Typography sx={{ml:4}}><Link href="/">img.jpg</Link></Typography>
+                <Typography sx={{ml:4}}> <Link href="/">img.jpg</Link></Typography>
            </Grid>
             </Grid>  
             <Grid
@@ -335,30 +338,7 @@ export default function CRDetails() {
             
                 
             </Grid> 
-            <Grid
-            container
-            direction="row"
-            rowSpacing={0}
-            columnSpacing={2}
-            justify="flex-end"
-            alignItems="center"
-            
-          >
-            <Grid item xs={12} sm={9} md={9} lg={9} >
-            <Button variant="contained" size='small' >Back</Button>
-            </Grid>
-            
-             
               
-             <Grid item xs={12} sm={3} md={3} lg={3} >
-             
-             <Button variant="outlined" size='small' sx={{ml:5}} >Close</Button>
-             
-             <Button variant="contained" size='small'sx={{ml:2}} >Approve</Button>
-             
-            
-           </Grid>
-            </Grid>  
 
         <Grid
             container
@@ -440,7 +420,30 @@ export default function CRDetails() {
             </CardContent>
         
         </Card>
-        
+        <Grid
+            container
+            direction="row"
+            rowSpacing={0}
+            columnSpacing={2}
+            justify="flex-end"
+            alignItems="center"
+            
+          >
+            <Grid item xs={12} sm={9} md={9} lg={9} >
+            <Button variant="contained" size='small' sx={{ml:1}}>Back</Button>
+            </Grid>
+            
+             
+              
+             <Grid item xs={12} sm={3} md={3} lg={3} display='flex' justifyContent='flex-end'>
+             
+             <Button variant="outlined" size='small' sx={{mx:2}} >Close</Button>
+             
+             <Button variant="contained" size='small'>Approve</Button>
+             
+            
+           </Grid>
+            </Grid>
         
         <Card>
         {/* <Typography sx={{color:'white', bgcolor: '#3F51B5',textAlign:'center' }}>Remark Details</Typography> */}
@@ -450,7 +453,7 @@ export default function CRDetails() {
           </Grid>
         </Card>
         
-        <Stack
+        {/* <Stack
             container
             direction="row"
             spacing={1}
@@ -462,7 +465,7 @@ export default function CRDetails() {
 
             {/* <Button variant="contained" size='small' >Close</Button>
             <Button variant="contained" size='small' >Previous Remarks</Button> */}
-        </Stack>
+        {/* </Stack> */} 
         
         {/* </ThemeProvider> */}
     </>

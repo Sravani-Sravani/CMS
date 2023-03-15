@@ -379,18 +379,19 @@ function CreateRequest1() {
                   renderInput={(params) => <TextField {...params} label="Workflow Category" required/>}
                 /> */}
                 <Autocomplete
-                disablePortal
-                margin="normal"
-                fullWidth
-                size="small"
-                id="combo-box-demo"
-                onChange={handleChange}
-                options={workflowOptions}
-                // sx={{ width: "100%"}}
-                renderInput={(params) => (
-                  <TextField {...params} label="Workflow Category"  required/>
-                )}
-              />
+                  disablePortal
+                  margin="normal"
+                  fullWidth
+                  size="small"
+                  id="combo-box-demo"
+                  onChange={handleChange}
+                  options={workflowOptions}
+                  value={show}
+                  // sx={{ width: "100%"}}
+                  renderInput={(params) => (
+                    <TextField {...params} label="Workflow Category"  required/>
+                  )}
+                />
                 {/* <select name ="workflow category" margin="normal" onChange={(e) => (handleChange(e))} required>
                   <option>Workflow Category</option>
                   <option value='1'>Technical Issues</option>
@@ -399,7 +400,7 @@ function CreateRequest1() {
                 </select> */}
             </Grid>
             {
-              show.id === '3' && (
+              show?.id === '3' && (
                 <Grid item xs={12} sm={6} md={6} lg={6}>
               
                 <Autocomplete
@@ -441,19 +442,19 @@ function CreateRequest1() {
             </Grid>   */}
             
              
-            {/* <Grid item xs={12} sm={6} md={6} lg={6} sx={{display:"flex", width:"max-content",justifyContent:"center"}}> */}
-            <Grid item xs={12} sm={6} md={6} lg={6} display='flex' justifyContent='space-between' >
-                <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+            <Grid item xs={12} sm={6} md={6} lg={6} fullWidth sx={{display:"flex",justifyContent:"center", mb:2}}>
+            <Grid item xs={12} sm={6} md={6} lg={6} >
+                <FormLabel id="demo-row-radio-buttons-group-label"  required  sx={{mt:"5px"}}>
                   Supporting Documents:
                 </FormLabel>
-                <Button  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}} ><input  type="file" ref={aRef} /></Button>   
              </Grid>
-            {/* <Grid item xs={12}  sm={7} md={7} lg={7} >  */}
-            {/* </Grid> */}
+            <Grid item xs={12}  sm={6} md={6} lg={6} > 
+                <Button  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}} ><input  type="file" ref={aRef} /></Button>   
+            </Grid>
             </Grid>
             
             
-            {/* </Grid> */}
+            </Grid>
             
                 
                 {/* <Grid
