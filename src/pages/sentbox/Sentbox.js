@@ -91,36 +91,36 @@ const columns = [
   },
   {
     width: 160,
-    label: 'CRDescription',
+    label: 'CR Description',
     dataKey: 'CRDesc',
     // numeric: true,
   },
   {
-    width: 160,
+    width: 200,
     label: 'CR Raised Department',
     dataKey: 'CRDept',
     // numeric: true,
   },
   {
-    width: 120,
+    width: 160,
     label: 'CR Raised Date',
     dataKey: 'CRDate',
     // numeric: true,
   },
   {
-    width: 120,
+    width: 180,
     label: 'Current Status',
     dataKey: 'CRStatus',
     // numeric: true,
   },
   {
-    width: 120,
+    width: 160,
     label: 'Internal Status',
     dataKey: 'CRInternalStatus',
     // numeric: true,
   },
   {
-    width: 120,
+    width: 160,
     label: 'External Status',
     dataKey: 'CRExternalStatus',
     // numeric: true,
@@ -144,40 +144,40 @@ const columns = [
     // numeric: true,
   },
   {
-    width: 120,
+    width: 160,
     label: 'Type Of Change',
     dataKey: 'CRTypeOfChange',
-    numeric: true,
+    // numeric: true,
   },
   {
     width: 120,
     label: 'Build ID',
     dataKey: 'CRBuildID',
-    numeric: true,
+    // numeric: true,
   },
   {
-    width: 120,
+    width: 180,
     label: 'Expected Delivery Date',
     dataKey: 'CREDD',
-    numeric: true,
+    // numeric: true,
   },
   {
-    width: 120,
+    width: 200,
     label: 'CR Raised By',
     dataKey: 'CRRaisedBy',
-    numeric: true,
+    // numeric: true,
   },
   {
-    width: 120,
+    width: 160,
     label: 'CR Category',
     dataKey: 'CRCategory',
-    numeric: true,
+    // numeric: true,
   },
   {
     width: 120,
     label: 'Workflow',
     dataKey: 'CRWorkflow',
-    numeric: true,
+    // numeric: true,
   },
   
   
@@ -185,7 +185,7 @@ const columns = [
 
 const rows = Array.from({ length: 50 }, (_, index) => {
   const randomSelection = sample[Math.floor(Math.random() * sample.length)];
-  return createData(index, ...randomSelection);
+  return createData(index+1, ...randomSelection);
 });
 
 const Sentbox = () => {

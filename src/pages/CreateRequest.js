@@ -69,7 +69,6 @@ function CreateRequest1() {
     setShow(selectedValue);
   }
 
-  const name = 'Create Request'
   const [at, setAt] = React.useState('');
   const [po, setPo] = React.useState('');
   const [dept, setDept] = React.useState('');
@@ -82,8 +81,8 @@ function CreateRequest1() {
   const [tc, setTc] = React.useState('');
   // const [wfc, setWfc] = React.useState('');
   const [cs, setCs] = React.useState('');
-   const [mno, setMno] = React.useState('');
-   
+  const [mno, setMno] = React.useState('');
+  
   const resetForm = () =>{
     setAt("")
     setPo("")
@@ -100,20 +99,24 @@ function CreateRequest1() {
     setCs("")
     setMno("")
     aRef.current.value = null;
-     
-  }
-
-      
     
-    return(
-        <>
+  }
+  
+  
+  
+  const name = 'Application Type'
+  return(
+    <>  
+        <Box py={1}>
+          <Typography variant='h5'>Create Request</Typography>
+        </Box>
         <Card>
             <CardContent>
             
+              <PageTitle name={name}/>
             {/* <Typography variant="h4"  color="text.secondary" gutterBottom>
             Create Request
           </Typography> */}
-          <PageTitle name={name}/>
             <Grid
             container
             direction="row"
@@ -448,8 +451,11 @@ function CreateRequest1() {
                   Supporting Documents:
                 </FormLabel>
              </Grid>
-            <Grid item xs={12}  sm={6} md={6} lg={6} > 
-                <Button  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}} ><input  type="file" ref={aRef} /></Button>   
+            <Grid item xs={12}  sm={6} md={6} lg={6} mt={0.5}> 
+                <div  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}}  >
+                    <input  type="file" ref={aRef}/>
+                    
+                  </div>   
             </Grid>
             </Grid>
             

@@ -81,7 +81,7 @@ export const menu = [
       //   view: <Home/>,
       // },
       {
-        title: "CMS Statistics Report",
+        title: "CMS Work Statistics Report",
         pageLink: '/page1',
         view: <Home/>,
       },

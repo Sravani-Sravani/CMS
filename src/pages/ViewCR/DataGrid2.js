@@ -2,9 +2,11 @@ import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 import VirtualizedTable from '../../components/VirtualizedTable';
+import { Link } from 'react-router-dom';
+
 
 const sample = [
-  ['T AP/FMPNL/2022/AP C439/CRM29580', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm', 'Pending with ALAMURI VIJAY BHASKAR(AP_C214)','NA','PMU Verified', '-NA-', '-NA-', 'High', 'Work Flow Changes', '-NA-', '-NA-', 'ANUPAMA KETHAM REDDY', 'Normal Request', 'Change', ],
+  [<Link href='/cms/#/crStatus'>T AP/FMPNL/2022/AP C439/CRM29580</Link>, 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm', 'Pending with ALAMURI VIJAY BHASKAR(AP_C214)','NA','PMU Verified', '-NA-', '-NA-', 'High', 'Work Flow Changes', '-NA-', '-NA-', 'ANUPAMA KETHAM REDDY', 'Normal Request', 'Change', ],
   // ['T AP/FMPNL/2022/AP C439/CRM29581', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm'],
   // ['T AP/FMPNL/2022/AP C439/CRM29582', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm'],
   // ['T AP/FMPNL/2022/AP C439/CRM29583', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm'],
@@ -34,7 +36,7 @@ const columns = [
   },
   {
     width: 160,
-    label: 'CRDescription',
+    label: 'CR Description',
     dataKey: 'CRDesc',
     // numeric: true,
   },
@@ -45,13 +47,13 @@ const columns = [
     // numeric: true,
   },
   {
-    width: 120,
+    width: 160,
     label: 'CR Raised Date',
     dataKey: 'CRDate',
     // numeric: true,
   },
   {
-    width: 120,
+    width: 180,
     label: 'Current Status',
     dataKey: 'CRStatus',
     // numeric: true,
@@ -87,7 +89,7 @@ const columns = [
     // numeric: true,
   },
   {
-    width: 120,
+    width: 160,
     label: 'Type Of Change',
     dataKey: 'CRTypeOfChange',
     numeric: true,
@@ -99,19 +101,19 @@ const columns = [
     numeric: true,
   },
   {
-    width: 120,
+    width: 180,
     label: 'Expected Delivery Date',
     dataKey: 'CREDD',
     numeric: true,
   },
   {
-    width: 120,
+    width: 200,
     label: 'CR Raised By',
     dataKey: 'CRRaisedBy',
     numeric: true,
   },
   {
-    width: 120,
+    width: 160,
     label: 'CR Category',
     dataKey: 'CRCategory',
     numeric: true,
@@ -126,16 +128,16 @@ const columns = [
   
 ];
 
-const rows = Array.from({ length: 100 }, (_, index) => {
+const rows = Array.from({ length: 50 }, (_, index) => {
   const randomSelection = sample[Math.floor(Math.random() * sample.length)];
-  return createData(index, ...randomSelection);
+  return createData(index+1, ...randomSelection);
 });
 
 
 export default function DataTable2() {
   return (
-    <Box>
-      <VirtualizedTable />
-    </Box>
+    <>
+      <VirtualizedTable columns={columns} rows={rows}/>
+      </>
   );
 }

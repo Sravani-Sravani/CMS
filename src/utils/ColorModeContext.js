@@ -34,12 +34,18 @@ export const ColorModeContextProvider = ({ children }) => {
             fontSize:"16px",
             lineHeight:"2",
            }, 
+           h6:{
+            fontSize:"16px",
+            fontWeight:"600",
+            
+           },
            body1:{
               fontWeight: 500,
             },
             button:{
-
+              
             },
+            
           },
         components: {
           // Name of the component
@@ -92,7 +98,7 @@ export const ColorModeContextProvider = ({ children }) => {
                   //       // Some CSS
                   background: "#fff",
                   borderRadius: 6,
-                  fontSize: "10",
+                  fontSize: "10 ",
                   marginBottom:20,
                   color:"#EAEAEA",
                   
@@ -104,10 +110,12 @@ export const ColorModeContextProvider = ({ children }) => {
                       root:{
                         background:'#F5FAFF',
                         fontSize:"10",
-                        color:"#4B4B4B"
+                        color:"#4B4B4B",
+                        
                       }
                     }
                   },
+                  
                   // MuiTableRow:{
                   //   styleOverrides:{
                   //     root:{

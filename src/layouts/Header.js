@@ -272,7 +272,7 @@ export default function PersistentDrawerLeft() {
       <Footer position='fixed' open={open}>
         <Typography noWrap component="div">
               {/* CMS {location.pathname} */}
-              &copy; Site Maintained By KPMG Advisory Services Pvt. Ltd. The Contents Are Owned By Govt.Of AP, India.
+              &copy; Site maintained by KPMG Advisory Services Pvt. Ltd. The contents are owned by Govt.Of AP, India.
         </Typography>
       </Footer>
     </Box>

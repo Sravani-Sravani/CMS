@@ -14,12 +14,13 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 import CMSReport from './CMSReport';
+import VirtualizedTable from './VirtualizedTable';
+import {CSVLink} from 'react-csv';
+import { useDownloadExcel } from 'react-export-table-to-excel';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { useState } from 'react';
 import { Typography, Stack, Box, Grid, TextField } from '@mui/material'
 import Autocomplete from '@mui/material/Autocomplete';
-import VirtualizedTable from './VirtualizedTable';
-import {CSVLink} from 'react-csv';
 
 
 const options = [
@@ -58,36 +59,36 @@ const columns = [
   },
   {
     width: 160,
-    label: 'CRDescription',
+    label: 'CR Description',
     dataKey: 'CRDesc',
     // numeric: true,
   },
   {
-    width: 160,
+    width: 200,
     label: 'CR Raised Department',
     dataKey: 'CRDept',
     // numeric: true,
   },
   {
-    width: 120,
+    width: 160,
     label: 'CR Raised Date',
     dataKey: 'CRDate',
     // numeric: true,
   },
   {
-    width: 120,
+    width: 180,
     label: 'Current Status',
     dataKey: 'CRStatus',
     // numeric: true,
   },
   {
-    width: 120,
+    width: 160,
     label: 'Internal Status',
     dataKey: 'CRInternalStatus',
     // numeric: true,
   },
   {
-    width: 120,
+    width: 160,
     label: 'External Status',
     dataKey: 'CRExternalStatus',
     // numeric: true,
@@ -111,40 +112,40 @@ const columns = [
     // numeric: true,
   },
   {
-    width: 120,
+    width: 160,
     label: 'Type Of Change',
     dataKey: 'CRTypeOfChange',
-    numeric: true,
+    // numeric: true,
   },
   {
     width: 120,
     label: 'Build ID',
     dataKey: 'CRBuildID',
-    numeric: true,
+    // numeric: true,
   },
   {
-    width: 120,
+    width: 180,
     label: 'Expected Delivery Date',
     dataKey: 'CREDD',
-    numeric: true,
+    // numeric: true,
   },
   {
-    width: 120,
+    width: 200,
     label: 'CR Raised By',
     dataKey: 'CRRaisedBy',
-    numeric: true,
+    // numeric: true,
   },
   {
-    width: 120,
+    width: 160,
     label: 'CR Category',
     dataKey: 'CRCategory',
-    numeric: true,
+    // numeric: true,
   },
   {
     width: 120,
     label: 'Workflow',
     dataKey: 'CRWorkflow',
-    numeric: true,
+    // numeric: true,
   },
   
   
@@ -152,7 +153,7 @@ const columns = [
 
 const rows = Array.from({ length: 50 }, (_, index) => {
   const randomSelection = sample[Math.floor(Math.random() * sample.length)];
-  return createData(index, ...randomSelection);
+  return createData(index+1, ...randomSelection);
 });
 
 
@@ -189,6 +190,14 @@ function ReferredPatientView() {
     setText(e.target.value);
   }
   
+  // const tableRef = React.useRef(null)
+
+  // const {onDownload} = useDownloadExcel({
+  //   currentTableRef: tableRef.current,
+  //   filename: 'user_info',
+  //   sheet:'UserData'
+
+  // })
   return (
     <>
       <CMSReport></CMSReport>
@@ -219,7 +228,7 @@ function ReferredPatientView() {
             }}
 
           >
-            <CSVLink data={rows}><MenuItem onClick={handleClose}>Excel Export</MenuItem></CSVLink>
+            <MenuItem onClick={handleClose}><CSVLink data={rows}   filename={"userData.csv"}>Excel Export</CSVLink></MenuItem>
             <MenuItem onClick={handleClose}>Pdf Export</MenuItem>
           </Menu>
         </Box>

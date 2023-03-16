@@ -108,6 +108,7 @@ export default function VirtualizedTable({
     rows,
     columns
 }) {
+    
 
     const fixedHeaderContent = React.useCallback(() => {
         return (
@@ -115,7 +116,8 @@ export default function VirtualizedTable({
                 {columns.map((column) => (
                     <TableCell
                         key={column.dataKey}
-                        variant="head"
+                        variant="thead"
+                        sx={{fontSize:"13px"}}
                         align={column.numeric || false ? 'right' : 'left'}
                         style={{ width: column.width }}
                     >
@@ -142,6 +144,7 @@ export default function VirtualizedTable({
     return (
         <Paper style={{ height: 400, width: '100%' }}>
             <TableVirtuoso
+                
                 data={rows}
                 components={VirtuosoTableComponents}
                 fixedHeaderContent={fixedHeaderContent}
