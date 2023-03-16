@@ -19,6 +19,7 @@ import { useState } from 'react';
 import { Typography, Stack, Box, Grid, TextField } from '@mui/material'
 import Autocomplete from '@mui/material/Autocomplete';
 import VirtualizedTable from './VirtualizedTable';
+import {CSVLink} from 'react-csv';
 
 
 const options = [
@@ -193,6 +194,7 @@ function ReferredPatientView() {
       <CMSReport></CMSReport>
       <Card>
         <Box sx={{ pr: 3, mb: 1, mt: 1, float: "right" }}>
+        
           <Button
             variant="outlined"
             startIcon={<DownloadForOfflineIcon />}
@@ -205,6 +207,7 @@ function ReferredPatientView() {
           >
             Export
           </Button>
+          
           <Menu
             id="basic-menu"
             anchorEl={anchorEl}
@@ -216,7 +219,7 @@ function ReferredPatientView() {
             }}
 
           >
-            <MenuItem onClick={handleClose}>Excel Export</MenuItem>
+            <CSVLink data={rows}><MenuItem onClick={handleClose}>Excel Export</MenuItem></CSVLink>
             <MenuItem onClick={handleClose}>Pdf Export</MenuItem>
           </Menu>
         </Box>
