@@ -33,9 +33,13 @@ import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 // import {CSVLink} from 'react-csv';
 import { useDownloadExcel } from 'react-export-table-to-excel';
 import {CSVLink} from 'react-csv';
-import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import { useReactToPrint } from 'react-to-print';
+import { useRef } from "react";
+import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
+// import ExportTableToPDF from './StaticTable';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -233,6 +237,27 @@ export default function CRDetails() {
   //   documentTitle:"User Data",
   //   onAfterPrint:()=>alert('data saved')
   // });
+
+  const tableRef = useRef();
+
+  const handleExportPDF = () => {
+    const input = tableRef.current;
+    html2canvas(input).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF("l", "mm", "a4");
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+      const imageWidth = canvas.width;
+      const imageHeight = canvas.height;
+      const ratio = Math.min(pageWidth / imageWidth, pageHeight / imageHeight);
+      const imgWidth = imageWidth * ratio;
+      const imgHeight = imageHeight * ratio;
+      pdf.addImage(imgData, "PNG", (pageWidth - imgWidth) / 12, (pageHeight - imgHeight) / 12, imgWidth, imgHeight);
+      pdf.save("table.pdf");
+    });
+  };
+
+
   return (
     <>
     <Box py={1}>
@@ -675,9 +700,14 @@ export default function CRDetails() {
           }}
 
         >
-          <CSVLink data={rows} filename={"userData.csv"}><MenuItem onClick={handleClose}>Excel Export</MenuItem></CSVLink>
-          <MenuItem> <Button onClick={()=>downloadPdf()}>Pdf Export</Button></MenuItem>
+          <CSVLink data={rows} filename={"userData.csv"}>
+            <MenuItem> <Button onClick={handleClose}>Excel Export</Button></MenuItem>
+            </CSVLink>
+          {/* <MenuItem> <Button onClick={()=>downloadPdf()}>Pdf Export</Button></MenuItem> */}
+          <MenuItem> <Button sx={{textDecoration:"underline"}} onClick={handleExportPDF}>Pdf Export</Button></MenuItem>
+          
         </Menu>
+        
         </Box>
         {/* </Stack> */}
         <CardContent>
@@ -685,7 +715,213 @@ export default function CRDetails() {
         // sx={{ marginTop: 2, marginLeft: 2, marginRight: 2, marginBottom: 2 }}
         mt={3}>
           
-          <DataTable2 />
+          {/* <DataTable2 /> */}
+          {/* <ExportTableToPDF /> */}
+          
+      <Paper sx={{overflowX:"auto"}}>
+          <Box sx={{width:"100%",display:"table",tableLayout:"fixed"}}>
+
+         
+      <Table  ref={tableRef}>
+        <TableHead>
+          <TableRow>
+            <TableCell>Sl No.</TableCell>
+            <TableCell>Change Request Id</TableCell>
+            <TableCell>CR Title</TableCell>
+            <TableCell>CR Description</TableCell>
+            <TableCell>CR Raised Department</TableCell>
+            <TableCell>CR Raised Date</TableCell>
+            <TableCell>Current Status</TableCell>
+            <TableCell>Internal Status</TableCell>
+            <TableCell>External Status</TableCell>
+            <TableCell>Parent CR ID</TableCell>
+            <TableCell>Severity</TableCell>
+            <TableCell>Priority</TableCell>
+            <TableCell>Type of Change</TableCell>
+            <TableCell>Build ID</TableCell>
+            <TableCell>Expected Delivery Date</TableCell>
+            <TableCell>CR Raised By</TableCell>
+            <TableCell>CR Category</TableCell>
+            <TableCell>Workflow</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+
+        {/* 1	T AP/FMPNL/2022/AP C439/CRM29580	With the approval Copy	With the approval Copy	Empanelment and Medical Audit	02/02/2022 04:42:21 pm	Pending with ALAMURI VIJAY BHASKAR(AP_C214)	NA	PMU Verified	-NA-	-NA-	High	Work Flow Changes	-NA-	-NA-	ANUPAMA KETHAM REDDY	Normal Request	Change */}
+          <TableRow>
+            <TableCell>1</TableCell>
+            <TableCell>T AP/FMPNL/2022/AP C439/CRM29580</TableCell>
+            <TableCell>With the approval Copy</TableCell>
+            <TableCell>With the approval Copy</TableCell>
+            <TableCell>Empanelment and Medical Audit</TableCell>
+            <TableCell>02/02/2022 04:42:21 pm</TableCell>
+            <TableCell>Pending with ALAMURI VIJAY BHASKAR(AP_C214)</TableCell>
+            <TableCell>NA</TableCell>
+            <TableCell>PMU Verified</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>High</TableCell>
+            <TableCell>	Work Flow Changes</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>ANUPAMA KETHAM REDDY</TableCell>
+            <TableCell>Normal Request</TableCell>
+            <TableCell>Change</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>1</TableCell>
+            <TableCell>T AP/FMPNL/2022/AP C439/CRM29580</TableCell>
+            <TableCell>With the approval Copy</TableCell>
+            <TableCell>With the approval Copy</TableCell>
+            <TableCell>Empanelment and Medical Audit</TableCell>
+            <TableCell>02/02/2022 04:42:21 pm</TableCell>
+            <TableCell>Pending with ALAMURI VIJAY BHASKAR(AP_C214)</TableCell>
+            <TableCell>NA</TableCell>
+            <TableCell>PMU Verified</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>High</TableCell>
+            <TableCell>	Work Flow Changes</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>ANUPAMA KETHAM REDDY</TableCell>
+            <TableCell>Normal Request</TableCell>
+            <TableCell>Change</TableCell>
+          </TableRow>
+
+          <TableRow>
+            <TableCell>1</TableCell>
+            <TableCell>T AP/FMPNL/2022/AP C439/CRM29580</TableCell>
+            <TableCell>With the approval Copy</TableCell>
+            <TableCell>With the approval Copy</TableCell>
+            <TableCell>Empanelment and Medical Audit</TableCell>
+            <TableCell>02/02/2022 04:42:21 pm</TableCell>
+            <TableCell>Pending with ALAMURI VIJAY BHASKAR(AP_C214)</TableCell>
+            <TableCell>NA</TableCell>
+            <TableCell>PMU Verified</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>High</TableCell>
+            <TableCell>	Work Flow Changes</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>ANUPAMA KETHAM REDDY</TableCell>
+            <TableCell>Normal Request</TableCell>
+            <TableCell>Change</TableCell>
+          </TableRow>
+
+          
+          <TableRow>
+            <TableCell>2</TableCell>
+            <TableCell>T AP/FMPNL/2022/AP C439/CRM29580</TableCell>
+            <TableCell>With the approval Copy</TableCell>
+            <TableCell>With the approval Copy</TableCell>
+            <TableCell>Empanelment and Medical Audit</TableCell>
+            <TableCell>02/02/2022 04:42:21 pm</TableCell>
+            <TableCell>Pending with ALAMURI VIJAY BHASKAR(AP_C214)</TableCell>
+            <TableCell>NA</TableCell>
+            <TableCell>PMU Verified</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>High</TableCell>
+            <TableCell>	Work Flow Changes</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>ANUPAMA KETHAM REDDY</TableCell>
+            <TableCell>Normal Request</TableCell>
+            <TableCell>Change</TableCell>
+          </TableRow>
+
+          <TableRow>
+            <TableCell>3</TableCell>
+            <TableCell>T AP/FMPNL/2022/AP C439/CRM29580</TableCell>
+            <TableCell>With the approval Copy</TableCell>
+            <TableCell>With the approval Copy</TableCell>
+            <TableCell>Empanelment and Medical Audit</TableCell>
+            <TableCell>02/02/2022 04:42:21 pm</TableCell>
+            <TableCell>Pending with ALAMURI VIJAY BHASKAR(AP_C214)</TableCell>
+            <TableCell>NA</TableCell>
+            <TableCell>PMU Verified</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>High</TableCell>
+            <TableCell>	Work Flow Changes</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>ANUPAMA KETHAM REDDY</TableCell>
+            <TableCell>Normal Request</TableCell>
+            <TableCell>Change</TableCell>
+          </TableRow>
+
+          <TableRow>
+            <TableCell>4</TableCell>
+            <TableCell>T AP/FMPNL/2022/AP C439/CRM29580</TableCell>
+            <TableCell>With the approval Copy</TableCell>
+            <TableCell>With the approval Copy</TableCell>
+            <TableCell>Empanelment and Medical Audit</TableCell>
+            <TableCell>02/02/2022 04:42:21 pm</TableCell>
+            <TableCell>Pending with ALAMURI VIJAY BHASKAR(AP_C214)</TableCell>
+            <TableCell>NA</TableCell>
+            <TableCell>PMU Verified</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>High</TableCell>
+            <TableCell>	Work Flow Changes</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>ANUPAMA KETHAM REDDY</TableCell>
+            <TableCell>Normal Request</TableCell>
+            <TableCell>Change</TableCell>
+          </TableRow>
+
+          <TableRow>
+            <TableCell>5</TableCell>
+            <TableCell>T AP/FMPNL/2022/AP C439/CRM29580</TableCell>
+            <TableCell>With the approval Copy</TableCell>
+            <TableCell>With the approval Copy</TableCell>
+            <TableCell>Empanelment and Medical Audit</TableCell>
+            <TableCell>02/02/2022 04:42:21 pm</TableCell>
+            <TableCell>Pending with ALAMURI VIJAY BHASKAR(AP_C214)</TableCell>
+            <TableCell>NA</TableCell>
+            <TableCell>PMU Verified</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>High</TableCell>
+            <TableCell>	Work Flow Changes</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>ANUPAMA KETHAM REDDY</TableCell>
+            <TableCell>Normal Request</TableCell>
+            <TableCell>Change</TableCell>
+          </TableRow>
+
+          <TableRow>
+            <TableCell>6</TableCell>
+            <TableCell>T AP/FMPNL/2022/AP C439/CRM29580</TableCell>
+            <TableCell>With the approval Copy</TableCell>
+            <TableCell>With the approval Copy</TableCell>
+            <TableCell>Empanelment and Medical Audit</TableCell>
+            <TableCell>02/02/2022 04:42:21 pm</TableCell>
+            <TableCell>Pending with ALAMURI VIJAY BHASKAR(AP_C214)</TableCell>
+            <TableCell>NA</TableCell>
+            <TableCell>PMU Verified</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>High</TableCell>
+            <TableCell>	Work Flow Changes</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>-NA-</TableCell>
+            <TableCell>ANUPAMA KETHAM REDDY</TableCell>
+            <TableCell>Normal Request</TableCell>
+            <TableCell>Change</TableCell>
+          </TableRow>
+
+
+          
+        </TableBody>
+      </Table>
+      </Box>
+      </Paper>
           
           </Grid>
         </CardContent>

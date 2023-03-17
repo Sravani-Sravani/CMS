@@ -5,6 +5,7 @@ import { createTheme, ThemeProvider } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import Stack from '@mui/material/Stack';
 import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
@@ -27,6 +28,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { useRef, useState , useEffect} from 'react';
+import SimpleBackdrop from './ViewCR/BackDrop';
 
 
 import Autocomplete from '@mui/material/Autocomplete';
@@ -62,12 +64,35 @@ function CreateRequest1() {
   ];
       
   const [show, setShow] = useState({label:"", id:""});
+  
   const handleChange=(e, selectedValue) =>{
     // const getField = e.target.value;
     // console.log(getField);
     // console.log(selectedValue);
     setShow(selectedValue);
   }
+const [baseFile,setBaseFile] = useState('');
+const [file, setFile] = useState();
+
+    function handleFileChange(e) {
+        var result = URL.createObjectURL(e.target.files[0])
+        setBaseFile(result)
+        console.log("Basefile is",baseFile);
+      //   //setFile(URL.createObjectURL(e.target.files[0]));
+      //   let idCardBase64 = '';
+      //   (test(e.target.files[0], (result) => {
+      //     idCardBase64 = result;
+      //     setBaseFile(result);
+        
+      //     // console.log(idCardBase64);
+      //     // setFileUrl(idCardBase64);
+      //     //sendPrivateFile(idCardBase64,event.target.files[0].name, event.target.files[0].type);
+      // })
+      // );
+     
+    }
+
+    // String imgTag ="<a href=\"data:image/png;base64," + baseFile + "\"></a>";
 
   const [at, setAt] = React.useState('');
   const [po, setPo] = React.useState('');
@@ -102,7 +127,17 @@ function CreateRequest1() {
     
   }
   
-  
+  const getBase64 = (file, cb) => {
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    console.log('enter');
+    reader.onload = function () {
+        cb(reader.result)
+    };
+    reader.onerror = function (error) {
+        console.log('Error: ', error);
+    };
+  }
   
   const name = 'Application Type'
   return(
@@ -452,8 +487,16 @@ function CreateRequest1() {
                 </FormLabel>
              </Grid>
             <Grid item xs={12}  sm={6} md={6} lg={6} mt={0.5}> 
-                <div  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}}  >
-                    <input  type="file" ref={aRef}/>
+                <div  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}}  >                
+                    <input type="file" ref={aRef} onChange={handleFileChange} />
+                    { //Check if message failed
+        (baseFile !== '')
+          // ? <a target="_blank" href={baseFile}><Button><VisibilityIcon />Preview</Button></a>
+          ? <SimpleBackdrop imageURL={baseFile} />
+          : <></>
+      }
+
+                    
                     
                   </div>   
             </Grid>
