@@ -54,7 +54,7 @@ const CMSReport = () => {
   return (
     <>
           
-      <Card spacing={4}>
+      <Card className="Searchcard">
         <CardContent>
       {/* <Typography variant="h4"  color="text.secondary" gutterBottom>
            CMS Section Wise Report
@@ -65,11 +65,12 @@ const CMSReport = () => {
           </Typography> */}
           <Grid
             container
-            direction="row" 
-            rowSpacing={1}
-            columnSpacing={1}
+            direction="row"
+            rowSpacing={0}
+            columnSpacing={2}
             justify="flex-end"
             alignItems="center"
+            
           >
             <Grid item xs={12} sm={3} md={3} lg={3}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -147,6 +148,16 @@ const CMSReport = () => {
                 )}
               />
             </Grid>
+            </Grid>
+            <Grid
+            container
+            direction="row"
+            rowSpacing={0}
+            columnSpacing={2}
+            justify="flex-end"
+            alignItems="center"
+            
+          >
             <Grid item xs={12} sm={3} md={3} lg={3}>
               <Autocomplete
                 disablePortal
@@ -212,6 +223,16 @@ const CMSReport = () => {
                 size="small"
               />
             </Grid>
+            </Grid>
+            <Grid
+            container
+            direction="row"
+            rowSpacing={0}
+            columnSpacing={2}
+            justify="flex-end"
+            alignItems="center"
+            
+          >
             <Grid item xs={12} sm={3} md={3} lg={3}>
               <Autocomplete
                 disablePortal

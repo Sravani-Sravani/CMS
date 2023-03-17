@@ -69,7 +69,7 @@ function CreateRequest1() {
     setShow(selectedValue);
   }
 
-  const name = 'Create Request'
+  const name = 'Application Details'
   const [at, setAt] = React.useState('');
   const [po, setPo] = React.useState('');
   const [dept, setDept] = React.useState('');
