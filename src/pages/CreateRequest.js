@@ -94,6 +94,7 @@ const [file, setFile] = useState();
 
     // String imgTag ="<a href=\"data:image/png;base64," + baseFile + "\"></a>";
 
+  const name = 'Application Details'
   const [at, setAt] = React.useState('');
   const [po, setPo] = React.useState('');
   const [dept, setDept] = React.useState('');
@@ -139,7 +140,7 @@ const [file, setFile] = useState();
     };
   }
   
-  const name = 'Application Type'
+  // const name = 'Application Type'
   return(
     <>  
         <Box py={1}>
