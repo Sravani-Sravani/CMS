@@ -64,20 +64,32 @@ function CreateRequest1() {
   ];
       
   const [show, setShow] = useState({label:"", id:""});
-  
   const handleChange=(e, selectedValue) =>{
     // const getField = e.target.value;
     // console.log(getField);
     // console.log(selectedValue);
     setShow(selectedValue);
   }
-const [baseFile,setBaseFile] = useState('');
-const [file, setFile] = useState();
+  // const [addFile, setAddFile] = useState(false);
+  // const handleAddItem =()=>{
+  //   // setAddFile(true)
+  //   // setAddFile([...addFile,{addItem:""}])
+  //   if(addFile == false){
+  //     setAddFile(true);
+  //   }
+    
+  // }
+  // const handleRemoveItem =() =>{
+  //   setAddFile(false);
+  // }
 
-    function handleFileChange(e) {
-        var result = URL.createObjectURL(e.target.files[0])
-        setBaseFile(result)
-        console.log("Basefile is",baseFile);
+  const [baseFile,setBaseFile] = useState('');
+  const handleFileChange = React.useCallback((e) => {
+      var result = URL.createObjectURL(e.target.files[0])
+      setBaseFile(result)
+      console("Basefile is",result.size());
+
+      
       //   //setFile(URL.createObjectURL(e.target.files[0]));
       //   let idCardBase64 = '';
       //   (test(e.target.files[0], (result) => {
@@ -88,9 +100,37 @@ const [file, setFile] = useState();
       //     // setFileUrl(idCardBase64);
       //     //sendPrivateFile(idCardBase64,event.target.files[0].name, event.target.files[0].type);
       // })
-      // );
-     
+      // );  
+  }, [setBaseFile, baseFile]);
+
+  const [fileUploadCount, setFileUploadCount] = useState(1);
+  const addFileUpload = React.useCallback(() => {
+    setFileUploadCount(count => count + 1);
+  });
+  const removeFileUpload = React.useCallback(() => {
+    setFileUploadCount(count => Math.max(1, count - 1));
+  });
+
+  const fileUploadJSX = React.useMemo(() => {
+    let tempFileUploadJSX = []
+    for (let i = 0; i < fileUploadCount; i++) {
+      tempFileUploadJSX.push(
+        <div key={`fileUpload_${i}`} component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}}  >    
+
+          <input type="file" ref={aRef} onChange={handleFileChange} />
+          { //Check if message failed
+            (baseFile !== '')
+              // ? <a target="_blank" href={baseFile}><Button><VisibilityIcon />Preview</Button></a>
+              ? <SimpleBackdrop imageURL={baseFile} />
+              : <></>
+          }
+        </div>
+      );
     }
+    return tempFileUploadJSX;
+  }, [fileUploadCount, handleFileChange, baseFile]);
+
+  const [file, setFile] = useState();
 
     // String imgTag ="<a href=\"data:image/png;base64," + baseFile + "\"></a>";
 
@@ -401,7 +441,7 @@ const [file, setFile] = useState();
             justify="flex-end"
             alignItems="center"
           >
-            <Grid item xs={12} sm={6} md={6} lg={6}>
+            <Grid item xs={12} sm={12} md={12} lg={12}>
             {/* <Autocomplete
                   disablePortal
                     // onChange={(event,value) => {setWfc(value)}}
@@ -427,6 +467,7 @@ const [file, setFile] = useState();
                   options={workflowOptions}
                   value={show}
                   // sx={{ width: "100%"}}
+                  
                   renderInput={(params) => (
                     <TextField {...params} label="Workflow Category"  required/>
                   )}
@@ -455,8 +496,6 @@ const [file, setFile] = useState();
                       
                       renderInput={(params) => <TextField {...params} label="CR Severity" required/>}
                     />
-                   
-                    
                 </Grid>
               )
             }
@@ -481,26 +520,12 @@ const [file, setFile] = useState();
             </Grid>   */}
             
              
-            <Grid item xs={12} sm={6} md={6} lg={6} fullWidth sx={{display:"flex",justifyContent:"center", mb:2}}>
-            <Grid item xs={12} sm={6} md={6} lg={6} >
-                <FormLabel id="demo-row-radio-buttons-group-label"  required  sx={{mt:"5px"}}>
-                  Supporting Documents:
-                </FormLabel>
-             </Grid>
-            <Grid item xs={12}  sm={6} md={6} lg={6} mt={0.5}> 
-                <div  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}}  >                
-                    <input type="file" ref={aRef} onChange={handleFileChange} />
-                    { //Check if message failed
-        (baseFile !== '')
-          // ? <a target="_blank" href={baseFile}><Button><VisibilityIcon />Preview</Button></a>
-          ? <SimpleBackdrop imageURL={baseFile} />
-          : <></>
-      }
+            <Grid item xs={12} sm={6} md={6} lg={6} fullWidth sx={{display:"flex",justifyContent:"center", mt:1}}>
 
-                    
-                    
-                  </div>   
-            </Grid>
+
+
+
+
             </Grid>
             
             
@@ -525,6 +550,44 @@ const [file, setFile] = useState();
                 <Button  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none',ml:2}}><input  type="file" ref={aRef} style={{ fontSize:"15px" }}  multiple /></Button>   
             </Grid>
             </Grid> */}
+                        <Grid item xs={12}  sm={6} md={6} lg={6} mt={0.5}>
+                        <Grid item xs={12} sm={6} md={6} lg={6} >
+                <FormLabel id="demo-row-radio-buttons-group-label"  required  sx={{mb:"8px"}}>
+                  Supporting Documents:
+                </FormLabel>
+             </Grid>
+                {fileUploadJSX}
+                {/* <div  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}}  >                
+                  <input type="file" ref={aRef} onChange={handleFileChange} />
+                  { //Check if message failed
+                    (baseFile !== '')
+                      // ? <a target="_blank" href={baseFile}><Button><VisibilityIcon />Preview</Button></a>
+                      ? <SimpleBackdrop imageURL={baseFile} />
+                      : <></>
+                  }
+                </div>
+                
+                  <>
+                  {addFile && (
+                  <div  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}}  >  
+                                
+                  <input type="file" ref={aRef} onChange={handleFileChange} />
+                  { //Check if message failed
+                    (baseFile !== '')
+                      // ? <a target="_blank" href={baseFile}><Button><VisibilityIcon />Preview</Button></a>
+                      ? <SimpleBackdrop imageURL={baseFile} />
+                      : <></>
+                  }
+                  </div>
+                  )
+                  }
+                </> */}
+                
+                <Grid item sx={{mt:0.5}}>
+                  <Button  variant='contained' sx={{marginRight:'5px'}} size='small' onClick={addFileUpload}>Add</Button>
+                  <Button disabled={fileUploadCount <= 1} variant='contained' size='small' onClick={removeFileUpload}>Delete</Button>
+                </Grid>
+            </Grid>
             
             </CardContent>
         </Card>
