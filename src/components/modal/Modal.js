@@ -39,6 +39,7 @@ const [baseFile,setBaseFile] = useState('');
 
   const clearData=()=>{
     setBaseFile('')
+    aRef.current.value = null;
   }
 
 const [fileUploadCount, setFileUploadCount] = useState(1);

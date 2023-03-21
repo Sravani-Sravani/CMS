@@ -83,6 +83,20 @@ function CreateRequest1() {
   //   setAddFile(false);
   // }
 
+  
+
+  const clearData=()=>{
+    setBaseFile('')
+    aRef.current.value = null;
+  }
+  
+  const [fileUploadCount, setFileUploadCount] = useState(1);
+  const addFileUpload = React.useCallback(() => {
+    setFileUploadCount(count => count + 1);
+  });
+  const removeFileUpload = React.useCallback(() => {
+    setFileUploadCount(count => Math.max(1, count - 1));
+  });
   const [baseFile,setBaseFile] = useState('');
   const handleFileChange = React.useCallback((e) => {
       var result = URL.createObjectURL(e.target.files[0])
@@ -102,18 +116,6 @@ function CreateRequest1() {
       // })
       // );  
   }, [setBaseFile, baseFile]);
-
-  const clearData=()=>{
-    setBaseFile('')
-  }
-
-  const [fileUploadCount, setFileUploadCount] = useState(1);
-  const addFileUpload = React.useCallback(() => {
-    setFileUploadCount(count => count + 1);
-  });
-  const removeFileUpload = React.useCallback(() => {
-    setFileUploadCount(count => Math.max(1, count - 1));
-  });
 
   const fileUploadJSX = React.useMemo(() => {
     let tempFileUploadJSX = []
