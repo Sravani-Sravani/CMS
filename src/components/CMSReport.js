@@ -54,7 +54,7 @@ const CMSReport = () => {
   return (
     <>
           
-      <Card className="Searchcard">
+      <Card className="Searchcard" variant='outlined'>
         <CardContent>
       {/* <Typography variant="h4"  color="text.secondary" gutterBottom>
            CMS Section Wise Report

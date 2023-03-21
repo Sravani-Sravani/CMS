@@ -14,7 +14,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 import CMSReport from './CMSReport';
-import VirtualizedTable from './VirtualizedTable';
+import VirtualizedTable from './table/VirtualizedTable';
 import {CSVLink} from 'react-csv';
 import { useDownloadExcel } from 'react-export-table-to-excel';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';

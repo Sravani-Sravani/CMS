@@ -15,7 +15,7 @@ import TablePagination from '@mui/material/TablePagination';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import PageTitle from '../../layouts/PageTitle';
-import VirtualizedTable from '../../components/VirtualizedTable';
+import VirtualizedTable from '../../components/table/VirtualizedTable';
 
 // const sample = [
 //   ['T AP/FMPNL/2022/AP C439/CRM29580', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', 4.0],

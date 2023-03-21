@@ -59,20 +59,23 @@ export const ColorModeContextProvider = ({ children }) => {
           mode,
           ...(mode === "light"
             ? {
-              MuiCard: {
-                styleOverrides: {
-                //     // Name of the slot
+              MuiCard: {                
+                styleOverrides: {                
+                //     // Name of the slot  
                 root: {
-                //       // Some CSS
-                background: "#fff",
-                borderRadius: 8,
-                // spacing:20,
-                boxShadow:'0px 10px 25px -5px rgba(0, 0, 0, 0.1)',
-                marginTop:20,
-                marginBottom:20,
-                padding:10
-                }
-                }
+                 //       // Some CSS                
+                background: "#fff",                
+                borderRadius: 8,                
+                boxShadow:'0px 10px 25px -5px rgba(0, 0, 0, 0.1)',                
+                marginTop:20,                
+                marginBottom:20,                
+                padding:10,                
+                },                
+                outlined: {                  
+                background: "purple",                  
+                color: "red"                
+                }                               
+                }                
                 },
                 
                 
@@ -113,7 +116,7 @@ export const ColorModeContextProvider = ({ children }) => {
                         background:'#F5FAFF',
                         fontSize:"10",
                         color:"#4B4B4B",
-                        
+                        // textAlign:'center'
                       }
                     }
                   },

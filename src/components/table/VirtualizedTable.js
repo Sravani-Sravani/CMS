@@ -65,7 +65,7 @@ const VirtuosoTableComponents = {
     <Table {...props} sx={{ borderCollapse: 'separate', tableLayout: 'fixed' }} />
   ),
   TableHead,
-  TableRow: ({ item: _item, ...props }) => <TableRow {...props} />,
+  TableRow: ({ item: _item, ...props }) => <TableRow {...props}/>,
   TableBody: React.forwardRef((props, ref) => <TableBody {...props} ref={ref} />),
 };
 

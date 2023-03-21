@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
-import VirtualizedTable from '../../components/VirtualizedTable';
+import VirtualizedTable from '../../components/table/VirtualizedTable';
 import { Button } from '@mui/material';
 
 // const columns = [

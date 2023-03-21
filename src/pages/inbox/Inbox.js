@@ -15,7 +15,7 @@ import TablePagination from '@mui/material/TablePagination';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import PageTitle from '../../layouts/PageTitle';
-import VirtualizedTable from '../../components/VirtualizedTable';
+import VirtualizedTable from '../../components/table/VirtualizedTable';
 
 // const columns = [
 //     {id:'SNo.', label:'S.No', minWidth:70},

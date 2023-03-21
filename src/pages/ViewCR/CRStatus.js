@@ -39,7 +39,9 @@ import { useRef } from "react";
 import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+import Modal from '../../components/modal/Modal';
 // import ExportTableToPDF from './StaticTable';
+// import "../../components/modal/Modal.css"
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -257,6 +259,7 @@ export default function CRDetails() {
     });
   };
 
+  const [openModal , setOpenModal] = React.useState(false);
 
   return (
     <>
@@ -280,29 +283,32 @@ export default function CRDetails() {
             justify="flex-end"
             alignItems="center"
             marginBottom={2}
+            
           >
-            <Grid item xs={12} sm={2} md={2} lg={2}  >
-            <FormLabel id="demo-row-radio-buttons-group-label"  required  ><b>
-                  Application Type 
-                  </b></FormLabel>
-                </Grid>
-                <Grid item xs={12} sm={4} md={4} lg={4}  >
-            <Typography >:  Dr. YSR Arogyasri Portal</Typography>
-                
+            <Grid item xs={12} sm={2} md={2} lg={2}>
+              <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+                <b>
+                    Application Type 
+                </b>
+              </FormLabel>
+              
+            </Grid>
+            <Grid item xs={12} sm={4} md={4} lg={4}  >
+              <Typography >:  Dr. YSR Arogyasri Portal</Typography>
             </Grid>
             
              
               
-             <Grid item xs={12} sm={2} md={2} lg={2}  >
-            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+            <Grid item xs={12} sm={2} md={2} lg={2}  >
+              <FormLabel id="demo-row-radio-buttons-group-label"  required  >
                  <b> Parent Organisation </b>
-                </FormLabel>
-                </Grid>
-                <Grid item xs={12} sm={4} md={4} lg={4}  >
-            <Typography >:  Dr. YSR Arogyasri Health Care Trust</Typography>
-           </Grid>
+              </FormLabel>
             </Grid>
-            <Grid
+            <Grid item xs={12} sm={4} md={4} lg={4}  >
+              <Typography >:  Dr. YSR Arogyasri Health Care Trust</Typography>
+            </Grid>
+          </Grid>
+          <Grid
             container
             direction="row"
             rowSpacing={0}
@@ -312,27 +318,26 @@ export default function CRDetails() {
             marginBottom={2}
           >
             <Grid item xs={12} sm={2} md={2} lg={2} >
-            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+              <FormLabel id="demo-row-radio-buttons-group-label"  required  >
                   <b>Source Department </b>
-                </FormLabel>
-                </Grid>
-                <Grid item xs={12} sm={4} md={4} lg={4} >
-            <Typography >:  Trust Operations</Typography>
-                
+              </FormLabel>
+            </Grid>
+            <Grid item xs={12} sm={4} md={4} lg={4} >
+              <Typography >:  Trust Operations</Typography>  
             </Grid>
             
              
               
-             <Grid item xs={12} sm={2} md={2} lg={2} >
-            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+            <Grid item xs={12} sm={2} md={2} lg={2} >
+              <FormLabel id="demo-row-radio-buttons-group-label"  required  >
                  <b> Source Department</b>
-                </FormLabel>
-                </Grid>
-                <Grid item xs={12} sm={4} md={4} lg={4}  >
-            <Typography >:  Trust Operations</Typography>
-           </Grid>
+              </FormLabel>
             </Grid>
-            <Grid
+            <Grid item xs={12} sm={4} md={4} lg={4}  >
+              <Typography >:  Trust Operations</Typography>
+            </Grid>
+          </Grid>
+          <Grid
             container
             direction="row"
             rowSpacing={0}
@@ -342,27 +347,26 @@ export default function CRDetails() {
             marginBottom={2}
           >
             <Grid item xs={12} sm={2} md={2} lg={2}  >
-            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
-                 <b> CR Module </b>
-                </FormLabel>
-                </Grid>
-                <Grid item xs={12} sm={4} md={4} lg={4} >
-            <Typography >:  Dr. YSR Arogyasri Portal</Typography>
-                
+              <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+                <b> CR Module </b>
+              </FormLabel>
+            </Grid>
+            <Grid item xs={12} sm={4} md={4} lg={4} >
+              <Typography >:  Dr. YSR Arogyasri Portal</Typography>  
             </Grid>
             
              
               
-             <Grid item xs={12} sm={2} md={2} lg={2}  >
-            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+            <Grid item xs={12} sm={2} md={2} lg={2}  >
+              <FormLabel id="demo-row-radio-buttons-group-label"  required  >
                  <b> Request Type </b>
-                </FormLabel>
-                </Grid>
-                <Grid item xs={12} sm={4} md={4} lg={4}  >
-            <Typography >:  Dr. YSR Arogyasri Portal</Typography>
-           </Grid>
-            </Grid>  
-            <Grid
+              </FormLabel>
+            </Grid>
+            <Grid item xs={12} sm={4} md={4} lg={4}  >
+              <Typography >:  Dr. YSR Arogyasri Portal</Typography>
+            </Grid>
+          </Grid>  
+          <Grid
             container
             direction="row"
             rowSpacing={0}
@@ -372,12 +376,12 @@ export default function CRDetails() {
             marginBottom={2}
           >
             <Grid item xs={12} sm={2} md={2} lg={2}  mt={2.7}>
-            <FormLabel id="demo-row-radio-buttons-group-label"  required >
+              <FormLabel id="demo-row-radio-buttons-group-label"  required >
                  <b> CR Title</b>
-                </FormLabel>
-                </Grid>
-                <Grid item xs={12} sm={4} md={4} lg={4}  >
-                <TextField
+              </FormLabel>
+            </Grid>
+            <Grid item xs={12} sm={4} md={4} lg={4}  >
+              <TextField
                 margin="normal"
                 required
                 fullWidth
@@ -389,19 +393,18 @@ export default function CRDetails() {
                 size="small"
                 defaultValue="With the approval Copy	"
                 autoFocus
-              />
-                
+              />  
             </Grid>
             
              
               
-             <Grid item xs={12} sm={2} md={2} lg={2} mt={2.7} >
-            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+            <Grid item xs={12} sm={2} md={2} lg={2} mt={2.7} >
+              <FormLabel id="demo-row-radio-buttons-group-label"  required  >
                  <b> CR Description </b>
-                </FormLabel>
-                </Grid>
-                <Grid item xs={12} sm={4} md={4} lg={4}  >
-                <TextField
+              </FormLabel>
+            </Grid>
+            <Grid item xs={12} sm={4} md={4} lg={4}  >
+              <TextField
                 margin="normal"
                 required
                 fullWidth
@@ -414,9 +417,9 @@ export default function CRDetails() {
                 size="small"
                 autoFocus
               />
-           </Grid>
-            </Grid> 
-            <Grid
+            </Grid>
+          </Grid> 
+          <Grid
             container
             direction="row"
             rowSpacing={0}
@@ -426,57 +429,52 @@ export default function CRDetails() {
             marginBottom={2}
           >
             <Grid item xs={12} sm={2} md={2} lg={2} >
-            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+              <FormLabel id="demo-row-radio-buttons-group-label"  required  >
                  <b> Type of Change</b>
-                </FormLabel>
-                </Grid>
-                <Grid item xs={12} sm={4} md={4} lg={4}  >
-            <Typography >:  Dr. YSR Arogyasri Portal</Typography>
-                
+              </FormLabel>
+            </Grid>
+            <Grid item xs={12} sm={4} md={4} lg={4}  >
+              <Typography >:  Dr. YSR Arogyasri Portal</Typography>  
             </Grid>
             
              
-              
-             <Grid item xs={12} sm={2} md={2} lg={2}  >
-            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+            <Grid item xs={12} sm={2} md={2} lg={2}  >
+              <FormLabel id="demo-row-radio-buttons-group-label"  required  >
                 <b>  CR Priority </b>
-                </FormLabel>
-                </Grid>
-                <Grid item xs={12} sm={4} md={4} lg={4}  >
-            <Typography >:  Dr. YSR Arogyasri Portal</Typography>
-           </Grid>
-            </Grid>  
-            <Grid
-            container
-            direction="row"
-            rowSpacing={0}
-            columnSpacing={2}
-            justify="flex-end"
-            alignItems="center"
-            marginBottom={2}
-          >
-            <Grid item xs={12} sm={2} md={2} lg={2}  >
-            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
-                <b> Workflow Category</b> 
-                </FormLabel>
-                </Grid>
-                <Grid item xs={12} sm={4} md={4} lg={4}  >
-                <Typography >:  Dr. YSR Arogyasri Portal</Typography>
-                
+              </FormLabel>
             </Grid>
-            
-             
-              
-             <Grid item xs={12} sm={2} md={2} lg={2}  >
-            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
-                <b> Supporting Document </b> 
-                <Typography>:</Typography>
-                </FormLabel>
+            <Grid item xs={12} sm={4} md={4} lg={4}  >
+              <Typography >:  Dr. YSR Arogyasri Portal</Typography>
+            </Grid>
+          </Grid>  
+          <Grid
+              container
+              direction="row"
+              rowSpacing={0}
+              columnSpacing={2}
+              justify="flex-end"
+              alignItems="center"
+              marginBottom={2}>
+                <Grid item xs={12} sm={2} md={2} lg={2}  >
+                  <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+                    <b> Workflow Category</b> 
+                  </FormLabel>
                 </Grid>
-                <Grid item xs={12} sm={4} md={4} lg={4}   >
-                <Typography sx={{ml:4}}> <Link href="/">img.jpg</Link></Typography>
-           </Grid>
+                <Grid item xs={12} sm={4} md={4} lg={4}  >
+                  <Typography >:  Dr. YSR Arogyasri Portal</Typography>        
+                </Grid>
+              
+              <Grid item xs={12} sm={2} md={2} lg={2}  >
+                <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+                  <b> Supporting Document </b> 
+                  <Typography>:</Typography>
+                </FormLabel>
+              </Grid>
+              <Grid item xs={12} sm={4} md={4} lg={4}   >
+                <Typography sx={{ml:4}}><Button  onClick={() => {setOpenModal(true)}}>img.jpg</Button> </Typography>
+              </Grid>
             </Grid>  
+            {openModal && <Modal closeModal ={setOpenModal}/>}
             <Grid
             container
             direction="row"
@@ -487,12 +485,12 @@ export default function CRDetails() {
             marginBottom={2}
           >
             <Grid item xs={12} sm={2} md={2} lg={2}  >
-            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+              <FormLabel id="demo-row-radio-buttons-group-label"  required  >
                 <b>  Required Date </b>
-                </FormLabel>
-                </Grid>
-                <Grid item xs={12} sm={4} md={4} lg={4}  >
-                <TextField
+              </FormLabel>
+            </Grid>
+            <Grid item xs={12} sm={4} md={4} lg={4}  >
+              <TextField
                 margin="normal"
                 required
                 fullWidth
@@ -502,14 +500,10 @@ export default function CRDetails() {
                 autoComplete="email"
                 size="small"
                 autoFocus
-              />
-                
+              />    
             </Grid>
-            
-             
-              
-             
             </Grid> 
+            
             <Grid
             container
             direction="row"
@@ -520,12 +514,12 @@ export default function CRDetails() {
             marginBottom={2}
           >
             <Grid item xs={12} sm={2} md={2} lg={2}  >
-            <FormLabel id="demo-row-radio-buttons-group-label"  required  >
+              <FormLabel id="demo-row-radio-buttons-group-label"  required  >
                 <b>  Remarks </b>
-                </FormLabel>
-                </Grid>
-                <Grid item xs={12} sm={12} md={12} lg={12}  >
-                <TextField
+              </FormLabel>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12} lg={12}  >
+              <TextField
                 margin="normal"
                 required
                 fullWidth
@@ -539,91 +533,15 @@ export default function CRDetails() {
               />
                 
             </Grid>
-            
-                
-            </Grid> 
+          </Grid> 
               
 
-        <Grid
-            container
-            direction="row"
-            rowSpacing={1}
-            columnSpacing={2}
-            justify="flex-end"
-            alignItems="center"
-           
-            
-          >
-            {/* <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>CRID</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>AP/Trust Operations/2021/</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Application Type</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Dr.YSR Arogyasri Portal</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Organization Type</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Dr. YSR Arogyasri Health Care Trust</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Source Department</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Trust Operation</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>CR Type</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>NEW</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>CR Title</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Reopening of cases which was EO rejected</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Type of Change</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Others</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>WorkFlow Category</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}><TextField
-                      type="text"
-                      id="outlined-basic"
-       
-                      variant="outlined"
-                      onChange={(e) => setText(e.target.value)}
-                      value={text}
-                      InputProps={{
-                          readOnly: true
-                        }}
-                    /></Grid> */}
-            {/* <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Supporting Document</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>
-               <TextField
-                      type="text"
-                      id="outlined-basic"
-       
-                      variant="outlined"
-                      onChange={(e) => setText(e.target.value)}
-                      value={text}
-                      InputProps={{
-                          readOnly: true
-                        }}
-                    /> 
-                    <Typography><Link href="/">img.jpg</Link></Typography>
-                    </Grid> */}
-           
-            {/* <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>CR Severity</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Medium</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}> <FormLabel id="demo-row-radio-buttons-group-label" sx={{mt:1,color:"black",fontWeight:"bold"}} required>Build ID</FormLabel></Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>CRID</Grid>
-     
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Expected Delivery Date</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>06/06/2023</Grid>
-            
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>Current Status</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left"}}>Production Deployment Completed</Grid>
-       
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}>CR Description</Grid>
-            <Grid item xs={12} sm={4} md={3} lg={3}  sx={{textAlign:"left",fontWeight:"bold"}}><TextField
-                      type="text"
-                      id="outlined-basic"
-       
-                      variant="outlined"
-                      onChange={(e) => setText(e.target.value)}
-                      value={text}
-                      InputProps={{
-                          readOnly: true
-                        }}
-                    /></Grid> */}
-            </Grid>
+        
             {/* <Button variant="contained" size='small' sx={{   float: "right",mt:2 }}>Back</Button> */}
             </CardContent>
         
         </Card>
+        
         <Grid
             container
             direction="row"
@@ -633,40 +551,31 @@ export default function CRDetails() {
             alignItems="center"
             
           >
-            <Grid item xs={12} sm={4} md={4} lg={4} >
-              <Button variant="contained" size='small' sx={{ml:1}}>Back</Button>
+            <Grid item xs={12} sm={12}  display="flex" justifyContent='space-between'>
+                <Button variant="contained" size='small' sx={{ml:1}}>Back</Button>
+                <Grid item  display='flex' justifyContent='flex-end'>
+                {/* <Grid item> */}
+                  <Button variant="outlined" size='small' sx={{mx:1}} >Save Remarks</Button>
+                {/* </Grid> */}
+                {/* <Grid item> */}
+                  <Button variant="contained" size='small' sx={{mx:1}}>Approve</Button>
+                {/* </Grid> */}
+                {/* <Grid item> */}
+                  <Button variant="outlined" size='small' sx={{mx:1}} >Reject</Button>
+                {/* </Grid> */}
+                {/* <Grid item> */}
+                  <Button variant="outlined" size='small' sx={{mx:1}} >Revert</Button>
+                {/* </Grid> */}
+                {/* <Grid item> */}
+                  <Button variant="outlined" size='small' sx={{mx:1}} >Preview Remarks</Button>
+                {/* </Grid> */}
+                {/* <Grid item> */}
+                  <Button variant="outlined" size='small' sx={{mx:1}} >Close</Button>
+                {/* </Grid> */}
+              </Grid>
             </Grid>
-            
-             
               
-            <Grid container xs={12} sm={8} md={8} lg={8} display='flex' justifyContent='flex-end' fullWidth>
-              <Grid item>
-                <Button variant="outlined" size='small' sx={{mx:1}} >Save Remarks</Button>
-              </Grid>
-              <Grid item>
-                <Button variant="contained" size='small' sx={{mx:1}}>Approve</Button>
-              </Grid>
-              <Grid item>
-                <Button variant="outlined" size='small' sx={{mx:1}} >Reject</Button>
-              </Grid>
-              <Grid item>
-                <Button variant="outlined" size='small' sx={{mx:1}} >Revert</Button>
-              </Grid>
-              <Grid item>
-                <Button variant="outlined" size='small' sx={{mx:1}} >Preview Remarks</Button>
-              </Grid>
-              <Grid item>
-                <Button variant="outlined" size='small' sx={{mx:1}} >Close</Button>
-              </Grid>
-             
-             
-             
             
-             
-            
-             
-            
-          </Grid>
         </Grid>
         
         
@@ -719,7 +628,7 @@ export default function CRDetails() {
           {/* <ExportTableToPDF /> */}
           
       <Paper sx={{overflowX:"auto"}}>
-          <Box sx={{width:"100%",display:"table",tableLayout:"fixed"}}>
+      <Box sx={{width:"100%",display:"table",tableLayout:"fixed"}}>
 
          
       <Table  ref={tableRef}>
@@ -918,12 +827,11 @@ export default function CRDetails() {
 
 
           
-        </TableBody>
-      </Table>
-      </Box>
-      </Paper>
-          
-          </Grid>
+          </TableBody>
+        </Table>
+        </Box>
+        </Paper> 
+        </Grid>
         </CardContent>
         </Card>
         

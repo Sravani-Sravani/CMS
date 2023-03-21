@@ -103,6 +103,10 @@ function CreateRequest1() {
       // );  
   }, [setBaseFile, baseFile]);
 
+  const clearData=()=>{
+    setBaseFile('')
+  }
+
   const [fileUploadCount, setFileUploadCount] = useState(1);
   const addFileUpload = React.useCallback(() => {
     setFileUploadCount(count => count + 1);
@@ -121,7 +125,7 @@ function CreateRequest1() {
           { //Check if message failed
             (baseFile !== '')
               // ? <a target="_blank" href={baseFile}><Button><VisibilityIcon />Preview</Button></a>
-              ? <SimpleBackdrop imageURL={baseFile} />
+              ? <SimpleBackdrop imageURL={baseFile}/>
               : <></>
           }
         </div>
@@ -520,13 +524,6 @@ function CreateRequest1() {
             </Grid>   */}
             
              
-            <Grid item xs={12} sm={6} md={6} lg={6} fullWidth sx={{display:"flex",justifyContent:"center", mt:1}}>
-
-
-
-
-
-            </Grid>
             
             
             </Grid>
@@ -550,12 +547,12 @@ function CreateRequest1() {
                 <Button  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none',ml:2}}><input  type="file" ref={aRef} style={{ fontSize:"15px" }}  multiple /></Button>   
             </Grid>
             </Grid> */}
-                        <Grid item xs={12}  sm={6} md={6} lg={6} mt={0.5}>
-                        <Grid item xs={12} sm={6} md={6} lg={6} >
+            <Grid item xs={12}  sm={6} md={6} lg={6} mt={0.5}>
+              <Grid item xs={12} sm={6} md={6} lg={6} >
                 <FormLabel id="demo-row-radio-buttons-group-label"  required  sx={{mb:"8px"}}>
                   Supporting Documents:
                 </FormLabel>
-             </Grid>
+              </Grid>
                 {fileUploadJSX}
                 {/* <div  component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}}  >                
                   <input type="file" ref={aRef} onChange={handleFileChange} />
@@ -584,6 +581,7 @@ function CreateRequest1() {
                 </> */}
                 
                 <Grid item sx={{mt:0.5}}>
+                  <Button disabled={baseFile<=1} variant='contained' sx={{marginRight:'5px'}} size='small' onClick={clearData}>Remove Image</Button>
                   <Button  variant='contained' sx={{marginRight:'5px'}} size='small' onClick={addFileUpload}>Add</Button>
                   <Button disabled={fileUploadCount <= 1} variant='contained' size='small' onClick={removeFileUpload}>Delete</Button>
                 </Grid>
