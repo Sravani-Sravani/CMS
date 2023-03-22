@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import SimpleBackdrop from '../../pages/ViewCR/BackDrop';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import SupportingDocs from '../supportDocuments/SupportingDocs';
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -28,58 +29,48 @@ export default function AlertDialogSlide({closeModal}) {
   const handleClose = () => {
     setOpen(closeModal);
   };
-  const aRef = useRef(null);
+//   const aRef = useRef(null);
 
-const [baseFile,setBaseFile] = useState('');
-  const handleFileChange = React.useCallback((e) => {
-      var result = URL.createObjectURL(e.target.files[0])
-      setBaseFile(result)
-      console("Basefile is",result.size());
-  }, [setBaseFile, baseFile]);
+// const [baseFile,setBaseFile] = useState('');
+//   const handleFileChange = React.useCallback((e) => {
+//       var result = URL.createObjectURL(e.target.files[0])
+//       setBaseFile(result)
+//       console("Basefile is",result.size());
+//   }, [setBaseFile, baseFile]);
 
-  const clearData=()=>{
-    setBaseFile('')
-    aRef.current.value = null;
-  }
+//   const clearData=()=>{
+//     setBaseFile('')
+//     aRef.current.value = null;
+//   }
 
-const [fileUploadCount, setFileUploadCount] = useState(1);
-  const addFileUpload = React.useCallback(() => {
-    setFileUploadCount(count => count + 1);
-  });
-  const removeFileUpload = React.useCallback(() => {
-    setFileUploadCount(count => Math.max(1, count - 1));
-  });
+// const [fileUploadCount, setFileUploadCount] = useState(1);
+//   const addFileUpload = React.useCallback(() => {
+//     setFileUploadCount(count => count + 1);
+//   });
+//   const removeFileUpload = React.useCallback(() => {
+//     setFileUploadCount(count => Math.max(1, count - 1));
+//   });
 
-  const fileUploadJSX = React.useMemo(() => {
-    let tempFileUploadJSX = []
-    for (let i = 0; i < fileUploadCount; i++) {
-      tempFileUploadJSX.push(
-        <div key={`fileUpload_${i}`} component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}}  >    
+//   const fileUploadJSX = React.useMemo(() => {
+//     let tempFileUploadJSX = []
+//     for (let i = 0; i < fileUploadCount; i++) {
+//       tempFileUploadJSX.push(
+//         <div key={`fileUpload_${i}`} component="label" sx={{bgcolor: "white", color: "black",textTransform: 'none'}}  >    
 
-          <input type="file" ref={aRef} onChange={handleFileChange} />
-          { //Check if message failed
-            (baseFile !== '')
-              // ? <a target="_blank" href={baseFile}><Button><VisibilityIcon />Preview</Button></a>
-              ? <SimpleBackdrop imageURL={baseFile} />
-              : <></>
-          }
-        </div>
-      );
-    }
-    return tempFileUploadJSX;
-  }, [fileUploadCount, handleFileChange, baseFile]);
+//           <input type="file" ref={aRef} onChange={handleFileChange} />
+//           { //Check if message failed
+//             (baseFile !== '')
+//               // ? <a target="_blank" href={baseFile}><Button><VisibilityIcon />Preview</Button></a>
+//               ? <SimpleBackdrop imageURL={baseFile} />
+//               : <></>
+//           }
+//         </div>
+//       );
+//     }
+//     return tempFileUploadJSX;
+//   }, [fileUploadCount, handleFileChange, baseFile]);
 
-  const getBase64 = (file, cb) => {
-    let reader = new FileReader();
-    reader.readAsDataURL(file);
-    console.log('enter');
-    reader.onload = function () {
-        cb(reader.result)
-    };
-    reader.onerror = function (error) {
-        console.log('Error: ', error);
-    };
-  }
+  
   const name='AP/ADMN/2022/AP_C278/CRM26685';
 
   const theme = useTheme();
@@ -143,7 +134,7 @@ const [fileUploadCount, setFileUploadCount] = useState(1);
                 </Grid>
             
 
-            <Grid item xs={12}  sm={6} md={6} lg={6} mt={0.5}>
+            {/* <Grid item xs={12}  sm={6} md={6} lg={6} mt={0.5}>
               <Grid item xs={12} sm={6} md={6} lg={6} >
                 <FormLabel id="demo-row-radio-buttons-group-label"  required  sx={{mb:"8px"}}>
                   Supporting Documents:
@@ -156,11 +147,12 @@ const [fileUploadCount, setFileUploadCount] = useState(1);
                 <Button  variant='contained' sx={{marginRight:'5px'}} size='small' onClick={addFileUpload}>Add</Button>
                 <Button disabled={fileUploadCount <= 1} variant='contained' size='small' onClick={removeFileUpload}>Delete</Button> 
             </Grid>
-            </Grid>
+            </Grid> */}
+            <SupportingDocs />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Close</Button>
-          <Button disabled={baseFile<=1} onClick={closeModal}>Upload</Button>
+          <Button onClick={closeModal}>Upload</Button>
         </DialogActions>
       </Dialog>
     </div>

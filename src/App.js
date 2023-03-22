@@ -37,6 +37,7 @@ const CRStatus = lazy(() => import("./pages/ViewCR/CRStatus"));
 const Inbox = lazy(() => import("./pages/inbox/Inbox"));
 const Sentbox = lazy(() => import("./pages/sentbox/Sentbox"));
 const CreateRequest = lazy(() => import("./pages/CreateRequest"));
+const CRStatusFromSentBox = lazy(() => import("./pages/ViewCR/CRStatusFromSentBox"))
 
 
 // import FullLayout from "./layouts/FullLayout";
@@ -93,7 +94,7 @@ const AppRoutes = () => {
         <Route path="/sentbox" element={<Sentbox/>} />
         <Route exact path="/dataTable" element={<DisplayData/>} />
         <Route path="/CreateRequest" element={<CreateRequest/>} />
-       
+        <Route path="/CRStatusFromSentBox" element={<CRStatusFromSentBox />} />
           {/* {menu.map((page, index) => {
             return (
               <Route
