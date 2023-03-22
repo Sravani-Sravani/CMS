@@ -12,6 +12,7 @@ import FactCheckSharpIcon from '@mui/icons-material/FactCheckSharp';
 import SummarizeSharpIcon from '@mui/icons-material/SummarizeSharp';
 import MailSharpIcon from '@mui/icons-material/MailSharp';
 import OutboxIcon from '@mui/icons-material/Outbox';
+// import Sentbox from '../pages/sentbox/Sentbox';
 const ViewCR = lazy(() => import("../pages/ViewCR/ViewCR"));
 
 
@@ -20,6 +21,7 @@ const Login = lazy(() => import("../pages/auth/Login"));
 const CreateRequest = lazy(() => import("../pages/CreateRequest"));
 const Approval = lazy(() => import("../pages/approval/Approval"));
 const Inbox = lazy(() => import("../pages/inbox/Inbox"));
+const Sentbox = lazy(() => import("../pages/sentbox/Sentbox"));
 
 
 
@@ -45,8 +47,8 @@ export const menu = [
   {
     icon: <OutboxIcon />,
     title: "Sentbox",
-    pageLink: '/inbox',
-    view: <Inbox/>,
+    pageLink: '/sentbox',
+    view: <Sentbox/>,
   },
   {
     icon: <AppRegistrationIcon />,
@@ -79,7 +81,7 @@ export const menu = [
       //   view: <Home/>,
       // },
       {
-        title: "CMS Statistics Report",
+        title: "CMS Work Statistics Report",
         pageLink: '/page1',
         view: <Home/>,
       },

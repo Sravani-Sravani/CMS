@@ -34,7 +34,7 @@ const Form = () => {
           <Title />
           <Grid container columnSpacing={1} direction='row' justify="flex-end" alignItems="center">
             <Grid xs={12} sm={4} item>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   label="CR raised From Date"
                   inputFormat="DD/MM/YYYY"

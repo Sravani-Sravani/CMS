@@ -34,12 +34,18 @@ export const ColorModeContextProvider = ({ children }) => {
             fontSize:"16px",
             lineHeight:"2",
            }, 
+           h6:{
+            fontSize:"16px",
+            fontWeight:"600",
+            
+           },
            body1:{
               fontWeight: 500,
             },
             button:{
-
+              
             },
+            
           },
         components: {
           // Name of the component
@@ -53,20 +59,42 @@ export const ColorModeContextProvider = ({ children }) => {
           mode,
           ...(mode === "light"
             ? {
-              MuiCard: {
-                styleOverrides: {
-                //     // Name of the slot
+              MuiCard: {                
+                styleOverrides: {                
+                //     // Name of the slot  
                 root: {
-                //       // Some CSS
-                background: "#fff",
-                borderRadius: 8,
-                // spacing:20,
-                boxShadow:'0px 10px 25px -5px rgba(0, 0, 0, 0.1)',
-                marginTop:20,
-                marginBottom:20,
-                padding:10
-                }
-                }
+                 //       // Some CSS                
+                background: "#fff",                
+                borderRadius: 8,                
+                boxShadow:'0px 10px 25px -5px rgba(0, 0, 0, 0.1)',                
+                marginTop:20,                
+                marginBottom:20,                
+                padding:10,                
+                },                
+                outlined: {                  
+                background: "purple",                  
+                color: "red"                
+                }                               
+                }                
+                },
+                
+                
+                MuiFormLabel: {
+                  styleOverrides: {
+                    root: {
+                      display: "flex",
+                    width: "max-content",
+                   
+                    },
+                    asterisk: {
+                      color: "red",
+                      "&$error": {
+                        color: "#db3131",
+                      },
+                      
+                    },
+                    
+                  },
                 },
                 MuiTextField: {
                   styleOverrides: {
@@ -75,7 +103,7 @@ export const ColorModeContextProvider = ({ children }) => {
                   //       // Some CSS
                   background: "#fff",
                   borderRadius: 6,
-                  fontSize: "10",
+                  fontSize: "10 ",
                   marginBottom:20,
                   color:"#EAEAEA",
                   
@@ -87,10 +115,21 @@ export const ColorModeContextProvider = ({ children }) => {
                       root:{
                         background:'#F5FAFF',
                         fontSize:"10",
-                        color:"#4B4B4B"
+                        color:"#4B4B4B",
+                        // textAlign:'center'
                       }
                     }
                   },
+                  
+                  // MuiTableRow:{
+                  //   styleOverrides:{
+                  //     root:{
+                  //       background:'#F5FAFF',
+                  //       fontSize:"10",
+                  //       color:"#4B4B4B"
+                  //     }
+                  //   }
+                  // },
                   // MuiDataGrid:{
                   //   styleOverrides:{
                   //     root:{

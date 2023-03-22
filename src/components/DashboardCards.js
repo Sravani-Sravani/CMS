@@ -11,6 +11,8 @@ import OfflinePinRoundedIcon from '@mui/icons-material/OfflinePinRounded';
 import PageTitle from '../layouts/PageTitle';
 
 import { Stack } from '@mui/system';
+// import Footer from './footer/Footer';
+// import StickyFooter from '../layouts/Footer';
 // const cardNums= [
 //     {num1:2241},
 //     {num2: 2222},
@@ -120,6 +122,7 @@ const DashboardCards = () => {
                   </CardContent>
                 </Card>
               </Grid>
+              {/* <Footer/> */}
             </Grid>
         </Stack>
       </Box>

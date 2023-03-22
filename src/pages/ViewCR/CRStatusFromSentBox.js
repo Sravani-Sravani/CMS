@@ -555,16 +555,16 @@ export default function CRDetails() {
                 <Button variant="contained" size='small' sx={{ml:1}}>Back</Button>
                 <Grid item  display='flex' justifyContent='flex-end'>
                 {/* <Grid item> */}
-                  <Button variant="outlined" size='small' sx={{mx:1}} >Save Remarks</Button>
+                  {/* <Button variant="outlined" size='small' sx={{mx:1}} >Save Remarks</Button> */}
                 {/* </Grid> */}
                 {/* <Grid item> */}
-                  <Button variant="contained" size='small' sx={{mx:1}}>Approve</Button>
+                  {/* <Button variant="contained" size='small' sx={{mx:1}}>Approve</Button> */}
                 {/* </Grid> */}
                 {/* <Grid item> */}
-                  <Button variant="outlined" size='small' sx={{mx:1}} >Reject</Button>
+                  {/* <Button variant="outlined" size='small' sx={{mx:1}} >Reject</Button> */}
                 {/* </Grid> */}
                 {/* <Grid item> */}
-                  <Button variant="outlined" size='small' sx={{mx:1}} >Revert</Button>
+                  {/* <Button variant="outlined" size='small' sx={{mx:1}} >Revert</Button> */}
                 {/* </Grid> */}
                 {/* <Grid item> */}
                   <Button variant="outlined" size='small' sx={{mx:1}} >Preview Remarks</Button>

@@ -50,11 +50,11 @@ const CMSReport = () => {
     setCrid("")
     setAstate("")
   }
-const name='CMS Section Wise Report'
+  const name='CMS Section Wise Report'
   return (
     <>
           
-      <Card spacing={4}>
+      <Card className="Searchcard" variant='outlined'>
         <CardContent>
       {/* <Typography variant="h4"  color="text.secondary" gutterBottom>
            CMS Section Wise Report
@@ -65,11 +65,12 @@ const name='CMS Section Wise Report'
           </Typography> */}
           <Grid
             container
-            direction="row" 
-            rowSpacing={1}
-            columnSpacing={1}
+            direction="row"
+            rowSpacing={0}
+            columnSpacing={2}
             justify="flex-end"
             alignItems="center"
+            
           >
             <Grid item xs={12} sm={3} md={3} lg={3}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -147,6 +148,16 @@ const name='CMS Section Wise Report'
                 )}
               />
             </Grid>
+            </Grid>
+            <Grid
+            container
+            direction="row"
+            rowSpacing={0}
+            columnSpacing={2}
+            justify="flex-end"
+            alignItems="center"
+            
+          >
             <Grid item xs={12} sm={3} md={3} lg={3}>
               <Autocomplete
                 disablePortal
@@ -201,7 +212,7 @@ const name='CMS Section Wise Report'
 
             <Grid item xs={12} sm={3} md={3} lg={3}>
               <TextField
-                margin="normal"
+                margin="0"
                 required
                 fullWidth
                 id="crid"
@@ -212,6 +223,16 @@ const name='CMS Section Wise Report'
                 size="small"
               />
             </Grid>
+            </Grid>
+            <Grid
+            container
+            direction="row"
+            rowSpacing={0}
+            columnSpacing={2}
+            justify="flex-end"
+            alignItems="center"
+            
+          >
             <Grid item xs={12} sm={3} md={3} lg={3}>
               <Autocomplete
                 disablePortal
@@ -224,7 +245,7 @@ const name='CMS Section Wise Report'
                 options={options}
                 sx={{ width: "100%"}}
                 renderInput={(params) => (
-                  <TextField {...params} label="State" />
+                  <TextField {...params} label="Status" />
                 )}
               />
             </Grid>

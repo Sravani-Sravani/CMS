@@ -14,117 +14,171 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TablePagination from '@mui/material/TablePagination';
-
+import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-
-const columns = [
-    {id:'SNo.', label:'S.No', minWidth:70},
-    { id: 'ChangeRequestId', label: ' Change Request ID', minWidth: 190, align: 'center', },
-    { id: 'CRTitle', label: 'CR Title', minWidth: 100, align: 'center',  },
-    { id: 'CRDescription', label: 'CR Description', minWidth: 170, align: 'center', format: (value) => value.toLocaleString(), },
-    { id: 'CRRaisedDepartment', label: 'CR Raised Department', minWidth: 170, align: 'center', },
-    { id: 'CRRaisedDate', label: 'CR Raised Date', minWidth: 170, align: 'center', },
-    { id: 'CurrentStatus', label: 'Current Status', minWidth: 170, align: 'center', },
-    { id: 'InternalStatus', label: 'Internal Status', minWidth: 170, align: 'center', },
-    { id: 'ExternalStatus', label: 'External Status', minWidth: 170, align: 'center', },
-    { id: 'ParentCRID', label: 'Parent CR ID', minWidth: 170, align: 'center', },
-    { id: 'Seventy', label: 'Seventy', minWidth: 170, align: 'center', },
-    { id: 'Priority', label: 'Priority', minWidth: 170, align: 'center', },
-    { id: 'TypeofChange', label: 'Type Of Change', minWidth: 170, align: 'center', },
-    { id: 'BuildID', label: 'Build ID', minWidth: 170, align: 'center', },
-    { id: 'ExpectedDeliveryDate', label: 'Expected Delivery Date', minWidth: 170, align: 'center', },
-    { id: 'CRRaisedBy', label: 'CR Raised By', minWidth: 170, align: 'center', },
-    { id: 'CRCategory', label: 'CR Category', minWidth: 170, align: 'center', },
-    { id: 'WorkFlow', label: 'WorkFlow', minWidth: 170, align: 'center', },
-]
-const createData=(SNo, ChangeRequestId, CRTitle, CRDescription, CRRaisedDepartment, CRRaisedDate, CurrentStatus, InternalStatus, ExternalStatus, ParentCRID, Seventy, Priority, TypeofChange, BuildID, ExpectedDeliveryDate, CRRaisedBy, CRCategory, WorkFlow)=>{
-    return{
-        SNo, ChangeRequestId, CRTitle, CRDescription, CRRaisedDepartment, CRRaisedDate, CurrentStatus, InternalStatus, ExternalStatus, ParentCRID, Seventy, Priority, TypeofChange, BuildID, ExpectedDeliveryDate, CRRaisedBy, CRCategory, WorkFlow
-    }
-}
-const rows = [
-    createData(1, 'T AP/FMPNL/2022/AP C439/CRM29580', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm', 'Pending with ALAMURI VIJAY BHASKAR(AP_C214)', 'NA', 'PMU Verified', '-NA-', '-NA-', 'High', 'Work Flow Changes', '-NA-', '-NA-', 'ANUPAMA KETHAM REDDY', 'Normal Request', 'Change'),
-    createData(2, 'T AP/FMPNL/2022/AP C439/CRM29580', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm', 'Pending with ALAMURI VIJAY BHASKAR(AP_C214)', 'NA', 'PMU Verified', '-NA-', '-NA-', 'High', 'Work Flow Changes', '-NA-', '-NA-', 'ANUPAMA KETHAM REDDY', 'Normal Request', 'Change'),
-]  
-
+import VirtualizedTable from '../../../components/table/VirtualizedTable';
+// import { useDownloadExcel } from 'react-export-table-to-excel'
+import { Grid } from '@mui/material';
+import { CSVLink } from 'react-csv';
+import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
+import FolderOpenOutlinedIcon from '@mui/icons-material/FolderOpenOutlined';
+import { useState } from 'react';
+// import { Stack } from '@mui/system';
+import Modal1 from '../../../components/modal/Modal1'
 
 
 const DisplayData=()=>{
-    const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [openModal, setOpenModal] = useState(false);
+  const sample = [
+    [<Link href='cms/#/crStatus'>T AP/FMPNL/2022/AP C439/CRM29580</Link>, 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm', 'Pending with ALAMURI VIJAY BHASKAR(AP_C214)','NA',<Grid display={'flex'}><Button size='small' sx={{pr:4}}><BorderColorOutlinedIcon sx={{ color:'purple'}}/></Button>  <Button size='small' sx={{pr:4}} onClick={() => setOpenModal(true)}><FolderOpenOutlinedIcon sx={{color:'green'}} /></Button>  </Grid>],
+    // ['T AP/FMPNL/2022/AP C439/CRM29581', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm'],
+    // ['T AP/FMPNL/2022/AP C439/CRM29582', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm'],
+    // ['T AP/FMPNL/2022/AP C439/CRM29583', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm'],
+    // ['T AP/FMPNL/2022/AP C439/CRM29584', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm'],
+  ];
+  
+  
+  function createData(id, empCode, actionTakenBy, Designation, phone, remarksGiven, actionTime,actionTaken, viewAttach) {
+    return {  id, empCode, actionTakenBy, Designation, phone, remarksGiven, actionTime, actionTaken, viewAttach};
+  }
+  
+  const columns = [
+    {
+      width: 100,
+      label: 'Sl No.',
+      dataKey: 'id',
+    },
+    {
+      width: 200,
+      label: 'Employee Code',
+      dataKey: 'empCode',
+    },
+    {
+      width: 160,
+      label: 'Action Taken By',
+      dataKey: 'actionTakenBy',
+      // numeric: true,
+    },
+    {
+      width: 160,
+      label: 'Designation',
+      dataKey: 'Designation',
+      // numeric: true,
+    },
+    {
+      width: 200,
+      label: 'Phone Number',
+      dataKey: 'phone',
+      // numeric: true,
+    },
+    {
+      width: 160,
+      label: 'Remarks Given',
+      dataKey: 'remarksGiven',
+      // numeric: true,
+    },
+    {
+      width: 180,
+      label: 'Action Taken Time',
+      dataKey: 'actionTime',
+      // numeric: true,
+    },
+    {
+      width: 160,
+      label: 'Action Taken',
+      dataKey: 'actionTaken',
+      // numeric: true,
+    },
+    {
+      width: 160,
+      label: 'View Attachment',
+      dataKey: 'viewAttach',
+      // numeric: true,
+    },
+    
+    
+    
+  ];
+  
+  const rows = Array.from({ length: 50 }, (_, index) => {
+    const randomSelection = sample[Math.floor(Math.random() * sample.length)];
+    return createData(index+1, ...randomSelection);
+  });
 
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
+  //   const [page, setPage] = React.useState(0);
+  // const [rowsPerPage, setRowsPerPage] = React.useState(5);
+
+  // const handleChangePage = (event, newPage) => {
+  //   setPage(newPage);
+  // };
+
+  // const handleChangeRowsPerPage = (event) => {
+  //   setRowsPerPage(parseInt(event.target.value, 10));
+  //   setPage(0);
+  // };
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
-  };
+  
+  const tableRef = React.useRef(null)
+
+  
+  // const {onDownload} = useDownloadExcel({
+  //   currentTableRef: tableRef.current,
+  //   filename: 'user_info',
+  //   sheet:'UserData'
+
+  // })
+
   return (
     <>
       <Approval/>
       <br></br>
 
-      <Card sx={{ mt: 2 }}>
+      <Card>
+                <Box sx={{ pr: 3, float:'right' }}>
+
+                    <Button
+                      variant="outlined"
+                      startIcon={<DownloadForOfflineIcon />}
+                      id="basic-button"
+                      aria-controls={open ? "basic-menu" : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? "true" : undefined}
+                      onClick={handleClick}
+                      mb={2}
+                      size="small" sx={{color: '#3F51B5', border: '1px solid #3F51B5' }}
+                      >
+                      Export
+                    </Button>
+
+                    <Menu
+                      id="basic-menu"
+                      anchorEl={anchorEl}
+                      open={open}
+                      onClose={handleClose}
+                      MenuListProps={{
+                        "aria-labelledby": "basic-button",
+                        
+                      }}
+                      
+                    >
+                      <MenuItem onClick={handleClose}><CSVLink data={rows} filename={"userData.csv"}>Excel Export</CSVLink></MenuItem>
+                      <MenuItem onClick={handleClose}>Pdf Export</MenuItem>
+                    </Menu>
+                    </Box>
+                    {openModal && <Modal1 closeModal ={setOpenModal}/>}
         <CardContent>
-            <TableContainer>
-            <Box sx={{ overflow: "auto" }}>
-              <Box sx={{ width: "100%", display: "table", tableLayout: "fixed" }}>
-                <Table stickyHeader aria-label="sticky table">
-                     <TableHead>
-                        <TableRow>
-                        {columns.map((column) => (
-                            <TableCell
-                            key={column.id}
-                            align={column.align}
-                            style={{ gap:'2px', minWidth: column.minWidth}}
-                            >
-                            {column.label}
-                            </TableCell>
-                        ))}
-                        </TableRow>
-                     </TableHead>
-                     <TableBody>
-                        {rows.map((row) =>{
-                            return(
-                                <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 }, height: '50px' }}>
-                                <TableCell component="th" scope="row">{row.SNo}</TableCell>
-                                <TableCell align="center"><Link href="/cms/#/crStatus" sx={{ color: '#414fe1', textDecorationColor: '#414fe1' }}>{row.ChangeRequestId} </Link>   </TableCell>
-                                <TableCell align="center">{row.CRTitle}</TableCell>
-                                <TableCell align="center">{row.CRDescription}</TableCell>
-                                <TableCell align="center">{row.CRRaisedDepartment}</TableCell>
-                                <TableCell align="center">{row.CRRaisedDate}</TableCell>
-                                <TableCell align="center">{row.CurrentStatus}</TableCell>
-                                <TableCell align="center">{row.InternalStatus}</TableCell>
-                                <TableCell align="center">{row.ExternalStatus}</TableCell>
-                                <TableCell align="center">{row.ParentCRID}</TableCell>
-                                <TableCell align="center">{row.Seventy}</TableCell>
-                                <TableCell align="center">{row.Priority}</TableCell>
-                                <TableCell align="center">{row.TypeofChange}</TableCell>
-                                <TableCell align="center">{row.BuildID}</TableCell>
-                                <TableCell align="center">{row.ExpectedDeliveryDate}</TableCell>
-                                <TableCell align="center">{row.CRRaisedBy}</TableCell>
-                                <TableCell align="center">{row.CRCategory}</TableCell>
-                                <TableCell align="center">{row.WorkFlow}</TableCell>
-                                </TableRow>
-                            );
-                        })}
-                     </TableBody>
-                </Table>
-                </Box>
-                </Box>
-            </TableContainer>
-            <TablePagination
-            rowsPerPageOptions={[5, 10, 25]}
-            component="div"
-            count={rows.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
+          <Grid mt={3}>
+            <VirtualizedTable columns={columns} rows={rows}/>
+          </Grid>
         </CardContent>
       </Card>
     </>

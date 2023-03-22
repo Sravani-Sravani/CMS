@@ -17,38 +17,51 @@ import MenuItem from '@mui/material/MenuItem';
 import PageTitle from '../../layouts/PageTitle';
 import VirtualizedTable from '../../components/table/VirtualizedTable';
 
-// const columns = [
-//     {id:'SNo.', label:'S.No', minWidth:70},
-//     { id: 'ChangeRequestId', label: ' Change Request ID', minWidth: 190, align: 'center', },
-//     { id: 'CRTitle', label: 'CR Title', minWidth: 100, align: 'center',  },
-//     { id: 'CRDescription', label: 'CR Description', minWidth: 170, align: 'center', format: (value) => value.toLocaleString(), },
-//     { id: 'CRRaisedDepartment', label: 'CR Raised Department', minWidth: 170, align: 'center', },
-//     { id: 'CRRaisedDate', label: 'CR Raised Date', minWidth: 170, align: 'center', },
-//     { id: 'CurrentStatus', label: 'Current Status', minWidth: 170, align: 'center', },
-//     { id: 'InternalStatus', label: 'Internal Status', minWidth: 170, align: 'center', },
-//     { id: 'ExternalStatus', label: 'External Status', minWidth: 170, align: 'center', },
-//     { id: 'ParentCRID', label: 'Parent CR ID', minWidth: 170, align: 'center', },
-//     { id: 'Seventy', label: 'Seventy', minWidth: 170, align: 'center', },
-//     { id: 'Priority', label: 'Priority', minWidth: 170, align: 'center', },
-//     { id: 'TypeofChange', label: 'Type Of Change', minWidth: 170, align: 'center', },
-//     { id: 'BuildID', label: 'Build ID', minWidth: 170, align: 'center', },
-//     { id: 'ExpectedDeliveryDate', label: 'Expected Delivery Date', minWidth: 170, align: 'center', },
-//     { id: 'CRRaisedBy', label: 'CR Raised By', minWidth: 170, align: 'center', },
-//     { id: 'CRCategory', label: 'CR Category', minWidth: 170, align: 'center', },
-//     { id: 'WorkFlow', label: 'WorkFlow', minWidth: 170, align: 'center', },
-// ]
-// const createData=(SNo, ChangeRequestId, CRTitle, CRDescription, CRRaisedDepartment, CRRaisedDate, CurrentStatus, InternalStatus, ExternalStatus, ParentCRID, Seventy, Priority, TypeofChange, BuildID, ExpectedDeliveryDate, CRRaisedBy, CRCategory, WorkFlow)=>{
-//     return{
-//         SNo, ChangeRequestId, CRTitle, CRDescription, CRRaisedDepartment, CRRaisedDate, CurrentStatus, InternalStatus, ExternalStatus, ParentCRID, Seventy, Priority, TypeofChange, BuildID, ExpectedDeliveryDate, CRRaisedBy, CRCategory, WorkFlow
-//     }
+// const sample = [
+//   ['T AP/FMPNL/2022/AP C439/CRM29580', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', 4.0],
+//   ['T AP/FMPNL/2022/AP C439/CRM29581', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', 4.3],
+//   ['T AP/FMPNL/2022/AP C439/CRM29582', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', 6.0],
+//   ['T AP/FMPNL/2022/AP C439/CRM29583', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', 4.3],
+//   ['T AP/FMPNL/2022/AP C439/CRM29584', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', 3.9],
+// ];
+// function createData(id,no, ChangeRequestId, CRTitle, CRDescription, CRRaisedDepartment, CRRaisedDate, CurrentStatus, InternalStatus, ExternalStatus, ParentCRID, Seventy, Priority, TypeofChange, BuildID, ExpectedDeliveryDate, CRRaisedBy, CRCategory, WorkFlow){
+//   return{
+//      id, no, ChangeRequestId, CRTitle, CRDescription, CRRaisedDepartment, CRRaisedDate, CurrentStatus, InternalStatus, ExternalStatus, ParentCRID, Seventy, Priority, TypeofChange, BuildID, ExpectedDeliveryDate, CRRaisedBy, CRCategory, WorkFlow
+//   }
 // }
-// const rows = [
-//     createData(1, 'T AP/FMPNL/2022/AP C439/CRM29580', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm', 'Pending with ALAMURI VIJAY BHASKAR(AP_C214)', 'NA', 'PMU Verified', '-NA-', '-NA-', 'High', 'Work Flow Changes', '-NA-', '-NA-', 'ANUPAMA KETHAM REDDY', 'Normal Request', 'Change'),
-//     createData(2, 'T AP/FMPNL/2022/AP C439/CRM29580', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm', 'Pending with ALAMURI VIJAY BHASKAR(AP_C214)', 'NA', 'PMU Verified', '-NA-', '-NA-', 'High', 'Work Flow Changes', '-NA-', '-NA-', 'ANUPAMA KETHAM REDDY', 'Normal Request', 'Change'),
+
+// const columns = [
+//     {  label:'S.No', width:170, datakey:'id'},
+//     {  label: ' Change Request ID', width: 190, datakey:'ChangeRequestId' },
+//     {  label: 'CR Title', width: 200, datakey:'CRTitle'  },
+//     {  label: 'CR Description', width: 170,  format: (value) => value.toLocaleString(), datakey:'CRDescription' },
+//     {  label: 'CR Raised Department', width: 170, datakey:'CRRaisedDepartment' },
+//     {  label: 'CR Raised Date', width: 170,  datakey:'CRRaisedDate'},
+//     {  label: 'Current Status', width: 170,  datakey:'CurrentStatus'},
+//     {  label: 'Internal Status', width: 170,  datakey:''},
+//     {  label: 'External Status', width: 170,  },
+//     {  label: 'Parent CR ID', width: 170,  },
+//     {  label: 'Seventy', width: 170,  },
+//     {  label: 'Priority', width: 170,  },
+//     {  label: 'Type Of Change', width: 170,  },
+//     {  label: 'Build ID', width: 170,  },
+//     {  label: 'Expected Delivery Date', width: 170,  },
+//     {  label: 'CR Raised By', width: 170,  },
+//     {  label: 'CR Category', width: 170,  },
+//     {  label: 'WorkFlow', width: 170,  },
 // ]
 
+// // const rows = [
+// //     createData(1, 'T AP/FMPNL/2022/AP C439/CRM29580', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm', 'Pending with ALAMURI VIJAY BHASKAR(AP_C214)', 'NA', 'PMU Verified', '-NA-', '-NA-', 'High', 'Work Flow Changes', '-NA-', '-NA-', 'ANUPAMA KETHAM REDDY', 'Normal Request', 'Change'),
+// //     createData(2, 'T AP/FMPNL/2022/AP C439/CRM29580', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm', 'Pending with ALAMURI VIJAY BHASKAR(AP_C214)', 'NA', 'PMU Verified', '-NA-', '-NA-', 'High', 'Work Flow Changes', '-NA-', '-NA-', 'ANUPAMA KETHAM REDDY', 'Normal Request', 'Change'),
+// // ]
+// const rows = Array.from({ length: 100 }, (_, index) => {
+//   const randomSelection = sample[Math.floor(Math.random() * sample.length)];
+//   return createData(index, ...randomSelection);
+// });
+
 const sample = [
-  [<Link href='/cms/#/crStatus'>T AP/FMPNL/2022/AP C439/CRM29580</Link>, 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm', 'Pending with ALAMURI VIJAY BHASKAR(AP_C214)','NA','PMU Verified', '-NA-', '-NA-', 'High', 'Work Flow Changes', '-NA-', '-NA-', 'ANUPAMA KETHAM REDDY', 'Normal Request', 'Change', ],
+  [<Link href='/cms/#/CRStatusFromSentBox'>T AP/FMPNL/2022/AP C439/CRM29580</Link>, 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm', 'Pending with ALAMURI VIJAY BHASKAR(AP_C214)','NA','PMU Verified', '-NA-', '-NA-', 'High', 'Work Flow Changes', '-NA-', '-NA-', 'ANUPAMA KETHAM REDDY', 'Normal Request', 'Change', ],
   // ['T AP/FMPNL/2022/AP C439/CRM29581', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm'],
   // ['T AP/FMPNL/2022/AP C439/CRM29582', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm'],
   // ['T AP/FMPNL/2022/AP C439/CRM29583', 'With the approval Copy', 'With the approval Copy', 'Empanelment and Medical Audit', '02/02/2022 04:42:21 pm'],
@@ -175,20 +188,19 @@ const rows = Array.from({ length: 50 }, (_, index) => {
   return createData(index+1, ...randomSelection);
 });
 
-const Inbox = () => {
-//     const [page, setPage] = React.useState(0);
-//     const [rowsPerPage, setRowsPerPage] = React.useState(5);
+const Sentbox = () => {
+    // const [page, setPage] = React.useState(0);
+    // const [rowsPerPage, setRowsPerPage] = React.useState(5);
   
-//     const handleChangePage = (event, newPage) => {
-//       setPage(newPage);
-//     };
+    // const handleChangePage = (event, newPage) => {
+    //   setPage(newPage);
+    // };
   
-//     const handleChangeRowsPerPage = (event) => {
-//       setRowsPerPage(parseInt(event.target.value, 10));
-//       setPage(0);
-//     };
-    
-    const name='Inbox'
+    // const handleChangeRowsPerPage = (event) => {
+    //   setRowsPerPage(parseInt(event.target.value, 10));
+    //   setPage(0);
+    // };
+    const name='Sentbox'
   return (
     <>
     {/* <Box sx={{borderBottom:1, borderColor:'text.secondary'}}>
@@ -198,7 +210,7 @@ const Inbox = () => {
     </Box> */}
      <Card>
         <CardContent>
-          <PageTitle name={name}/>
+        <PageTitle name={name}/>
             {/* <TableContainer>
             <Box sx={{ overflow: "auto" }} >
               <Box sx={{ width: "100%", display: "table", tableLayout: "fixed" }}>
@@ -255,13 +267,11 @@ const Inbox = () => {
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
           /> */}
-          <VirtualizedTable 
-          columns={columns} rows={rows}
-          />
+          <VirtualizedTable columns={columns} rows={rows}/>
         </CardContent>
       </Card> 
     </>
   )
 }
 
-export default Inbox
+export default Sentbox;
